@@ -1,6 +1,7 @@
 import { useDispatch, useSelector } from 'react-redux'
 import { useEffect, useState } from 'react'
 import { thunkGetAllNotes } from '../../store/note'
+import './Notes.css'
 
 function Notes() {
     const dispatch = useDispatch()
@@ -15,10 +16,9 @@ function Notes() {
 
     return (
         <>
-            <h1>Hello World</h1>
             <ul className='notes-container'>
                 {all_notes_arr.map((note) => (
-                    <div key={note.id}>
+                    <div className='one_note' key={note.id}>
                         <div>{note.note_title}</div>
                         <div>{note.note_content}</div>
                     </div>
