@@ -3,6 +3,8 @@ import { NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import ProfileButton from './ProfileButton';
 import './Navigation.css';
+import OpenModalButton from '../OpenModalButton';
+import CreateNote from '../CreateNote';
 
 function Navigation({ isLoaded }) {
 	const sessionUser = useSelector(state => state.session.user);
@@ -21,9 +23,11 @@ function Navigation({ isLoaded }) {
 				)}
 				<div>
 					{sessionUser && (
-						<button onClick={handleCreate}>
-							New
-						</button>
+						<OpenModalButton
+							buttonText="New"
+							onItemClick={handleCreate}
+							modalComponent={<CreateNote />}
+						/>
 					)}
 					<li>
 						<NavLink exact to="/">Home</NavLink>
