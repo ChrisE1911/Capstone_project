@@ -29,6 +29,7 @@ class Note(db.Model):
             'user_id': self.user_id,
             'notebook_id': self.notebook_id,
             'note_title': self.note_title,
+            'note_content': self.note_content,
             'created_at': self.created_at,
             'updated_at': self.updated_at
         }
