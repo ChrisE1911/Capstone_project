@@ -1,0 +1,19 @@
+.one_note {
+    padding: 20px
+}
+
+.notes-container {
+    border: 2px solid red;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* justify-content: center; */
+    width: 80vw;
+    height: 100vh;
+    margin-left: 20vw;
+    /* margin-bottom: 18vw; */
+    display: absolute;
+    position: fixed;
+    /* top: 0px; */
+    overflow: scroll;
+}
