@@ -3,15 +3,10 @@ import { NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import ProfileButton from './ProfileButton';
 import './Navigation.css';
-import OpenModalButton from '../OpenModalButton';
-import CreateNote from '../CreateNote';
+
 
 function Navigation({ isLoaded }) {
 	const sessionUser = useSelector(state => state.session.user);
-
-	const handleCreate = () => {
-		return
-	}
 
 	return (
 		<ul className='nav-bar'>
@@ -20,15 +15,12 @@ function Navigation({ isLoaded }) {
 					<li>
 						<ProfileButton user={sessionUser} />
 					</li>
+
 				)}
 				<div>
-					{sessionUser && (
-						<OpenModalButton
-							buttonText="New"
-							onItemClick={handleCreate}
-							modalComponent={<CreateNote />}
-						/>
-					)}
+					<li>
+						<NavLink exact to="/notes/new">New Note</NavLink>
+					</li>
 					<li>
 						<NavLink exact to="/">Home</NavLink>
 					</li>

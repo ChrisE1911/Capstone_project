@@ -30,11 +30,13 @@ export const thunkCreateNote = (note) => async (dispatch) => {
 		headers: {
 			"Content-Type": "application/json",
 		},
-		body: JSON.stringify({ note }),
+		body: JSON.stringify(note),
     })
+
 
     if (response.ok) {
         const note = await response.json()
+        console.log('NOTE', note)
         dispatch(createNoteAction(note))
         return note
     }
@@ -50,9 +52,9 @@ const initialState = {
 
 
 export default function noteReducer(state = initialState, action) {
+    let newState;
     switch (action.type) {
         case GET_NOTES:
-            let newState;
             newState = { ...state }
             const newNotes = {}
             action.payload.forEach((note) => {
@@ -62,10 +64,10 @@ export default function noteReducer(state = initialState, action) {
             return newState
         case CREATE_NOTE:
             newState = { ...state }
-            const updatedNotes = { ...state.allNotes, [action.payload.id]: action.payload }
-            newState.allNotes = updatedNotes
+            const newNote = action.payload
+            const newNoteState = { ...newState.allNotes, newNote }
+            newState.allNotes = newNoteState
             return newState
-
         default:
             return state
     }
