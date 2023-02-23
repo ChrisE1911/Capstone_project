@@ -31,7 +31,7 @@ function CreateNote() {
   }
 
   return (
-    <>
+     <>
       <form className="create-note-container" onSubmit={handleSubmit}>
         <h1>What's on the to-do list for today...</h1>
         {/* <ul>

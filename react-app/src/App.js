@@ -7,6 +7,8 @@ import Notes from "./components/Notes";
 import { authenticate } from "./store/session";
 import Navigation from "./components/Navigation";
 import CreateNote from "./components/CreateNote";
+import EditNote from "./components/EditNote";
+import SingleNote from "./components/SingleNote";
 
 function App() {
   const dispatch = useDispatch();
@@ -26,8 +28,14 @@ function App() {
           <Route exact path="/signup">
             <SignupFormPage />
           </Route>
-          <Route path="/notes/new">
+          <Route exact path="/notes/new">
             <CreateNote />
+          </Route>
+          <Route exact path="/notes/edit">
+            <EditNote />
+          </Route>
+          <Route exact path="/notes/:noteId">
+            <SingleNote />
           </Route>
           <Route exact path="/notes">
             <Notes />
