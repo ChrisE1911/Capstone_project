@@ -25,9 +25,6 @@ function Notes() {
                             <div>{note.note_title}</div>
                             <div>{`${note.note_content?.slice(0, 40)}...`}</div>
                         </div>
-                        <div>
-                        <button onClick={() => history.push("/notes/edit")}>Edit Note</button>
-                        </div>
                     </Link>
                 ))}
             </ul>
