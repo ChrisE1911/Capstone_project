@@ -9,6 +9,7 @@ import Navigation from "./components/Navigation";
 import CreateNote from "./components/CreateNote";
 import EditNote from "./components/EditNote";
 import SingleNote from "./components/SingleNote";
+import SplashPage from "./components/SplashPage";
 
 function App() {
   const dispatch = useDispatch();
@@ -39,6 +40,9 @@ function App() {
           </Route>
           <Route exact path="/notes">
             <Notes />
+          </Route>
+          <Route exact path="/">
+            <SplashPage />
           </Route>
         </Switch>
       )}

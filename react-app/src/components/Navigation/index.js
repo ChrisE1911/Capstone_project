@@ -18,18 +18,18 @@ function Navigation({ isLoaded }) {
 
 				)}
 				<div>
-					<li>
+					{sessionUser && <li>
 						<NavLink exact to="/notes/new">New Note</NavLink>
-					</li>
-					<li>
+					</li>}
+					{sessionUser && <li>
 						<NavLink exact to="/">Home</NavLink>
-					</li>
-					<li>
+					</li>}
+					{ sessionUser && <li>
 						<NavLink exact to="/notes">Notes</NavLink>
-					</li>
-					<li>
+					</li>}
+					{sessionUser && <li>
 						<NavLink exact to="/notebooks">Notebooks</NavLink>
-					</li>
+					</li>}
 				</div>
 			</div>
 		</ul>
