@@ -50,9 +50,9 @@ const initialState = {
 
 
 export default function noteReducer(state = initialState, action) {
+    let newState;
     switch (action.type) {
         case GET_NOTES:
-            let newState;
             newState = { ...state }
             const newNotes = {}
             action.payload.forEach((note) => {
@@ -62,7 +62,7 @@ export default function noteReducer(state = initialState, action) {
             return newState
         case CREATE_NOTE:
             newState = { ...state }
-            const updatedNotes = { ...state.allNotes, [action.payload.id]: action.payload }
+            const updatedNotes = { ...state.allNotes, [action.payload.id]: action.payload}
             newState.allNotes = updatedNotes
             return newState
 

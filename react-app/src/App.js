@@ -6,6 +6,7 @@ import LoginFormPage from "./components/LoginFormPage";
 import Notes from "./components/Notes";
 import { authenticate } from "./store/session";
 import Navigation from "./components/Navigation";
+import CreateNote from "./components/CreateNote";
 
 function App() {
   const dispatch = useDispatch();
@@ -19,14 +20,17 @@ function App() {
       <Navigation isLoaded={isLoaded} />
       {isLoaded && (
         <Switch>
-          <Route path="/login" >
+          <Route exact path="/login" >
             <LoginFormPage />
           </Route>
-          <Route path="/signup">
+          <Route exact path="/signup">
             <SignupFormPage />
           </Route>
-          <Route path="/notes">
+          <Route exact path="/notes">
             <Notes />
+          </Route>
+          <Route exact path="/notes/new">
+            <CreateNote />
           </Route>
         </Switch>
       )}

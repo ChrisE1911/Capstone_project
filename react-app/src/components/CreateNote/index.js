@@ -1,61 +1,66 @@
 import { useEffect, useState } from "react"
 import { useDispatch } from "react-redux"
 import { useHistory } from "react-router-dom"
-import { useModal } from "../../context/Modal"
+import { thunkCreateNote } from "../../store/note"
+import "./CreateNote.css"
 
 
 
-export default function CreateNote() {
-    const history = useHistory()
-    const dispatch = useDispatch()
+function CreateNote() {
+  const history = useHistory()
+  const dispatch = useDispatch()
 
-    const [noteTitle, setNoteTitle] = useState("")
-    const [noteContent, setNoteContent] = useState("")
-    const { closeModal } = useModal()
+  const [noteTitle, setNoteTitle] = useState("")
+  const [noteContent, setNoteContent] = useState("")
 
-    const handleSubmit = async (e) => {
-        e.preventDefaut();
 
-        const new_note = {
-            noteTitle,
-            noteContent
-        }
+  const handleSubmit = async (e) => {
+    e.preventDefault();
 
-        // await dispatch(thunkCreateNote(new_note)).then(() => {
-        //     closeModal();
-        //     history.push('/notes')
-        // })
+    const new_note = {
+      noteTitle,
+      noteContent
     }
 
-    return (
-        <>
-          <h1>What's on the to-do list for today...</h1>
-          <form onSubmit={handleSubmit}>
-            {/* <ul>
+    // console.log('NEW NOTTTEEEEE', new_note)
+
+    await dispatch(thunkCreateNote(new_note));
+    // closeModal();
+    console.log('HEREEEEEE!!!!!!!');
+    history.push('/notes');
+  }
+
+  return (
+    <>
+      <form className="create-note-container" onSubmit={handleSubmit}>
+        <h1>What's on the to-do list for today...</h1>
+        {/* <ul>
               {errors.map((error, idx) => (
                 <li key={idx}>{error}</li>
               ))}
             </ul> */}
-            <label>
-              Title
-              <input
-                type="text"
-                value={noteTitle}
-                onChange={(e) => setNoteTitle(e.target.value)}
-                required
-              />
-            </label>
-            <label>
-              Note
-              <input
-                type="text"
-                value={noteContent}
-                onChange={(e) => setNoteContent(e.target.value)}
-                required
-              />
-            </label>
-            <button type="submit">Create Note</button>
-          </form>
-        </>
-      );
+        <label>
+          Title
+          <input
+            type="text"
+            value={noteTitle}
+            onChange={(e) => setNoteTitle(e.target.value)}
+            required
+          />
+        </label>
+        <label>
+          Note
+          <input
+            type="text"
+            value={noteContent}
+            onChange={(e) => setNoteContent(e.target.value)}
+            required
+          />
+        </label>
+        <button type="submit">Create Note</button>
+      </form>
+    </>
+  );
 }
+
+export default CreateNote

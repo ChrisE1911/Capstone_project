@@ -23,14 +23,17 @@ def get_all_notes():
 @notes_routes.route('/new', methods=['POST'])
 @login_required
 def create_note():
+    print("IM IN THE POST ROUTE")
     form = NoteForm()
     form['csrf_token'].data = request.cookies['csrf_token']
     if form.validate_on_submit():
         new_note = Note(
-            user_id = current_user.id,
+            user_id=current_user.id,
             note_title=form.data['note_title'],
             note_content=form.data['note_content'],
         )
-        db.session.add(new_note)
-        db.session.commit()
-        return new_note.to_dict()
+        print('NEW NOTEEEEE', new_note)
+        # db.session.add(new_note)
+        # db.session.commit()
+        return
+    return new_note
