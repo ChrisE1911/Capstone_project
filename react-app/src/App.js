@@ -26,11 +26,11 @@ function App() {
           <Route exact path="/signup">
             <SignupFormPage />
           </Route>
+          <Route path="/notes/new">
+            <CreateNote />
+          </Route>
           <Route exact path="/notes">
             <Notes />
-          </Route>
-          <Route exact path="/notes/new">
-            <CreateNote />
           </Route>
         </Switch>
       )}

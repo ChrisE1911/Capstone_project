@@ -17,14 +17,14 @@ function CreateNote() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const new_note = {
-      noteTitle,
-      noteContent
+    const newNote = {
+      note_title: noteTitle,
+      note_content: noteContent
     }
 
     // console.log('NEW NOTTTEEEEE', new_note)
 
-    await dispatch(thunkCreateNote(new_note));
+    await dispatch(thunkCreateNote(newNote));
     // closeModal();
     console.log('HEREEEEEE!!!!!!!');
     history.push('/notes');
