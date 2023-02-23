@@ -18,10 +18,15 @@ function Notes() {
         <>
             <ul className='notes-container'>
                 {all_notes_arr.map((note) => (
-                    <div className='one_note' key={note.id}>
-                        <div>{note.note_title}</div>
-                        <div>{note.note_content}</div>
-                    </div>
+                    <li className='one_note' key={note.id}>
+                        <div>
+                            <div>{note.note_title}</div>
+                            <div>{`${note.note_content.slice(0, 40)}...`}</div>
+                        </div>
+                        <div>
+                        <button>Edit Note</button>
+                        </div>
+                    </li>
                 ))}
             </ul>
         </>
