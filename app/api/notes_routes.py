@@ -19,6 +19,12 @@ def get_all_notes():
     # print('AAAAAAAAAAAA', all_notes)
     return all_notes_arr
 
+@notes_routes.route('/<int:id>')
+@login_required
+def get_one_note(id):
+    note = Note.query.get(id)
+    return note.to_dict()
+
 
 @notes_routes.route('/new', methods=['POST'])
 @login_required
@@ -37,4 +43,22 @@ def create_note():
         db.session.add(note)
         db.session.commit()
         return note.to_dict()
+    return {}
+
+
+@notes_routes.route('/edit/<int:id>', methods=['PUT'])
+@login_required
+def edit_note(id):
+    form = NoteForm()
+    form['csrf_token'].data = request.cookies['csrf_token']
+
+    if form.validate_on_submit():
+        to_update_note = Note.query.get(id)
+
+        to_update_note.user_id = current_user.id
+        to_update_note.note_title = form.data['note_title']
+        to_update_note.note_content = form.data['note_content']
+
+        db.session.commit()
+        return to_update_note.to_dict()
     return {}
