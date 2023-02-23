@@ -16,7 +16,7 @@ function EditNote() {
     const [noteContent, setNoteContent] = useState(currentNote.note_content)
 
     useEffect(() => {
-        dispatch(thunkGetOneNote(currentNote.id))
+        dispatch(thunkGetOneNote(+currentNote.id))
     }, [dispatch])
 
 
