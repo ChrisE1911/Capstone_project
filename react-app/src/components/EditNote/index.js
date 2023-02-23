@@ -2,18 +2,20 @@ import { useEffect, useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { useHistory } from "react-router-dom"
 import { thunkEditNote } from "../../store/note"
-import { useParams } from "react-router-dom"
+// import { useParams } from "react-router-dom"
 import { thunkGetOneNote } from "../../store/note"
 
 
 function EditNote() {
     const history = useHistory()
     const dispatch = useDispatch()
-    const { noteId } = useParams()
+    // const { noteId } = useParams()
 
     const currentNote = useSelector(state => state.noteReducer.singleNote)
     const [noteTitle, setNoteTitle] = useState(currentNote.note_title)
     const [noteContent, setNoteContent] = useState(currentNote.note_content)
+
+    console.log('CURRENT NOTE', currentNote.id)
 
     useEffect(() => {
         dispatch(thunkGetOneNote(+currentNote.id))
@@ -33,7 +35,7 @@ function EditNote() {
         console.log(editedNote)
 
 
-        if (editedNote) history.push(`/notes/${currentNote.id}}`)
+        if (editedNote) history.push(`/notes/${currentNote.id}`)
     }
     return (
         <>
