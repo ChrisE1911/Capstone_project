@@ -17,7 +17,7 @@ function Navigation({ isLoaded }) {
 					</li>
 
 				)}
-				<div>
+				<div id='component-buttons'>
 					{sessionUser && <li>
 						<NavLink exact to="/notes/new">New Note</NavLink>
 					</li>}
