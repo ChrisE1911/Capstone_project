@@ -10,6 +10,7 @@ import CreateNote from "./components/CreateNote";
 import EditNote from "./components/EditNote";
 import SingleNote from "./components/SingleNote";
 import SplashPage from "./components/SplashPage";
+import HomePage from "./components/HomePage";
 
 function App() {
   const dispatch = useDispatch();
@@ -40,6 +41,9 @@ function App() {
           </Route>
           <Route exact path="/notes">
             <Notes />
+          </Route>
+          <Route exact path="/home">
+            <HomePage />
           </Route>
           <Route exact path="/">
             <SplashPage />

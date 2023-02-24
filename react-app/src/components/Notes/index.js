@@ -16,12 +16,14 @@ function Notes() {
         dispatch(thunkGetAllNotes())
     }, [dispatch])
 
+    if (all_notes_arr.length === 0) return null;
     return (
         <>
             <ul className='notes-container'>
+                <h1>Notes</h1>
                 {all_notes_arr.map((note) => (
                     <Link to={`/notes/${note.id}`} className='one_note' key={note.id}>
-                        <div>
+                        <div id='notes-content'>
                             <div>{note.note_title}</div>
                             <div>{`${note.note_content?.slice(0, 40)}...`}</div>
                         </div>

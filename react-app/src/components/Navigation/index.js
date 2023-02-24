@@ -22,7 +22,7 @@ function Navigation({ isLoaded }) {
 						<NavLink exact to="/notes/new">New Note</NavLink>
 					</li>}
 					{sessionUser && <li>
-						<NavLink exact to="/">Home</NavLink>
+						<NavLink exact to="/home">Home</NavLink>
 					</li>}
 					{ sessionUser && <li>
 						<NavLink exact to="/notes">Notes</NavLink>
