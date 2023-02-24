@@ -62,3 +62,12 @@ def edit_note(id):
         db.session.commit()
         return to_update_note.to_dict()
     return {}
+
+
+@notes_routes.route('/delete/<int:id>', methods=['DELETE'])
+@login_required
+def delete_note(id):
+    note = Note.query.get(id)
+    db.session.delete(note)
+    db.session.commit()
+    return {}

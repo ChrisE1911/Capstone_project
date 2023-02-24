@@ -4,6 +4,7 @@ import { useHistory } from "react-router-dom"
 import { thunkEditNote } from "../../store/note"
 // import { useParams } from "react-router-dom"
 import { thunkGetOneNote } from "../../store/note"
+import { thunkDeleteNote } from "../../store/note"
 
 
 function EditNote() {
@@ -37,6 +38,15 @@ function EditNote() {
 
         if (editedNote) history.push(`/notes/${currentNote.id}`)
     }
+
+    const handleDelete = async (noteId) => {
+
+        await dispatch(thunkDeleteNote(noteId))
+
+        history.push('/notes')
+
+        alert('Your note has been deleted.')
+    }
     return (
         <>
             <form className="create-note-container" onSubmit={handleSubmit}>
@@ -64,7 +74,8 @@ function EditNote() {
                         required
                     />
                 </label>
-                <button type="submit">Edit Note</button>
+                <button type="submit">Edit</button>
+                <button onClick={() => handleDelete(currentNote.id)}>Delete Note</button>
             </form>
         </>
     );

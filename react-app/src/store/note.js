@@ -86,14 +86,15 @@ export const thunkEditNote = (noteId, note) => async (dispatch) => {
     }
 }
 
-export const thunkDeleteNote = (note) => async (dispatch) => {
-    const response = await fetch("api/notes/delete", {
+export const thunkDeleteNote = (noteId) => async (dispatch) => {
+    console.log('NOTE ID', noteId)
+    const response = await fetch(`/api/notes/delete/${noteId}`, {
         method: "DELETE"
     })
 
     if (response.ok) {
-        const removedNote = await response.json()
-        dispatch(deleteNoteAction(removedNote))
+        // console.log('REMOVED NOTE', removedNote)
+        dispatch(deleteNoteAction(noteId))
     }
 }
 
@@ -134,7 +135,7 @@ export default function noteReducer(state = initialState, action) {
             return newState
         case DELETE_NOTE:
             newState = { ...state }
-            delete newState.allNotes[action.payload.id]
+            delete newState.allNotes[action.payload]
             return newState
         default:
             return state
