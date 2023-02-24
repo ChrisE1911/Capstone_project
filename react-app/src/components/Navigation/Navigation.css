@@ -1,5 +1,15 @@
 .profile-dropdown {
   position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 15vw;
+  padding: 0;
+  list-style: none;
+  flex-direction: column;
+  background: white;
+  right: 0px;
+  gap: 10px;
 }
 
 .hidden {
@@ -38,5 +48,21 @@
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  gap: 35px;
+  gap: 100px;
+}
+
+#component-buttons-one li a {
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#component-buttons-two li a {
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
