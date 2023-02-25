@@ -33,7 +33,7 @@ function SingleNotebook() {
             <h1>Notes in this notebook</h1>
             <div id='notebook-notes-container'>
             {notesForNotebook.map((note) => (
-                <Link to={`/notes/${note.id}`}>
+                <Link to={`/notes/${note.id}`} key={note.id}>
                     <div>{note.note_title}</div>
                     <div>{`${note.note_content?.slice(0, 40)}...`}</div>
                 </Link>

@@ -5,6 +5,7 @@ import { thunkEditNotebook } from "../../store/notebook";
 import { useHistory } from "react-router-dom";
 import { thunkGetAllNotebooks } from "../../store/notebook";
 import { useParams } from "react-router-dom";
+import { thunkDeleteNotebook } from "../../store/notebook";
 
 
 function EditNotebook() {
@@ -31,6 +32,14 @@ function EditNotebook() {
         if (editedNotebook) history.push(`/notebooks/${notebookId}`)
     }
 
+    const handleDelete = async (notebookId) => {
+        await dispatch(thunkDeleteNotebook(notebookId))
+
+        history.push('/notebooks');
+
+        alert('Your notebook has been deleted.')
+    }
+
 
     return (
         <>
@@ -51,7 +60,7 @@ function EditNotebook() {
                     />
                 </label>
                 <button type="submit">Edit</button>
-                {/* <button onClick={() => handleDelete(notebookId)}>Delete Notebook</button> */}
+                <button onClick={() => handleDelete(notebookId)}>Delete Notebook</button>
             </form>
         </>
     );

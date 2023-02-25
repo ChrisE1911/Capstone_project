@@ -86,6 +86,17 @@ export const thunkEditNotebook = (notebookId, notebook) => async (dispatch) => {
     }
 }
 
+export const thunkDeleteNotebook = (notebookId) => async (dispatch) => {
+    console.log('NOTE ID', notebookId)
+    const response = await fetch(`/api/notebooks/delete/${notebookId}`, {
+        method: "DELETE"
+    })
+
+    if (response.ok) {
+        dispatch(deleteNotebookAction(notebookId))
+    }
+}
+
 
 const initialState = {
     allNotebooks: {},
