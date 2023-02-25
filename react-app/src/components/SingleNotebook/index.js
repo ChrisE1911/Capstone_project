@@ -38,7 +38,7 @@ function SingleNotebook() {
                     <div>{`${note.note_content?.slice(0, 40)}...`}</div>
                 </Link>
             ))}
-                <button onClick={() => history.push('/notebooks/edit')}>Edit Notebook</button>
+                <button onClick={() => history.push(`/notebooks/${notebookId}/edit`)}>Edit Notebook</button>
             </div>
         </>
     )

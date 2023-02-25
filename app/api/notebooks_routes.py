@@ -52,14 +52,16 @@ def edit_notebook(id):
     form['csrf_token'].data = request.cookies['csrf_token']
 
     if form.validate_on_submit():
+
         to_update_notebook = Notebook.query.get(id)
 
-        print('TO UPDATE NOTEBOOK', to_update_notebook)
-
+        # print('TO UPDATE NOTEBOOK', to_update_notebook.to_dict())
         to_update_notebook.user_id = current_user.id
         to_update_notebook.name = form.data['name']
 
         db.session.commit()
+
+        # print('NEWWWW UPDATED NOTEBOOK', to_update_notebook)
         return to_update_notebook.to_dict()
     return {}
 

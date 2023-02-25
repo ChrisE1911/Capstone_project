@@ -48,7 +48,7 @@ function App() {
           <Route exact path="/notebooks">
             <Notebooks />
           </Route>
-          <Route exact path="/notebooks/edit">
+          <Route exact path="/notebooks/:notebookId/edit">
             <EditNotebook />
           </Route>
           <Route exact path="/notebooks/:notebookId">
