@@ -17,19 +17,26 @@ function Navigation({ isLoaded }) {
 					</li>
 
 				)}
-				<div>
-					{sessionUser && <li>
-						<NavLink exact to="/notes/new">New Note</NavLink>
-					</li>}
-					{sessionUser && <li>
-						<NavLink exact to="/">Home</NavLink>
-					</li>}
-					{ sessionUser && <li>
-						<NavLink exact to="/notes">Notes</NavLink>
-					</li>}
-					{sessionUser && <li>
-						<NavLink exact to="/notebooks">Notebooks</NavLink>
-					</li>}
+				<div id='component-buttons'>
+					<div id='component-buttons-one'>
+						{sessionUser && <li>
+							<NavLink exact to="/notes/new">New Note</NavLink>
+						</li>}
+						{sessionUser && <li>
+							<NavLink exact to="/notebooks/new">New Notebook</NavLink>
+						</li>}
+					</div>
+					<div id='component-buttons-two'>
+						{sessionUser && <li>
+							<NavLink exact to="/home">Home</NavLink>
+						</li>}
+						{sessionUser && <li>
+							<NavLink exact to="/notes">Notes</NavLink>
+						</li>}
+						{sessionUser && <li>
+							<NavLink exact to="/notebooks">Notebooks</NavLink>
+						</li>}
+					</div>
 				</div>
 			</div>
 		</ul>

@@ -12,6 +12,22 @@ function CreateNote() {
 
   const [noteTitle, setNoteTitle] = useState("")
   const [noteContent, setNoteContent] = useState("")
+  const [errors, setErrors] = useState([])
+
+
+  useEffect(() => {
+    const errors = []
+
+    if (noteTitle?.length < 1) {
+        errors.push('You must specify a title for this note')
+    }
+
+    if (noteContent?.length < 1) {
+        errors.push('Please provide content for this note')
+    }
+
+    setErrors(errors)
+}, [noteTitle, noteContent])
 
 
   const handleSubmit = async (e) => {
@@ -34,11 +50,11 @@ function CreateNote() {
      <>
       <form className="create-note-container" onSubmit={handleSubmit}>
         <h1>What's on the to-do list for today...</h1>
-        {/* <ul>
+        <ul>
               {errors.map((error, idx) => (
                 <li key={idx}>{error}</li>
               ))}
-            </ul> */}
+            </ul>
         <label>
           Title
           <input
