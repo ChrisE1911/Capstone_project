@@ -14,6 +14,7 @@ import HomePage from "./components/HomePage";
 import Notebooks from "./components/Notebooks";
 import SingleNotebook from "./components/SingleNotebook";
 import EditNotebook from "./components/EditNotebook";
+import CreateNotebook from "./components/CreateNotebook";
 
 function App() {
   const dispatch = useDispatch();
@@ -47,6 +48,9 @@ function App() {
           </Route>
           <Route exact path="/notebooks">
             <Notebooks />
+          </Route>
+          <Route exact path="/notebooks/new">
+            <CreateNotebook />
           </Route>
           <Route exact path="/notebooks/:notebookId/edit">
             <EditNotebook />
