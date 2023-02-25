@@ -10,7 +10,9 @@ function HomePage() {
     const all_notes = useSelector((state) => state.noteReducer.allNotes)
     const all_notes_arr = Object.values(all_notes)
 
-    console.log(all_notes_arr)
+
+
+
 
     useEffect(() => {
         dispatch(thunkGetAllNotes())
@@ -22,14 +24,17 @@ function HomePage() {
             <ul className='notes-container'>
                 <h1>Notes</h1>
                 <div className='note-card-container'>
-                {all_notes_arr.map((note) => (
-                    <Link to={`/notes/${note.id}`} className='one_note' key={note.id}>
-                        <div id='notes-content'>
-                            <div>{note.note_title}</div>
-                            <div>{`${note.note_content?.slice(0, 40)}...`}</div>
-                        </div>
-                    </Link>
-                ))}
+                    {all_notes_arr.map((note) => (
+                        <Link to={`/notes/${note.id}`} className='one_note' key={note.id}>
+                            <div id='notes-content'>
+                                <div>
+                                    <div>{note.note_title}</div>
+                                    <div>{`${note.note_content?.slice(0, 40)}...`}</div>
+                                </div>
+                                    <div>{new Date(note.updated_at).toDateString().split(' ').splice(1, 2)}</div>
+                            </div>
+                        </Link>
+                    ))}
                 </div>
             </ul>
         </>
