@@ -25,6 +25,7 @@ def get_one_notebook(id):
     notebook = Notebook.query.get(id)
     return notebook.to_dict()
 
+
 @notebooks_routes.route('/new', methods=['POST'])
 @login_required
 def create_notebook():
@@ -53,8 +54,10 @@ def edit_notebook(id):
     if form.validate_on_submit():
         to_update_notebook = Notebook.query.get(id)
 
+        print('TO UPDATE NOTEBOOK', to_update_notebook)
+
         to_update_notebook.user_id = current_user.id
-        to_update_notebook.name = form.data['note_title']
+        to_update_notebook.name = form.data['name']
 
         db.session.commit()
         return to_update_notebook.to_dict()

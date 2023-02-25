@@ -12,6 +12,8 @@ import SingleNote from "./components/SingleNote";
 import SplashPage from "./components/SplashPage";
 import HomePage from "./components/HomePage";
 import Notebooks from "./components/Notebooks";
+import SingleNotebook from "./components/SingleNotebook";
+import EditNotebook from "./components/EditNotebook";
 
 function App() {
   const dispatch = useDispatch();
@@ -45,6 +47,12 @@ function App() {
           </Route>
           <Route exact path="/notebooks">
             <Notebooks />
+          </Route>
+          <Route exact path="/notebooks/edit">
+            <EditNotebook />
+          </Route>
+          <Route exact path="/notebooks/:notebookId">
+            <SingleNotebook />
           </Route>
           <Route exact path="/home">
             <HomePage />
