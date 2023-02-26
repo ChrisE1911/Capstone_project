@@ -22,19 +22,23 @@ function HomePage() {
     return (
         <>
             <ul className='notes-container'>
-                <h1>Notes</h1>
-                <div className='note-card-container'>
-                    {all_notes_arr.map((note) => (
-                        <Link to={`/notes/${note.id}`} className='one_note' key={note.id}>
-                            <div id='notes-content'>
-                                <div>
-                                    <div>{note.note_title}</div>
-                                    <div>{`${note.note_content?.slice(0, 40)}...`}</div>
-                                </div>
+                <div id='notes-additional-style-container'>
+                    <div id='notes-title-container'>
+                        <h3 id='note-title'>Notes</h3>
+                    </div>
+                    <div className='note-card-container'>
+                        {all_notes_arr.map((note) => (
+                            <Link to={`/notes/${note.id}`} className='one_note' key={note.id}>
+                                <div id='notes-content'>
+                                    <div>
+                                        <div>{note.note_title}</div>
+                                        <div>{`${note.note_content?.slice(0, 10)}...`}</div>
+                                    </div>
                                     <div>{new Date(note.updated_at).toDateString().split(' ').splice(1, 2).join(' ')}</div>
-                            </div>
-                        </Link>
-                    ))}
+                                </div>
+                            </Link>
+                        ))}
+                    </div>
                 </div>
             </ul>
         </>

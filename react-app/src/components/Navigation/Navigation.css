@@ -22,7 +22,7 @@
   bottom: 0;
   height: 100%;
   left: 0;
-  background: rgba(48, 50, 28);
+  background: rgba(78, 1, 16);
   width: 15vw;
   overflow: hidden;
   transition: width 0.2s linear;
@@ -35,7 +35,7 @@
 }
 
 .nav-bar:hover {
-  box-shadow: 16px 0px 9px rgb(212 223 158);
+  box-shadow: 16px 0px 9px rgb(227, 227, 106);
 }
 
 .button-container {
@@ -76,14 +76,14 @@
   align-items: center;
   border: 5px solid transparent;
   border-radius: 24px;
-  background: linear-gradient(black, black) padding-box, linear-gradient(45deg, rgba(212, 223, 158), white), border-box;
+  background: linear-gradient(rgb(193, 98, 0), black) padding-box, linear-gradient(45deg, rgba(212, 223, 158), white), border-box;
   width: 20vw;
   color: white;
   height: 30px
 }
 #component-buttons-one li a:hover {
-  background: linear-gradient(rgba(212, 223, 158), rgba(74, 75, 47)) padding-box, linear-gradient(45deg, white, black), border-box;
-  box-shadow: 0px 10px 5px rgba(212, 223, 158);
+  background: linear-gradient(rgba(227, 227, 106), rgba(136, 22, 0)) padding-box, linear-gradient(45deg, white, black), border-box;
+  box-shadow: 0px 10px 5px rgba(227, 227, 106);
 }
 #component-buttons-two li a {
   text-decoration: none;
@@ -93,15 +93,15 @@
   align-items: center;
   border: 5px solid transparent;
   border-radius: 24px;
-  background: linear-gradient(black, black) padding-box, linear-gradient(45deg, rgba(212, 223, 158), white), border-box;
+  background: linear-gradient(rgb(193, 98, 0), black) padding-box, linear-gradient(45deg, rgba(212, 223, 158), white), border-box;
   width: 20vw;
   color: white;
   height: 30px
 }
 
 #component-buttons-two li a:hover {
-  background: linear-gradient(rgba(212, 223, 158), rgba(74, 75, 47)) padding-box, linear-gradient(45deg, white, black), border-box;
-  box-shadow: 0px 10px 5px rgba(212, 223, 158);
+  background: linear-gradient(rgba(227, 227, 106), rgba(136, 22, 0)) padding-box, linear-gradient(45deg, white, black), border-box;
+  box-shadow: 0px 10px 5px rgba(227, 227, 106);
 
 }
 
