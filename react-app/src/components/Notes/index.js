@@ -21,6 +21,7 @@ function Notes() {
         <>
             <ul className='notes-container'>
                 <h1>Notes</h1>
+                <div className='note-card-container'>
                 {all_notes_arr.map((note) => (
                     <Link to={`/notes/${note.id}`} className='one_note' key={note.id}>
                         <div id='notes-content'>
@@ -29,6 +30,7 @@ function Notes() {
                         </div>
                     </Link>
                 ))}
+                </div>
             </ul>
         </>
     )
