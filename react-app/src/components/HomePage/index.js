@@ -31,7 +31,7 @@ function HomePage() {
                                     <div>{note.note_title}</div>
                                     <div>{`${note.note_content?.slice(0, 40)}...`}</div>
                                 </div>
-                                    <div>{new Date(note.updated_at).toDateString().split(' ').splice(1, 2)}</div>
+                                    <div>{new Date(note.updated_at).toDateString().split(' ').splice(1, 2).join(' ')}</div>
                             </div>
                         </Link>
                     ))}
