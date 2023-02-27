@@ -21,6 +21,7 @@ function SingleNote() {
         dispatch(thunkGetOneNote(noteId))
     }, [dispatch])
 
+    if (!singleNote) return null;
     return (
         <>
             <div id='note-design-container'>

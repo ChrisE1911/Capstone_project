@@ -16,8 +16,9 @@ function Notes() {
     console.log(all_notes_arr)
 
     useEffect(() => {
-        dispatch(thunkGetAllNotes()).then(() => setLoaded(true))
+        dispatch(thunkGetAllNotes()).then(() => dispatch(thunkGetOneNote(all_notes_arr[0]?.id))).then(() => setLoaded(true))
     }, [dispatch])
+
 
     if (!loaded) return null;
     return (
