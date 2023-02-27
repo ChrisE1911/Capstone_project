@@ -2,6 +2,7 @@ import { useEffect, useState } from "react"
 import { useDispatch } from "react-redux"
 import { useHistory } from "react-router-dom"
 import { thunkCreateNote } from "../../store/note"
+import { useModal } from "../../context/Modal"
 import "./CreateNote.css"
 
 
@@ -9,6 +10,7 @@ import "./CreateNote.css"
 function CreateNote() {
   const history = useHistory()
   const dispatch = useDispatch()
+  const { closeModal } = useModal()
 
   const [noteTitle, setNoteTitle] = useState("")
   const [noteContent, setNoteContent] = useState("")
@@ -41,9 +43,7 @@ function CreateNote() {
     // console.log('NEW NOTTTEEEEE', new_note)
 
     await dispatch(thunkCreateNote(newNote));
-    // closeModal();
-    console.log('HEREEEEEE!!!!!!!');
-    history.push('/notes');
+    closeModal();
   }
 
   return (

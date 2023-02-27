@@ -2,7 +2,11 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import ProfileButton from './ProfileButton';
+import OpenModalButton from '../OpenModalButton';
+import CreateNote from '../CreateNote';
+import CreateNotebook from '../CreateNotebook'
 import './Navigation.css';
+
 
 
 function Navigation({ isLoaded }) {
@@ -19,12 +23,15 @@ function Navigation({ isLoaded }) {
 				)}
 				<div id='component-buttons'>
 					<div id='component-buttons-one'>
-						{sessionUser && <li>
-							<NavLink exact to="/notes/new">New Note</NavLink>
-						</li>}
-						{sessionUser && <li>
-							<NavLink exact to="/notebooks/new">New Notebook</NavLink>
-						</li>}
+						{sessionUser && <OpenModalButton
+							buttonText="New Note"
+							className=""
+							modalComponent={<CreateNote />}>
+						</OpenModalButton>}
+						{sessionUser && <OpenModalButton
+							buttonText="New Notebook"
+							modalComponent={<CreateNotebook />}>
+						</OpenModalButton>}
 					</div>
 					<div id='component-buttons-two'>
 						{sessionUser && <li>
