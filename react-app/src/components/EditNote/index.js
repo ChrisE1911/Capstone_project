@@ -5,12 +5,16 @@ import { thunkEditNote } from "../../store/note"
 // import { useParams } from "react-router-dom"
 import { thunkGetOneNote } from "../../store/note"
 import { thunkDeleteNote } from "../../store/note"
+import { thunkGetAllNotes } from "../../store/note"
+import { useModal } from "../../context/Modal"
 
 
 function EditNote() {
     const history = useHistory()
     const dispatch = useDispatch()
     // const { noteId } = useParams()
+    const { closeModal } = useModal()
+
 
     const currentNote = useSelector(state => state.noteReducer.singleNote)
     const [noteTitle, setNoteTitle] = useState(currentNote.note_title)
@@ -51,7 +55,9 @@ function EditNote() {
         console.log(editedNote)
 
 
-        if (editedNote) history.push(`/notes/${currentNote.id}`)
+        if (editedNote) {
+            closeModal();
+        }
     }
 
     const handleDelete = async (noteId) => {
