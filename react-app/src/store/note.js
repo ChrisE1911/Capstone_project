@@ -3,7 +3,12 @@ const GET_ONE_NOTE = "notes/GET_ONE_NOTE"
 const CREATE_NOTE = "notes/CREATE_NOTE"
 const EDIT_NOTE = "notes/EDIT_NOTE"
 const DELETE_NOTE = "notes/DELETE_NOTE"
+const ADD_NOTE_TO_NOTEBOOK = "notes/ADD_NOTE_TO_NOTEBOOK"
 
+const addNotetoNotebookAction = data => ({
+    type: ADD_NOTE_TO_NOTEBOOK,
+    payload: data
+})
 
 const getAllNotesAction = (data) => ({
     type: GET_NOTES,
@@ -30,7 +35,17 @@ const getOneNoteAction = (data) => ({
     payload: data
 })
 
+export const thunkAddNotetoNotebook = (noteId, notebookId) => async (dispatch) => {
+    const response = await fetch(`/api/notes/${noteId}/notebooks/${notebookId}/add-note`, {
+        method: "PUT"
+    })
 
+    if (response.ok) {
+        const data = await response.json()
+        dispatch((addNotetoNotebookAction(data)))
+        return data
+    }
+}
 
 export const thunkGetAllNotes = () => async (dispatch) => {
     const response = await fetch("/api/notes/all")
@@ -136,6 +151,13 @@ export default function noteReducer(state = initialState, action) {
         case DELETE_NOTE:
             newState = { ...state }
             delete newState.allNotes[action.payload]
+            return newState
+        case ADD_NOTE_TO_NOTEBOOK:
+            newState = { ...state }
+            const addedNote = action.payload
+            delete newState.allNotes[addedNote.id]
+            newState.allNotes[action.payload.id] = addedNote
+            newState.singleNote = addedNote
             return newState
         default:
             return state
