@@ -28,7 +28,7 @@ function Notes() {
                     {<div className='total-notes'>{all_notes_arr.length} notes</div>}
                     <div id='side-panel-break-line'></div>
                     <div className='note-side-panel-card-container'>
-                        {all_notes_arr.map((note) => (
+                        {loaded && all_notes_arr.map((note) => (
                             <Link onClick={() => dispatch(thunkGetOneNote(note.id))} className='side-panel-one-note' key={note.id}>
                                 <div id='side-panel-notes-content'>
                                     <div>{note.note_title}</div>
@@ -39,7 +39,7 @@ function Notes() {
                     </div>
                 </ul>
                 <div id='Note-Component'>
-                    {loaded ? <SingleNote /> : <h1>Click on a note to view it here</h1>}
+                    {loaded && <SingleNote />}
                 </div>
             </div>
         </>

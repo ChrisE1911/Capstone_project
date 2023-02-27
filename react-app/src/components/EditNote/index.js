@@ -56,6 +56,7 @@ function EditNote() {
 
 
         if (editedNote) {
+            await dispatch(thunkGetAllNotes()).then(() => dispatch(thunkGetOneNote(currentNote.id)));
             closeModal();
         }
     }
