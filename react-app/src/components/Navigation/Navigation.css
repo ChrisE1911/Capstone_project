@@ -22,7 +22,7 @@
   bottom: 0;
   height: 100%;
   left: 0;
-  background: rgba(78, 1, 16);
+  background: black;
   width: 15vw;
   overflow: hidden;
   transition: width 0.2s linear;
@@ -79,11 +79,28 @@
   background: linear-gradient(rgb(193, 98, 0), black) padding-box, linear-gradient(45deg, rgba(212, 223, 158), white), border-box;
   width: 20vw;
   color: white;
-  height: 30px
+  height: 30px;
+}
+
+#component-buttons-one button {
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 5px solid transparent;
+  border-radius: 24px;
+  background: linear-gradient(rgb(193, 98, 0), black) padding-box, linear-gradient(45deg, rgba(212, 223, 158), white), border-box;
+  width: 20vw;
+  color: white;
+  height: 30px;
+  font-family: 'Dancing Script', cursive;
+  font-family: 'Raleway', sans-serif;
 }
 #component-buttons-one li a:hover {
   background: linear-gradient(rgba(227, 227, 106), rgba(136, 22, 0)) padding-box, linear-gradient(45deg, white, black), border-box;
   box-shadow: 0px 10px 5px rgba(227, 227, 106);
+  color: black
 }
 #component-buttons-two li a {
   text-decoration: none;
@@ -102,6 +119,7 @@
 #component-buttons-two li a:hover {
   background: linear-gradient(rgba(227, 227, 106), rgba(136, 22, 0)) padding-box, linear-gradient(45deg, white, black), border-box;
   box-shadow: 0px 10px 5px rgba(227, 227, 106);
+  color: black
 
 }
 

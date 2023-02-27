@@ -11,8 +11,10 @@ import { thunkDeleteNotebook } from "../../store/notebook";
 function EditNotebook() {
     const dispatch = useDispatch()
     const history = useHistory()
+    const currentNotebook = useSelector(state => state.notebookReducer.singleNotebook)
     const { notebookId } = useParams()
-    const [name, setName] = useState("")
+    const [name, setName] = useState(currentNotebook.name)
+
 
 
     useEffect(() => {

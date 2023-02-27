@@ -3,6 +3,7 @@ body {
     color: white;
     font-family: 'Dancing Script', cursive;
     font-family: 'Raleway', sans-serif;
+    opacity: .87
 }
 
 #notes-additional-style-container {
