@@ -6,7 +6,8 @@ import SingleNote from '../SingleNote'
 import { thunkGetOneNote } from '../../store/note'
 import './Notes.css'
 
-function Notes() {
+function Notes({ noteId }) {
+
     const dispatch = useDispatch()
     const history = useHistory()
     const all_notes = useSelector((state) => state.noteReducer.allNotes)
@@ -16,7 +17,7 @@ function Notes() {
     console.log(all_notes_arr)
 
     useEffect(() => {
-        dispatch(thunkGetAllNotes()).then(() => dispatch(thunkGetOneNote(all_notes_arr[0]?.id))).then(() => setLoaded(true))
+        dispatch(thunkGetAllNotes()).then(() => setLoaded(true))
     }, [dispatch])
 
 
@@ -30,12 +31,15 @@ function Notes() {
                     <div id='side-panel-break-line'></div>
                     <div className='note-side-panel-card-container'>
                         {loaded && all_notes_arr.map((note) => (
-                            <Link onClick={() => dispatch(thunkGetOneNote(note.id))} className='side-panel-one-note' key={note.id}>
+                            <button onClick={() => dispatch(thunkGetOneNote(note.id))} className='side-panel-one-note' key={note.id}>
                                 <div id='side-panel-notes-content'>
-                                    <div>{note.note_title}</div>
-                                    <div>{`${note.note_content?.slice(0, 40)}...`}</div>
+                                    <div>
+                                    <div id='title'>{note.note_title}</div>
+                                    <div>{`${note.note_content?.slice(0, 20)}...`}</div>
+                                    </div>
+                                    <div>{new Date(note.updated_at).toDateString().split(' ').splice(1, 2).join(' ')}</div>
                                 </div>
-                            </Link>
+                            </button>
                     ))}
                     </div>
                 </ul>

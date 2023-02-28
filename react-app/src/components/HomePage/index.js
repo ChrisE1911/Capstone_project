@@ -2,6 +2,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { useEffect, useState } from 'react'
 import { thunkGetAllNotes } from '../../store/note'
 import { useHistory, Link } from 'react-router-dom'
+import { thunkGetOneNote } from '../../store/note'
 import "./HomePage.css"
 
 function HomePage() {
@@ -28,11 +29,11 @@ function HomePage() {
                     </div>
                     <div className='note-card-container'>
                         {all_notes_arr.map((note) => (
-                            <Link to={`/notes/${note.id}`} className='one_note' key={note.id}>
+                            <Link onClick={() => dispatch(thunkGetOneNote(note.id)).then((history.push('/notes')))} className='one_note' key={note.id}>
                                 <div id='notes-content'>
-                                    <div>
-                                        <div>{note.note_title}</div>
-                                        <div>{`${note.note_content?.slice(0, 10)}...`}</div>
+                                    <div id='inner-notes-content'>
+                                        <div>{note.note_title?.slice(0,6)}</div>
+                                        <div>{`${note.note_content?.slice(0, 6)}...`}</div>
                                     </div>
                                     <div>{new Date(note.updated_at).toDateString().split(' ').splice(1, 2).join(' ')}</div>
                                 </div>

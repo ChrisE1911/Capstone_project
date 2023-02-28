@@ -10,11 +10,12 @@
     justify-content: center;
     border-radius: 15px;
     background-color: black;
-    color: white
+    color: white;
+    text-decoration: none;
 }
 
 .notes-container {
-    border: 18px solid rgb(193, 98, 0);
+    border: 18px solid gray;
     border-style: outset;
     flex-direction: column;
     align-items: center;
@@ -24,13 +25,10 @@
     padding-bottom: 50px;
     position: fixed;
     grid-gap: 20px;
+    grid-gap: 20px;
     gap: 20px;
-    background: rgba(136, 22, 0);
+    background: #216869;
     border-radius: 28px;
-}
-
-.notes-container:hover {
-    box-shadow: 0px 0px 80px rgb(227 227 106);
 }
 
 .notes-container h1 {
@@ -44,6 +42,7 @@
     gap: 50px;
     overflow: scroll;
     padding-left: 30px;
+    padding-right: 30px;
 }
 
 #notes-content {
@@ -61,8 +60,8 @@
 .notes-side-panel-container {
     padding: 0;
     margin: 0;
-    padding-left: 14.3vw;
-    width: 30vw;
+    padding-left: 15vw;
+    width: 21vw;
     max-width: 30vw;
     /* margin-left: 28.5vh; */
     border-right: 5px solid gray;
@@ -92,17 +91,30 @@
     /* border-radius: 15px; */
     /* background-color: black; */
     border-bottom: 2px solid gray;
-    color: white
+    color: white;
+    background-color: transparent;
+    font-family: 'Dancing Script', cursive;
+    font-family: 'Raleway', sans-serif;
+}
+
+.side-panel-one-note:hover {
+    transition: 0.3s;
+    background-color: rgba(0, 0, 0, 0.566)
 }
 
 #side-panel-notes-content {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-    padding-left: 15px;
-    padding-top: 10px;
+    /* padding-left: 15px; */
+    /* padding-top: 10px; */
     color: white;
-    padding-top: 10px
+    padding-top: 10px;
+    width: 100%;
+    height: 81%;
+    grid-gap: 15px;
+    gap: 15px;
+    padding: 10px;
 }
 
 #side-panel-break-line {
@@ -126,7 +138,7 @@ body {
 }
 
 #Note-Component {
-    width: 45vw;
+    width: 51vw;
     display: flex;
     justify-content: center;
     align-items: center;

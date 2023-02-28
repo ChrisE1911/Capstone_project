@@ -5,6 +5,7 @@ import { thunkGetAllNotes } from '../../store/note'
 import { thunkGetOneNote } from '../../store/note'
 import OpenModalButton from '../OpenModalButton'
 import AddNotetoNotebook from '../AddNotetoNotebook'
+import MoveNotetoNotebook from '../MoveNotetoNotebook'
 import EditNote from '../EditNote'
 import './SingleNote.css'
 
@@ -36,6 +37,9 @@ function SingleNote() {
                         buttonText='Add Note to Notebook'
                         modalComponent={<AddNotetoNotebook />}>
                     </OpenModalButton>}
+                    {singleNote.notebook_id && <OpenModalButton
+                        buttonText='Move Note'
+                        modalComponent={<MoveNotetoNotebook />}></OpenModalButton>}
 
                 </div>
             </div>

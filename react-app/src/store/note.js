@@ -47,6 +47,18 @@ export const thunkAddNotetoNotebook = (noteId, notebookId) => async (dispatch) =
     }
 }
 
+export const thunkEditNotetoNotebook = (noteId, notebookId) => async (dispatch) => {
+    const response = await fetch(`/api/notes/${noteId}/notebooks/${notebookId}/edit`, {
+        method: "PUT"
+    })
+
+    if (response.ok) {
+        const data = await response.json()
+        dispatch((addNotetoNotebookAction(data)))
+        return data
+    }
+}
+
 export const thunkGetAllNotes = () => async (dispatch) => {
     const response = await fetch("/api/notes/all")
 
@@ -131,7 +143,6 @@ export default function noteReducer(state = initialState, action) {
                 newNotes[note.id] = note
             })
             newState.allNotes = newNotes
-            newState.singleNote = {}
             return newState
         case  GET_ONE_NOTE:
             return {...state, singleNote: action.payload}

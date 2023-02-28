@@ -3,7 +3,8 @@ body {
     color: white;
     font-family: 'Dancing Script', cursive;
     font-family: 'Raleway', sans-serif;
-    opacity: .87
+    opacity: .87;
+    text-decoration-line: none;
 }
 
 #notes-additional-style-container {
@@ -16,6 +17,12 @@ body {
     position: relative;
     right: 20px;
     top: 24px;
-    background: rgba(193, 98, 0);
+    background: #49A078;
     padding-bottom: 30px;
+}
+
+#inner-notes-content{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
 }
