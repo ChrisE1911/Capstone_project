@@ -67,7 +67,7 @@ function EditNote() {
 
     const handleDelete = async (noteId) => {
 
-        await dispatch(thunkDeleteNote(noteId)).then(() => dispatch(thunkGetAllNotes())).then(() => dispatch(thunkGetOneNote(allNotesArr[0].id)));
+        await dispatch(thunkDeleteNote(noteId)).then(() => dispatch(thunkGetAllNotes())).then(() => dispatch(thunkGetOneNote(+allNotesArr[0]?.id)));
 
         closeModal();
 
