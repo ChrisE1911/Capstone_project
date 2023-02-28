@@ -47,6 +47,18 @@ export const thunkAddNotetoNotebook = (noteId, notebookId) => async (dispatch) =
     }
 }
 
+export const thunkEditNotetoNotebook = (noteId, notebookId) => async (dispatch) => {
+    const response = await fetch(`/api/notes/${noteId}/notebooks/${notebookId}/edit`, {
+        method: "PUT"
+    })
+
+    if (response.ok) {
+        const data = await response.json()
+        dispatch((addNotetoNotebookAction(data)))
+        return data
+    }
+}
+
 export const thunkGetAllNotes = () => async (dispatch) => {
     const response = await fetch("/api/notes/all")
 

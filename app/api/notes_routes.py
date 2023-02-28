@@ -87,4 +87,18 @@ def add_note_to_notebook(noteId, notebookId):
     db.session.commit()
 
     return to_update_note.to_dict()
-    
+
+@notes_routes.route('/<int:noteId>/notebooks/<int:notebookId>/edit', methods=['PUT'])
+@login_required
+def edit_note_to_notebook(noteId, notebookId):
+    print('NOTEID', noteId)
+    print('NOTEBOOKID', notebookId)
+
+    to_update_note = Note.query.get(noteId)
+    print('TO UPDATE NOTE', to_update_note.to_dict())
+
+    to_update_note.notebook_id = notebookId
+
+    db.session.commit()
+
+    return to_update_note.to_dict()

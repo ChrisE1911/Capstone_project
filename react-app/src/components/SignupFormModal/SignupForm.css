@@ -2,5 +2,8 @@
     width: 40vw;
     color: white;
     background: darkgray;
-    height: 40vh;
+    height: auto;
+    position: absolute;
+    border-radius: 20px;
+    border: inset 10px #9CC5A1;
 }

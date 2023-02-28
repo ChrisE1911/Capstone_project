@@ -89,7 +89,7 @@ function EditNote() {
                 </label>
                 <label>
                     Note
-                    <input
+                    <textarea
                         type="text"
                         value={noteContent}
                         onChange={(e) => setNoteContent(e.target.value)}

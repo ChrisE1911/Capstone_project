@@ -21,15 +21,15 @@ function CreateNote() {
     const errors = []
 
     if (noteTitle?.length < 1) {
-        errors.push('You must specify a title for this note')
+      errors.push('You must specify a title for this note')
     }
 
     if (noteContent?.length < 1) {
-        errors.push('Please provide content for this note')
+      errors.push('Please provide content for this note')
     }
 
     setErrors(errors)
-}, [noteTitle, noteContent])
+  }, [noteTitle, noteContent])
 
 
   const handleSubmit = async (e) => {
@@ -47,32 +47,35 @@ function CreateNote() {
   }
 
   return (
-     <>
+    <>
       <form className="create-note-container" onSubmit={handleSubmit}>
         <h1>What's on the to-do list for today...</h1>
         <ul>
-              {errors.map((error, idx) => (
-                <li key={idx}>{error}</li>
-              ))}
-            </ul>
-        <label>
-          Title
-          <input
-            type="text"
-            value={noteTitle}
-            onChange={(e) => setNoteTitle(e.target.value)}
-            required
-          />
-        </label>
-        <label>
-          Note
-          <input
-            type="text"
-            value={noteContent}
-            onChange={(e) => setNoteContent(e.target.value)}
-            required
-          />
-        </label>
+          {errors.map((error, idx) => (
+            <li key={idx}>{error}</li>
+          ))}
+        </ul>
+        <div id="button-container">
+          <label>
+            Title
+            <input
+              type="text"
+              value={noteTitle}
+              onChange={(e) => setNoteTitle(e.target.value)}
+              required
+            />
+          </label>
+          <label>
+            Note
+            <textarea
+              value={noteContent}
+              onChange={(e) => setNoteContent(e.target.value)}
+              rows="5"
+              cols="33"
+              required
+            />
+          </label>
+        </div>
         <button type="submit">Create Note</button>
       </form>
     </>

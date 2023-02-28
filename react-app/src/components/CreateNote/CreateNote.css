@@ -7,3 +7,18 @@
     padding: 30px;
     gap: 30px;
 }
+
+.create-note-container h1 {
+    text-align: center;
+}
+
+#button-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+#button-container label {
+    display: flex;
+    flex-direction: column;
+}
