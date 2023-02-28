@@ -14,7 +14,10 @@ function MoveNotetoNotebook() {
     const allNotebooks = useSelector((state) => state.notebookReducer.allNotebooks)
     const allNotebooks_arr = Object.values(allNotebooks)
     const currentNote = useSelector((state) => state.noteReducer.singleNote)
+    const allOtherNotebooks = allNotebooks_arr.filter(notebook => notebook.id !== currentNote.notebook_id)
     const { noteId } = useParams()
+
+    console.log('AOOOONNNN', allOtherNotebooks)
 
 
     console.log(allNotebooks)
@@ -40,7 +43,7 @@ function MoveNotetoNotebook() {
     return (
         <>
         <h1>Choose which notebook you want to move this note to...</h1>
-            {allNotebooks_arr.map((notebook) => (
+            {allOtherNotebooks.map((notebook) => (
             <button onClick={() => handleEditNote(currentNote.id, notebook.id)}>{notebook.name}</button>
             ))}
             </>
