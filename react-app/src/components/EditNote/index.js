@@ -17,11 +17,15 @@ function EditNote() {
 
 
     const currentNote = useSelector(state => state.noteReducer.singleNote)
+    const allNotes = useSelector(state => state.noteReducer.allNotes)
+    const allNotesArr = Object.values(allNotes)
     const [noteTitle, setNoteTitle] = useState(currentNote.note_title)
     const [noteContent, setNoteContent] = useState(currentNote.note_content)
     const [errors, setErrors] = useState([])
 
     console.log('CURRENT NOTE', currentNote.id)
+
+    console.log(allNotesArr[0])
 
     useEffect(() => {
         dispatch(thunkGetOneNote(+currentNote.id))
@@ -63,9 +67,10 @@ function EditNote() {
 
     const handleDelete = async (noteId) => {
 
-        await dispatch(thunkDeleteNote(noteId))
+        await dispatch(thunkDeleteNote(noteId)).then(() => dispatch(thunkGetAllNotes())).then(() => dispatch(thunkGetOneNote(allNotesArr[0].id)));
 
-        history.push('/notes')
+        closeModal();
+
 
         alert('Your note has been deleted.')
     }
