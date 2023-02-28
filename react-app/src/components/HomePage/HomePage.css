@@ -26,3 +26,15 @@ body {
     flex-direction: column;
     gap: 20px;
 }
+
+.notebook-notes-inner-container {
+background-color: #216869;
+}
+
+.notebook-notes-inner-container-two {
+background-color: #49A078;
+}
+
+#Notebooks-title {
+    margin-left: 20vw
+}

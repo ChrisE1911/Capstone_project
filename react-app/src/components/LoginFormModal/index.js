@@ -23,7 +23,7 @@ function LoginFormModal() {
     if (data) {
       setErrors(data);
     } else {
-      history.push('/notes');
+      history.push('/home');
       closeModal();
     }
   };
