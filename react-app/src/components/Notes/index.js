@@ -6,7 +6,8 @@ import SingleNote from '../SingleNote'
 import { thunkGetOneNote } from '../../store/note'
 import './Notes.css'
 
-function Notes() {
+function Notes({ noteId }) {
+
     const dispatch = useDispatch()
     const history = useHistory()
     const all_notes = useSelector((state) => state.noteReducer.allNotes)
@@ -16,7 +17,7 @@ function Notes() {
     console.log(all_notes_arr)
 
     useEffect(() => {
-        dispatch(thunkGetAllNotes()).then(() => dispatch(thunkGetOneNote(all_notes_arr[0]?.id))).then(() => setLoaded(true))
+        dispatch(thunkGetAllNotes()).then(() => setLoaded(true))
     }, [dispatch])
 
 

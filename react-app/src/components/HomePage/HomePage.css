@@ -17,6 +17,12 @@ body {
     position: relative;
     right: 20px;
     top: 24px;
-    background: rgba(193, 98, 0);
+    background: #49A078;
     padding-bottom: 30px;
+}
+
+#inner-notes-content{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
 }

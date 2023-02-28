@@ -143,7 +143,6 @@ export default function noteReducer(state = initialState, action) {
                 newNotes[note.id] = note
             })
             newState.allNotes = newNotes
-            newState.singleNote = {}
             return newState
         case  GET_ONE_NOTE:
             return {...state, singleNote: action.payload}
