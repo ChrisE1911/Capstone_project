@@ -39,7 +39,7 @@
 
 #notebooks-content:hover {
     transition: 0.3s;
-    background-color: #9CC5A1;
+    background-color: rgba(39, 34, 34, 0.566);
 }
 
 #notebooks-content-two {
@@ -57,7 +57,7 @@
 
 #notebooks-content-two:hover {
     transition: 0.3s;
-    background-color: #9CC5A1;
+    background-color: rgba(39, 34, 34, 0.566);
 }
 
 #column-titles {
