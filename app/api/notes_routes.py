@@ -102,3 +102,17 @@ def edit_note_to_notebook(noteId, notebookId):
     db.session.commit()
 
     return to_update_note.to_dict()
+
+@notes_routes.route('/<int:noteId>/delete', methods=['PUT'])
+@login_required
+def delete_note_to_notebook(noteId):
+    print('NOTEID', noteId)
+
+    to_update_note = Note.query.get(noteId)
+    print('TO UPDATE NOTE', to_update_note.to_dict())
+
+    to_update_note.notebook_id = None
+
+    db.session.commit()
+
+    return to_update_note.to_dict()

@@ -12,7 +12,7 @@
 .universal-button:hover {
     color: white;
     transition: 0.3s;
-    background: #216869;
+    background: linear-gradient(#216869, #9CC5A1)
 }
 
 #input-field {

@@ -17,8 +17,18 @@ function EditNotebook() {
     const { notebookId } = useParams()
     const [name, setName] = useState(currentNotebook.name)
     const { closeModal } = useModal()
+    const [errors, setErrors] = useState([])
+
+    useEffect(() => {
+        const errors = []
 
 
+        if (name?.length < 1) {
+            errors.push('You must specify a title for this notebook')
+          }
+
+          setErrors(errors)
+        }, [name])
 
 
     useEffect(() => {
@@ -59,11 +69,11 @@ function EditNotebook() {
         <>
             <form className="create-note-container" onSubmit={handleSubmit}>
                 <h1>New Title...</h1>
-                {/* <ul>
+                <ul>
                 {errors.map((error, idx) => (
                   <li key={idx}>{error}</li>
                 ))}
-              </ul> */}
+              </ul>
                 <label>
                     Name
                     <input

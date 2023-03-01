@@ -6,6 +6,7 @@ import { thunkGetOneNote } from '../../store/note'
 import OpenModalButton from '../OpenModalButton'
 import AddNotetoNotebook from '../AddNotetoNotebook'
 import MoveNotetoNotebook from '../MoveNotetoNotebook'
+import { thunkDeleteNotefromNotebook } from '../../store/note'
 import EditNote from '../EditNote'
 import './SingleNote.css'
 
@@ -21,6 +22,11 @@ function SingleNote() {
     useEffect(() => {
         dispatch(thunkGetOneNote(noteId))
     }, [dispatch])
+
+    const handleDeleteNote = async(noteId) => {
+        await dispatch(thunkDeleteNotefromNotebook(noteId)).then(() => dispatch(thunkGetOneNote(noteId)));
+        alert('You have removed this note from its assigned notebook.')
+    }
 
     if (!singleNote) return null;
     return (
@@ -41,6 +47,7 @@ function SingleNote() {
                         {singleNote.notebook_id && singleNote.note_title && <OpenModalButton
                             buttonText='Move Note'
                             modalComponent={<MoveNotetoNotebook />}></OpenModalButton>}
+                        {singleNote.notebook_id && singleNote.note_title && <button onClick={() => handleDeleteNote(+singleNote.id)}>Take note out of notebook</button>}
                     </div>
 
                 </div>
