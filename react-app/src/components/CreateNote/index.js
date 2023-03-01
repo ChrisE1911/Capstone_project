@@ -49,7 +49,8 @@ function CreateNote() {
   return (
     <>
       <form className="create-note-container" onSubmit={handleSubmit}>
-        <h1>What's on the to-do list for today...</h1>
+        <div id="create-note-inner-container">
+        <h1>Create Note...</h1>
         <ul>
           {errors.map((error, idx) => (
             <li key={idx}>{error}</li>
@@ -61,6 +62,7 @@ function CreateNote() {
             <input
               type="text"
               value={noteTitle}
+              id='input-field'
               onChange={(e) => setNoteTitle(e.target.value)}
               required
             />
@@ -76,7 +78,8 @@ function CreateNote() {
             />
           </label>
         </div>
-        <button type="submit">Create Note</button>
+          <button className='universal-button' type="submit">Create Note</button>
+          </div>
       </form>
     </>
   );

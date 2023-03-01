@@ -28,7 +28,7 @@ function AddNotetoNotebook() {
         dispatch(thunkGetAllNotebooks())
     }, [dispatch])
 
-    const handleAddNote = async(noteId, notebookId) => {
+    const handleAddNote = async (noteId, notebookId) => {
         await dispatch(thunkAddNotetoNotebook(noteId, notebookId)).then(() => {
             closeModal();
             history.push(`/notebooks/${notebookId}`);
@@ -39,11 +39,13 @@ function AddNotetoNotebook() {
 
     return (
         <>
-        <h1>Choose which notebook you want to add this note to...</h1>
-            {allNotebooks_arr.map((notebook) => (
-            <button onClick={() => handleAddNote(currentNote.id, notebook.id)}>{notebook.name}</button>
-            ))}
-            </>
+            <div className='notebook-modal-container'>
+            <h1>Choose which notebook you want to add this note to...</h1>
+                {allNotebooks_arr.map((notebook) => (
+                    <button className='universal-button' onClick={() => handleAddNote(currentNote.id, notebook.id)}>{notebook.name}</button>
+                ))}
+            </div>
+        </>
     )
 }
 

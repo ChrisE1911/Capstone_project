@@ -17,11 +17,15 @@ function EditNote() {
 
 
     const currentNote = useSelector(state => state.noteReducer.singleNote)
+    const allNotes = useSelector(state => state.noteReducer.allNotes)
+    const allNotesArr = Object.values(allNotes)
     const [noteTitle, setNoteTitle] = useState(currentNote.note_title)
     const [noteContent, setNoteContent] = useState(currentNote.note_content)
     const [errors, setErrors] = useState([])
 
     console.log('CURRENT NOTE', currentNote.id)
+
+    console.log(allNotesArr[0])
 
     useEffect(() => {
         dispatch(thunkGetOneNote(+currentNote.id))
@@ -63,41 +67,45 @@ function EditNote() {
 
     const handleDelete = async (noteId) => {
 
-        await dispatch(thunkDeleteNote(noteId))
+        await dispatch(thunkDeleteNote(noteId)).then(() => dispatch(thunkGetAllNotes())).then(() => dispatch(thunkGetOneNote(+allNotesArr[0]?.id)));
 
-        history.push('/notes')
+        closeModal();
+
 
         alert('Your note has been deleted.')
     }
     return (
         <>
             <form className="create-note-container" onSubmit={handleSubmit}>
-                <h1>What's on the to-do list for today...</h1>
-                <ul>
-                {errors.map((error, idx) => (
-                  <li key={idx}>{error}</li>
-                ))}
-              </ul>
-                <label>
-                    Title
-                    <input
-                        type="text"
-                        value={noteTitle}
-                        onChange={(e) => setNoteTitle(e.target.value)}
-                        required
-                    />
-                </label>
-                <label>
-                    Note
-                    <textarea
-                        type="text"
-                        value={noteContent}
-                        onChange={(e) => setNoteContent(e.target.value)}
-                        required
-                    />
-                </label>
-                <button type="submit">Edit</button>
-                <button onClick={() => handleDelete(currentNote.id)}>Delete Note</button>
+                <div id='create-note-inner-container'>
+                    <h1>What's on the to-do list for today...</h1>
+                    <ul>
+                        {errors.map((error, idx) => (
+                            <li key={idx}>{error}</li>
+                        ))}
+                    </ul>
+                    <label>
+                        Title
+                        <input
+                            type="text"
+                            value={noteTitle}
+                            id='input-field'
+                            onChange={(e) => setNoteTitle(e.target.value)}
+                            required
+                        />
+                    </label>
+                    <label>
+                        Note
+                        <textarea
+                            type="text"
+                            value={noteContent}
+                            onChange={(e) => setNoteContent(e.target.value)}
+                            required
+                        />
+                    </label>
+                    <button className='universal-button' type="submit">Edit</button>
+                    <button onClick={() => handleDelete(currentNote.id)} className='universal-button'>Delete Note</button>
+                </div>
             </form>
         </>
     );

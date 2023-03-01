@@ -17,7 +17,7 @@ body {
     position: relative;
     right: 20px;
     top: 24px;
-    background: #49A078;
+    background: black;
     padding-bottom: 30px;
 }
 
@@ -28,11 +28,22 @@ body {
 }
 
 .notebook-notes-inner-container {
+background-color: rgb(32, 32, 32);
+}
+
+.notebook-notes-inner-container:hover {
+transition: 0.3s;
 background-color: #216869;
 }
 
 .notebook-notes-inner-container-two {
+background-color: rgb(32, 32, 32);
+}
+
+.notebook-notes-inner-container-two:hover {
+transition: 0.3s;
 background-color: #49A078;
+
 }
 
 #Notebooks-title {

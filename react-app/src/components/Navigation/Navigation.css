@@ -32,7 +32,7 @@
   align-items: center;
   list-style-type: none;
   padding: 0;
-  border-right: 2px solid gray;
+  border-right: 2px solid #9CC5A1;
 }
 
 .nav-bar:hover {
@@ -104,6 +104,7 @@
 #component-buttons-one button:hover {
   transition: 0.3s;
   background: #216869;
+  color: #9CC5A1;
 }
 
 #component-buttons-one li a:hover {
@@ -132,11 +133,31 @@
 #component-buttons-two li a:hover {
   transition: 0.3s;
   background: #216869;
-  color: black
+  color: #9CC5A1
 }
 
 #component-buttons-two {
   display: flex;
   flex-direction: column;
   gap: 30px;
+}
+
+.profile-dropdown li {
+  width: 100%;
+}
+
+.profile-letter-button {
+  width: 35px;
+  height: 35px;
+  border-radius: 20px;
+  border: none;
+  background: gray;
+}
+
+.profile-letter-button:hover {
+    transition: 0.3s;
+    background: linear-gradient(#216869, #9CC5A1);
+    border: inset 1px #216869;
+    box-shadow: 0px 0px 30px #9cc5a1;
+    color: White
 }

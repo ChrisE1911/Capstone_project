@@ -4,9 +4,15 @@ const CREATE_NOTE = "notes/CREATE_NOTE"
 const EDIT_NOTE = "notes/EDIT_NOTE"
 const DELETE_NOTE = "notes/DELETE_NOTE"
 const ADD_NOTE_TO_NOTEBOOK = "notes/ADD_NOTE_TO_NOTEBOOK"
+const DELETE_NOTE_TO_NOTEBOOK = "notes/DELETE_NOTE_TO_NOTEBOOK"
 
 const addNotetoNotebookAction = data => ({
     type: ADD_NOTE_TO_NOTEBOOK,
+    payload: data
+})
+
+const deleteNotetoNotebookAction = data => ({
+    type: DELETE_NOTE_TO_NOTEBOOK,
     payload: data
 })
 
@@ -43,6 +49,18 @@ export const thunkAddNotetoNotebook = (noteId, notebookId) => async (dispatch) =
     if (response.ok) {
         const data = await response.json()
         dispatch((addNotetoNotebookAction(data)))
+        return data
+    }
+}
+
+export const thunkDeleteNotefromNotebook = (noteId) => async (dispatch) => {
+    const response = await fetch(`/api/notes/${noteId}/delete`, {
+        method: "PUT"
+    })
+
+    if (response.ok) {
+        const data = await response.json()
+        dispatch((deleteNotetoNotebookAction(data)))
         return data
     }
 }
@@ -144,8 +162,8 @@ export default function noteReducer(state = initialState, action) {
             })
             newState.allNotes = newNotes
             return newState
-        case  GET_ONE_NOTE:
-            return {...state, singleNote: action.payload}
+        case GET_ONE_NOTE:
+            return { ...state, singleNote: action.payload }
         case CREATE_NOTE:
             newState = { ...state }
             const newNote = action.payload
@@ -169,6 +187,12 @@ export default function noteReducer(state = initialState, action) {
             delete newState.allNotes[addedNote.id]
             newState.allNotes[action.payload.id] = addedNote
             newState.singleNote = addedNote
+            return newState
+        case DELETE_NOTE_TO_NOTEBOOK:
+            newState = { ...state }
+            const deletedNote = action.payload
+            delete newState.allNotes[deletedNote.id]
+            newState.singleNote = {}
             return newState
         default:
             return state

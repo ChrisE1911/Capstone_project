@@ -12,6 +12,16 @@ function CreateNotebook() {
   const [name, setName] = useState("")
   const { closeModal } = useModal();
 
+  useEffect(() => {
+    const errors = []
+
+    if (name?.length < 1) {
+      errors.push('You must specify a title for this notebook')
+    }
+
+    setErrors(errors)
+  }, [name])
+
 
   const handleSubmit = async (e) => {
     e.preventDefault()
@@ -31,22 +41,26 @@ function CreateNotebook() {
   return (
     <>
       <form className="create-note-container" onSubmit={handleSubmit}>
-        <h1>Choose the name of your new Notebook</h1>
-        {/* <ul>
+        <div id='create-note-inner-container'>
+
+          <h1>Choose the name of your new Notebook</h1>
+          <ul>
                  {errors.map((error, idx) => (
                    <li key={idx}>{error}</li>
-                 ))}
-               </ul> */}
-        <label>
-          Title
-          <input
-            type="text"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-            required
-          />
-        </label>
-        <button type="submit">Create Notebook</button>
+                   ))}
+                  </ul>
+          <label>
+            Title
+            <input
+              type="text"
+              value={name}
+              id='input-field'
+              onChange={(e) => setName(e.target.value)}
+              required
+            />
+          </label>
+        </div>
+          <button className='universal-button' type="submit">Create Notebook</button>
       </form>
     </>
   );

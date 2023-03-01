@@ -9,11 +9,17 @@
     align-items: center;
     justify-content: center;
     border-radius: 15px;
-    background-color: black;
+    background-color: #216869;
     color: white;
     text-decoration: none;
 }
 
+.one_note:hover {
+    transition: 0.3s;
+    background: linear-gradient(#216869, #9CC5A1);
+    border: 2px solid white
+
+}
 .notes-container {
     border: 18px solid gray;
     border-style: outset;
@@ -64,7 +70,7 @@
     width: 21vw;
     max-width: 30vw;
     /* margin-left: 28.5vh; */
-    border-right: 5px solid gray;
+    border-right: 2px solid #9CC5A1;
     background: linear-gradient(#216869, black);
 }
 
@@ -118,7 +124,7 @@
 }
 
 #side-panel-break-line {
-    border-bottom: 2px solid gray;
+    border-bottom: 2px solid #9CC5A1;
     padding-top: 30px;
     width: 100%
 }
