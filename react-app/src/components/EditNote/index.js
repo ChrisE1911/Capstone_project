@@ -77,32 +77,35 @@ function EditNote() {
     return (
         <>
             <form className="create-note-container" onSubmit={handleSubmit}>
-                <h1>What's on the to-do list for today...</h1>
-                <ul>
-                {errors.map((error, idx) => (
-                  <li key={idx}>{error}</li>
-                ))}
-              </ul>
-                <label>
-                    Title
-                    <input
-                        type="text"
-                        value={noteTitle}
-                        onChange={(e) => setNoteTitle(e.target.value)}
-                        required
-                    />
-                </label>
-                <label>
-                    Note
-                    <textarea
-                        type="text"
-                        value={noteContent}
-                        onChange={(e) => setNoteContent(e.target.value)}
-                        required
-                    />
-                </label>
-                <button type="submit">Edit</button>
-                <button onClick={() => handleDelete(currentNote.id)}>Delete Note</button>
+                <div id='create-note-inner-container'>
+                    <h1>What's on the to-do list for today...</h1>
+                    <ul>
+                        {errors.map((error, idx) => (
+                            <li key={idx}>{error}</li>
+                        ))}
+                    </ul>
+                    <label>
+                        Title
+                        <input
+                            type="text"
+                            value={noteTitle}
+                            id='input-field'
+                            onChange={(e) => setNoteTitle(e.target.value)}
+                            required
+                        />
+                    </label>
+                    <label>
+                        Note
+                        <textarea
+                            type="text"
+                            value={noteContent}
+                            onChange={(e) => setNoteContent(e.target.value)}
+                            required
+                        />
+                    </label>
+                    <button className='universal-button' type="submit">Edit</button>
+                    <button onClick={() => handleDelete(currentNote.id)} className='universal-button'>Delete Note</button>
+                </div>
             </form>
         </>
     );

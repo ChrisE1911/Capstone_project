@@ -64,7 +64,7 @@
     width: 21vw;
     max-width: 30vw;
     /* margin-left: 28.5vh; */
-    border-right: 5px solid gray;
+    border-right: 2px solid #9CC5A1;
     background: linear-gradient(#216869, black);
 }
 
@@ -118,7 +118,7 @@
 }
 
 #side-panel-break-line {
-    border-bottom: 2px solid gray;
+    border-bottom: 2px solid #9CC5A1;
     padding-top: 30px;
     width: 100%
 }

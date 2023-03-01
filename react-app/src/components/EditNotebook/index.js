@@ -6,6 +6,8 @@ import { useHistory } from "react-router-dom";
 import { thunkGetAllNotebooks } from "../../store/notebook";
 import { useParams } from "react-router-dom";
 import { thunkDeleteNotebook } from "../../store/notebook";
+import { useModal } from "../../context/Modal";
+import './EditNotebook.css'
 
 
 function EditNotebook() {
@@ -14,11 +16,13 @@ function EditNotebook() {
     const currentNotebook = useSelector(state => state.notebookReducer.singleNotebook)
     const { notebookId } = useParams()
     const [name, setName] = useState(currentNotebook.name)
+    const { closeModal } = useModal()
+
 
 
 
     useEffect(() => {
-        dispatch(thunkGetOneNotebook(+notebookId))
+        dispatch(thunkGetOneNotebook(currentNotebook.id))
     }, [dispatch])
 
 
@@ -29,13 +33,21 @@ function EditNotebook() {
             name: name
         }
 
-        const editedNotebook = await dispatch(thunkEditNotebook(notebookId, data))
+        const editedNotebook = await dispatch(thunkEditNotebook(currentNotebook.id, data))
 
-        if (editedNotebook) history.push(`/notebooks/${notebookId}`)
+        if (editedNotebook) {
+            await dispatch(thunkGetAllNotebooks()).then(() => dispatch(thunkGetOneNotebook(+currentNotebook.id)));
+            closeModal();
+            history.push('/notebooks')
+            alert(`Your notebook name has been changed to ${editedNotebook.name}`);
+
+        }
     }
 
     const handleDelete = async (notebookId) => {
-        await dispatch(thunkDeleteNotebook(notebookId))
+        await dispatch(thunkDeleteNotebook(notebookId)).then(() => dispatch(thunkGetAllNotebooks()))
+
+        closeModal();
 
         history.push('/notebooks');
 
@@ -61,8 +73,8 @@ function EditNotebook() {
                         required
                     />
                 </label>
-                <button type="submit">Edit</button>
-                <button onClick={() => handleDelete(notebookId)}>Delete Notebook</button>
+                <button className='universal-button' type="submit">Edit</button>
+                <button onClick={() => handleDelete(currentNotebook.id)} className='universal-button'>Delete Notebook</button>
             </form>
         </>
     );
