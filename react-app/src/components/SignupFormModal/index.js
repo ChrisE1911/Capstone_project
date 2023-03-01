@@ -2,11 +2,15 @@ import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { useModal } from "../../context/Modal";
 import { signUp } from "../../store/session";
+import { useHistory } from "react-router-dom";
 import "./SignupForm.css";
 
 function SignupFormModal() {
 	const dispatch = useDispatch();
+	const history = useHistory();
 	const [email, setEmail] = useState("");
+	const [firstName, setFirstName] = useState("");
+	const [lastName, setLastName] = useState("");
 	const [username, setUsername] = useState("");
 	const [password, setPassword] = useState("");
 	const [confirmPassword, setConfirmPassword] = useState("");
@@ -16,11 +20,12 @@ function SignupFormModal() {
 	const handleSubmit = async (e) => {
 		e.preventDefault();
 		if (password === confirmPassword) {
-			const data = await dispatch(signUp(username, email, password));
+			const data = await dispatch(signUp(username,firstName, lastName, email, password));
 			if (data) {
 				setErrors(data);
 			} else {
 				closeModal();
+				history.push('/home')
 			}
 		} else {
 			setErrors([
@@ -39,6 +44,26 @@ function SignupFormModal() {
 							<li key={idx}>{error}</li>
 						))}
 					</ul>
+					<label>
+						First Name
+						<input
+							type="text"
+							value={firstName}
+							id='input-field'
+							onChange={(e) => setFirstName(e.target.value)}
+							required
+						/>
+					</label>
+					<label>
+						Last Name
+						<input
+							type="text"
+							value={lastName}
+							id='input-field'
+							onChange={(e) => setLastName(e.target.value)}
+							required
+						/>
+					</label>
 					<label>
 						Email
 						<input
@@ -79,7 +104,7 @@ function SignupFormModal() {
 							required
 						/>
 					</label>
-					<button className="universal-button" type="submit">Sign Up</button>
+					<button type="submit" className="universal-button">Sign Up</button>
 				</div>
 			</form>
 		</>

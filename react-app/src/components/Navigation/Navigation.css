@@ -162,3 +162,11 @@
     box-shadow: 0px 0px 30px #9cc5a1;
     color: White
 }
+
+#profile-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 12px;
+}

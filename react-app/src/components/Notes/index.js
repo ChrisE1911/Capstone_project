@@ -11,6 +11,7 @@ function Notes({ noteId }) {
     const dispatch = useDispatch()
     const history = useHistory()
     const all_notes = useSelector((state) => state.noteReducer.allNotes)
+    const sessionUser = useSelector((state) => state.session.user)
     const all_notes_arr = Object.values(all_notes)
     const [loaded, setLoaded] = useState(false)
 
@@ -21,7 +22,9 @@ function Notes({ noteId }) {
     }, [dispatch])
 
 
-    if (!loaded) return null;
+    if (!loaded) return <h1 id='no-notebooks'>Please create a note to view it here...</h1>;
+    if (!sessionUser) history.push('/unknown')
+    if(all_notes_arr.length === 0) return <h1 id='no-notebooks'>Please create a note to view it here...</h1>
     return (
         <>
             <div className='whole-notes-container'>

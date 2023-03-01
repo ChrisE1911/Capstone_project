@@ -19,7 +19,7 @@ function HomePage() {
         dispatch(thunkGetAllNotes())
     }, [dispatch])
 
-    if (all_notes_arr.length === 0) return null;
+    if (all_notes_arr.length === 0) return <h1 id='no-notebooks'>Please create a note to view it here...</h1>;
     return (
         <>
             <ul className='notes-container'>

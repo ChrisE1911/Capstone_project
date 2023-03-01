@@ -1,8 +1,8 @@
 """empty message
 
-Revision ID: 63e15db814dc
+Revision ID: 559e3426fd7c
 Revises:
-Create Date: 2023-02-26 12:09:14.341430
+Create Date: 2023-03-01 14:05:13.852567
 
 """
 from alembic import op
@@ -14,7 +14,7 @@ SCHEMA = os.environ.get("SCHEMA")
 
 
 # revision identifiers, used by Alembic.
-revision = '63e15db814dc'
+revision = '559e3426fd7c'
 down_revision = None
 branch_labels = None
 depends_on = None
@@ -33,7 +33,7 @@ def upgrade():
     sa.UniqueConstraint('email'),
     sa.UniqueConstraint('username')
     )
-    if environment == "production":
+     if environment == "production":
         op.execute(f"ALTER TABLE users SET SCHEMA {SCHEMA};")
     op.create_table('notebooks',
     sa.Column('id', sa.Integer(), nullable=False),
@@ -44,7 +44,7 @@ def upgrade():
     sa.ForeignKeyConstraint(['user_id'], ['users.id'], ),
     sa.PrimaryKeyConstraint('id')
     )
-    if environment == "production":
+     if environment == "production":
         op.execute(f"ALTER TABLE notebooks SET SCHEMA {SCHEMA};")
     op.create_table('notes',
     sa.Column('id', sa.Integer(), nullable=False),
@@ -58,7 +58,7 @@ def upgrade():
     sa.ForeignKeyConstraint(['user_id'], ['users.id'], ),
     sa.PrimaryKeyConstraint('id')
     )
-    if environment == "production":
+     if environment == "production":
         op.execute(f"ALTER TABLE notes SET SCHEMA {SCHEMA};")
     # ### end Alembic commands ###
 

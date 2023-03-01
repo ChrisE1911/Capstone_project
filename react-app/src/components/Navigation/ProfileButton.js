@@ -45,12 +45,13 @@ function ProfileButton({ user }) {
   return (
     <>
       <button className="profile-letter-button" onClick={openMenu}>
-        {user?.firstname.slice(0, 1)}
+        {user?.firstname.slice(0, 1).toUpperCase()}
       </button>
         <ul className={ulClassName} ref={ulRef}>
           {user ? (
-            <>
-              <li>
+          <>
+            <li id="profile-info">
+            {`${user.firstname} ${user.lastname}`}
                 <button onClick={handleLogout}>Log Out</button>
               </li>
             </>

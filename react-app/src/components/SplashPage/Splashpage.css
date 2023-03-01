@@ -24,6 +24,8 @@
 #splash-page-h1 {
   font-family: 'Rampart One', cursive;
   font-size: xxx-large;
+  width: 50%;
+  text-align: center;
 }
 
 #thought-bubble {
@@ -67,4 +69,12 @@
   align-items: center;
   justify-content: center;
   text-align: center;
+}
+
+#splash-inner-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 80%;
 }
