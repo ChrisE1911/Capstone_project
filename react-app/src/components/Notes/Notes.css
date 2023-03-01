@@ -9,11 +9,17 @@
     align-items: center;
     justify-content: center;
     border-radius: 15px;
-    background-color: black;
+    background-color: #216869;
     color: white;
     text-decoration: none;
 }
 
+.one_note:hover {
+    transition: 0.3s;
+    background: linear-gradient(#216869, #9CC5A1);
+    border: 2px solid white
+
+}
 .notes-container {
     border: 18px solid gray;
     border-style: outset;

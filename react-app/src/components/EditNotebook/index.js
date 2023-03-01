@@ -69,6 +69,7 @@ function EditNotebook() {
                     <input
                         type="text"
                         value={name}
+                        id='input-field'
                         onChange={(e) => setName(e.target.value)}
                         required
                     />
