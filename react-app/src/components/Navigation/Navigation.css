@@ -152,6 +152,7 @@
   border-radius: 20px;
   border: none;
   background: gray;
+  color: white
 }
 
 .profile-letter-button:hover {
