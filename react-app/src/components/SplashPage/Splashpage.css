@@ -1,16 +1,70 @@
 .splash-container {
-    margin-left: 20vw;
-    width: 75vw;
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-  animation: blinker 4s linear infinite;
+  margin-left: 15vw;
+  width: 85vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
-@keyframes blinker {
-  50% {
-    opacity: 0;
-  }
+.splash-container:hover {
+  background: linear-gradient(#216869, black);
+}
+
+
+.splash-container img {
+  width: 44%;
+  height: 55%;
+  border-radius: 230px;
+  border-right: 15px solid #21686985;
+  box-shadow: 17px 5px 5px #ffffff36;
+}
+
+#splash-page-h1 {
+  font-family: 'Rampart One', cursive;
+  font-size: xxx-large;
+}
+
+#thought-bubble {
+  width: 120px;
+  height: 100px;
+  border: 2px solid red;
+  border-radius: 50%;
+  position: relative;
+  right: 28vw;
+  top: 8vw;
+}
+
+#thought-bubble-tail {
+  width: 4px;
+  height: 4px;
+  border-radius: 100%;
+  border: 2px solid red;
+  position: relative;
+  right: 20vw;
+  top: 10vw;
+}
+
+#thought-bubble-tail-one {
+  width: 4px;
+    height: 4px;
+    border-radius: 100%;
+    border: 2px solid red;
+    position: relative;
+    right: 18vw;
+    top: 18vh;
+}
+
+#splashpage-button {
+  background: transparent;
+  border: none;
+}
+
+.splash-container h3 {
+  display: flex;
+  width: 300px;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
 }
