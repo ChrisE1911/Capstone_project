@@ -32,6 +32,6 @@
     /* align-items: center; */
     justify-content: center;
     flex-direction: column;
-    grid-gap: 21px;
-    gap: 21px;
+    grid-gap: 4px;
+    gap: 4px;
 }

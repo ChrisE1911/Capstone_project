@@ -66,3 +66,12 @@
     justify-content: space-around;
     margin-bottom: 20px;
 }
+
+#no-notebooks {
+    margin-left: 20vw;
+    width: 74vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

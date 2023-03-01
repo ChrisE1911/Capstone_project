@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from 'react-redux'
 import { useEffect, useState } from 'react'
 import { thunkGetAllNotebooks } from '../../store/notebook'
-import { Link } from 'react-router-dom'
+import { Link, useHistory } from 'react-router-dom'
 import './Notebooks.css'
 
 function Notebooks() {
@@ -9,6 +9,7 @@ function Notebooks() {
     const allNotebooks = useSelector(state => state.notebookReducer.allNotebooks)
     const allNotebooksArr = Object.values(allNotebooks)
     const sessionUser = useSelector(state => state.session.user)
+    const history = useHistory()
 
     console.log(allNotebooksArr)
 
@@ -18,7 +19,8 @@ function Notebooks() {
 
 
 
-    if (allNotebooksArr.length === 0) return null;
+    if (allNotebooksArr.length === 0) return <h1 id='no-notebooks'>Please create a notebook to view them here...</h1>;
+    if (!sessionUser) history.push('/unknown')
     return (
         <>
             <ul className='notebooks-container'>
@@ -43,6 +45,7 @@ function Notebooks() {
                             </div>
                         </Link>
                     ))}
+
                 </div>
             </ul>
         </>

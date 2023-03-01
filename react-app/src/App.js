@@ -15,6 +15,7 @@ import Notebooks from "./components/Notebooks";
 import SingleNotebook from "./components/SingleNotebook";
 import EditNotebook from "./components/EditNotebook";
 import CreateNotebook from "./components/CreateNotebook";
+import ErrorPage from "./components/ErrorPage";
 
 function App() {
   const dispatch = useDispatch();
@@ -63,6 +64,9 @@ function App() {
           </Route>
           <Route exact path="/">
             <SplashPage />
+          </Route>
+          <Route exact path="/unknown">
+            <ErrorPage />
           </Route>
         </Switch>
       )}
