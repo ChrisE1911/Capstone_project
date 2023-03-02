@@ -139,7 +139,9 @@ export const thunkDeleteNote = (noteId) => async (dispatch) => {
 
     if (response.ok) {
         // console.log('REMOVED NOTE', removedNote)
+        const data = await response.json()
         dispatch(deleteNoteAction(noteId))
+        return data
     }
 }
 

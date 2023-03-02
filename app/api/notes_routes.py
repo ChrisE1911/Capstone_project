@@ -23,6 +23,7 @@ def get_all_notes():
 @login_required
 def get_one_note(id):
     note = Note.query.get(id)
+    print('NOTEEEEEEE', note)
     return note.to_dict()
 
 
@@ -70,7 +71,7 @@ def delete_note(id):
     note = Note.query.get(id)
     db.session.delete(note)
     db.session.commit()
-    return {}
+    return note.to_dict()
 
 
 @notes_routes.route('/<int:noteId>/notebooks/<int:notebookId>/add-note', methods=['PUT'])
