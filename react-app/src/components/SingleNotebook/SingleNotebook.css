@@ -1,6 +1,12 @@
 #notebook-notes-container {
     margin-left: 20vw;
-    width: 70vw
+    width: 70vw;
+    height: 85vh;
+    padding: 20px;
+    display: flex;
+    /* justify-content: center; */
+    align-items: center;
+    flex-direction: column;
 }
 
 #notebooks-title {
@@ -18,7 +24,7 @@
     justify-content: space-between;
     padding-right: 30px;
 }
-/* 
+/*
 #notebook-notes-container a:hover {
     transition: 0.3s;
     background-color: #216869;

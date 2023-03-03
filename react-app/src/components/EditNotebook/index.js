@@ -25,10 +25,10 @@ function EditNotebook() {
 
         if (name?.length < 1) {
             errors.push('You must specify a title for this notebook')
-          }
+        }
 
-          setErrors(errors)
-        }, [name])
+        setErrors(errors)
+    }, [name])
 
 
     useEffect(() => {
@@ -45,12 +45,13 @@ function EditNotebook() {
 
         const editedNotebook = await dispatch(thunkEditNotebook(currentNotebook.id, data))
 
-        if (editedNotebook) {
+        if (editedNotebook?.length > 0) {
+            setErrors(editedNotebook)
+        } else {
             await dispatch(thunkGetAllNotebooks()).then(() => dispatch(thunkGetOneNotebook(+currentNotebook.id)));
-            closeModal();
             history.push('/notebooks')
             alert(`Your notebook name has been changed to ${editedNotebook.name}`);
-
+            closeModal();
         }
     }
 
@@ -70,10 +71,10 @@ function EditNotebook() {
             <form className="create-note-container" onSubmit={handleSubmit}>
                 <h1>New Title...</h1>
                 <ul>
-                {errors.map((error, idx) => (
-                  <li key={idx}>{error}</li>
-                ))}
-              </ul>
+                    {errors.map((error, idx) => (
+                        <li key={idx}>{error}</li>
+                    ))}
+                </ul>
                 <label>
                     Name
                     <input

@@ -59,11 +59,14 @@ function EditNote() {
         console.log(editedNote)
 
 
-        if (editedNote) {
-            await dispatch(thunkGetAllNotes()).then(() => dispatch(thunkGetOneNote(currentNote.id)));
+        if (editedNote?.length > 0) {
+            setErrors(editedNote)
+          } else {
+            await dispatch(thunkGetAllNotes()).then(() => dispatch(thunkGetOneNote(editedNote.id)));
+            history.push('/notes')
             closeModal();
+          }
         }
-    }
 
     const handleDelete = async (noteId) => {
 

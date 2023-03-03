@@ -33,14 +33,16 @@ function CreateNotebook() {
 
     const createdNotebook = await dispatch(thunkCreateNotebook(newNotebook))
 
-    if (createdNotebook) {
-      await dispatch(thunkGetAllNotebooks());
+    console.log(createdNotebook)
+
+    if (createdNotebook.length) {
+      setErrors(createdNotebook)
+    } else {
+      await dispatch(thunkGetAllNotebooks())
       history.push('/notebooks')
-      closeModal()
+      closeModal();
     }
-
   }
-
   return (
     <>
       <form className="create-note-container" onSubmit={handleSubmit}>

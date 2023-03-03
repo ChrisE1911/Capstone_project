@@ -47,5 +47,9 @@ background-color: #49A078;
 }
 
 #Notebooks-title {
-    margin-left: 20vw
+    margin-left: 20vw;
+    width: 70vw;
+    display: flex;
+    justify-content: center;
+    padding: 20px;
 }
