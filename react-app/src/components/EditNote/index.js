@@ -75,11 +75,8 @@ function EditNote() {
             }
             closeModal();
         } else {
-            const deletedNote = await dispatch(thunkDeleteNote(noteId))
-
-            if (deletedNote) {
-                await dispatch(thunkGetAllNotes()).then(() => dispatch(thunkGetOneNote(allNotesArr[0].id)));
-            }
+            await dispatch(thunkDeleteNote(noteId)).then(() => dispatch(thunkGetAllNotes())).then(() => dispatch(thunkGetOneNote(allNotesArr[0].id)));
+            history.push('/notes')
             closeModal();
         }
     }
