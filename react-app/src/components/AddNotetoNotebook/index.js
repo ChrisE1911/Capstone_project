@@ -40,7 +40,7 @@ function AddNotetoNotebook() {
     return (
         <>
             <div className='notebook-modal-container'>
-            <h1>Choose which notebook you want to add this note to...</h1>
+                {allNotebooks_arr.length !== 0 ? <h1>Choose which notebook you want to add this note to...</h1> : <h1>Please create a notebook in order to add this note to one...</h1>}
                 {allNotebooks_arr.map((notebook) => (
                     <button className='universal-button' onClick={() => handleAddNote(currentNote.id, notebook.id)}>{notebook.name}</button>
                 ))}

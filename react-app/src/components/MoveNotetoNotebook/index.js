@@ -44,7 +44,8 @@ function MoveNotetoNotebook() {
     return (
         <>
             <div className='notebook-modal-container'>
-                <h1>Choose which notebook you want to move this note to...</h1>
+            {allOtherNotebooks.length >= 2 ? <h1>Choose which notebook you want to move this note to...</h1> : <h1>Please create some more notebooks in order to add this note to a different one...</h1>}
+                {/* <h1>Choose which notebook you want to move this note to...</h1> */}
                 {allOtherNotebooks.map((notebook) => (
                     <button className='universal-button' onClick={() => handleEditNote(currentNote.id, notebook.id)}>{notebook.name}</button>
                 ))}

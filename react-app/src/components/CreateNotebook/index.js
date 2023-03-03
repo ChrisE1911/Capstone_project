@@ -2,6 +2,7 @@ import { useEffect, useState } from "react"
 import { useDispatch } from "react-redux"
 import { useHistory } from "react-router-dom"
 import { thunkCreateNotebook } from "../../store/notebook"
+import { thunkGetAllNotebooks } from "../../store/notebook"
 import { useModal } from "../../context/Modal"
 
 
@@ -30,11 +31,12 @@ function CreateNotebook() {
       name: name
     }
 
-    await dispatch(thunkCreateNotebook(newNotebook)).then(() => {
-      closeModal();
-      history.push('/notebooks')
-    });
+    const createdNotebook = await dispatch(thunkCreateNotebook(newNotebook))
 
+    if (createdNotebook) {
+      await dispatch(thunkGetAllNotebooks());
+      closeModal()
+    }
 
   }
 
