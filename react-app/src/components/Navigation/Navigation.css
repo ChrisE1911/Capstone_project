@@ -170,3 +170,40 @@
   justify-content: center;
   margin-top: 12px;
 }
+
+.about-me-button-linkedin img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50px;
+  background: white;
+}
+
+
+.about-me-button-linkedin img:hover {
+  transition: 0.3s;
+  background: linear-gradient(#216869, #9CC5A1);
+  border: inset 1px #216869;
+  box-shadow: 0px 0px 30px #9cc5a1;
+}
+
+.about-me-button-github img:hover {
+  transition: 0.3s;
+  background: linear-gradient(#216869, #9CC5A1);
+  border: inset 1px #216869;
+  box-shadow: 0px 0px 30px #9cc5a1;
+}
+
+
+#about-me-links {
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+}
+
+#indiv-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 10px;
+}
