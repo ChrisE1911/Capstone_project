@@ -71,7 +71,8 @@ def edit_notebook(id):
 
         # print('NEWWWW UPDATED NOTEBOOK', to_update_notebook)
         return to_update_notebook.to_dict()
-    return {}
+    print(validation_errors_to_error_messages(form.errors))
+    return {'errors': validation_errors_to_error_messages(form.errors)}, 401
 
 @notebooks_routes.route('/delete/<int:id>', methods=['DELETE'])
 @login_required

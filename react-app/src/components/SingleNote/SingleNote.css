@@ -38,6 +38,7 @@
     border: 2px solid #9CC5A1;
     height: 40px;
     border-radius: 20px;
+    width: 100%;
 }
 
 #edit-button-container button:hover {
@@ -47,5 +48,6 @@
 }
 
 #edit-button-container {
-    padding-top: 40px
+    padding-top: 40px;
+    width: 100%
 }
