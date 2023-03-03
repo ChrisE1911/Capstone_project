@@ -34,6 +34,7 @@ function Notebooks() {
                         <div>Created By</div>
                         <div>Updated</div>
                     </div>
+                    {/* {allNotebooksArr.length === 0 && <div>Navigate to the notes page to add some notes to see them here...</div>} */}
                     {allNotebooksArr.map((notebook) => (
                         <Link to={`/notebooks/${notebook.id}`} className='one_notebook' key={notebook.id}>
                             <div id={notebook.id % 2 === 0 ? 'notebooks-content' : 'notebooks-content-two'}>

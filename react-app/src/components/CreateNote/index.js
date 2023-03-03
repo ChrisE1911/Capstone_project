@@ -2,6 +2,8 @@ import { useEffect, useState } from "react"
 import { useDispatch } from "react-redux"
 import { useHistory } from "react-router-dom"
 import { thunkCreateNote } from "../../store/note"
+import { thunkGetAllNotes } from "../../store/note"
+import { thunkGetOneNote } from "../../store/note"
 import { useModal } from "../../context/Modal"
 import "./CreateNote.css"
 
@@ -42,8 +44,13 @@ function CreateNote() {
 
     // console.log('NEW NOTTTEEEEE', new_note)
 
-    await dispatch(thunkCreateNote(newNote));
-    closeModal();
+    const createdNote = await dispatch(thunkCreateNote(newNote));
+
+    if (createdNote) {
+      await dispatch(thunkGetAllNotes()).then(() => dispatch(thunkGetOneNote(createdNote.id)));
+      history.push('/notes')
+      closeModal();
+    }
   }
 
   return (

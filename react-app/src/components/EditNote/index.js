@@ -67,13 +67,20 @@ function EditNote() {
 
     const handleDelete = async (noteId) => {
 
-        await dispatch(thunkDeleteNote(noteId)).then(() => dispatch(thunkGetAllNotes())).then(() => dispatch(thunkGetOneNote(+allNotesArr[0]?.id)));
+        if (allNotesArr[0].id === noteId) {
+            const deletedNote = await dispatch(thunkDeleteNote(noteId))
 
-        closeModal();
-
-
-        alert('Your note has been deleted.')
+            if (deletedNote) {
+                await dispatch(thunkGetAllNotes()).then(() => dispatch(thunkGetOneNote(Number(deletedNote.id + 1))));
+            }
+            closeModal();
+        } else {
+            await dispatch(thunkDeleteNote(noteId)).then(() => dispatch(thunkGetAllNotes())).then(() => dispatch(thunkGetOneNote(allNotesArr[0].id)));
+            history.push('/notes')
+            closeModal();
+        }
     }
+
     return (
         <>
             <form className="create-note-container" onSubmit={handleSubmit}>

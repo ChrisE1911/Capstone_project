@@ -139,7 +139,9 @@ export const thunkDeleteNote = (noteId) => async (dispatch) => {
 
     if (response.ok) {
         // console.log('REMOVED NOTE', removedNote)
+        const data = await response.json()
         dispatch(deleteNoteAction(noteId))
+        return data
     }
 }
 
@@ -161,6 +163,7 @@ export default function noteReducer(state = initialState, action) {
                 newNotes[note.id] = note
             })
             newState.allNotes = newNotes
+            newState.singleNote = {}
             return newState
         case GET_ONE_NOTE:
             return { ...state, singleNote: action.payload }
