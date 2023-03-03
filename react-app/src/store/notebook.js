@@ -42,10 +42,18 @@ export const thunkCreateNotebook = (notebook) => async (dispatch) => {
 
     if (response.ok) {
         const data = await response.json()
-        console.log('NOTE', data)
+        console.log('NOTEBOOK', data)
         dispatch(createNotebookAction(data))
         return data
-    }
+    } else if (response.status < 500) {
+		const data = await response.json();
+        if (data.errors) {
+            console.log('DATA ERRORS', data.errors)
+			return data.errors;
+		}
+	} else {
+		return ["An error occurred. Please try again."];
+	}
 }
 
 

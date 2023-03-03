@@ -46,7 +46,11 @@ function CreateNote() {
 
     const createdNote = await dispatch(thunkCreateNote(newNote));
 
-    if (createdNote) {
+    console.log(createdNote)
+
+    if (createdNote.length > 0) {
+      setErrors(createdNote)
+    } else {
       await dispatch(thunkGetAllNotes()).then(() => dispatch(thunkGetOneNote(createdNote.id)));
       history.push('/notes')
       closeModal();

@@ -6,9 +6,20 @@ from app.forms import NoteForm
 
 notes_routes = Blueprint('notes', __name__)
 
+def validation_errors_to_error_messages(validation_errors):
+    """
+    Simple function that turns the WTForms validation errors into a simple list
+    """
+    errorMessages = []
+    for field in validation_errors:
+        for error in validation_errors[field]:
+            errorMessages.append(f'{field} : {error}')
+    return errorMessages
+
 @notes_routes.route('/all')
 @login_required
 def get_all_notes():
+    """Returns all notes made by that current user"""
     # print('YOU HIT THE ROUTE!!!')
     my_id = current_user.to_dict()
     # print('BBBBBBBB', my_id['id'])
@@ -22,6 +33,7 @@ def get_all_notes():
 @notes_routes.route('/<int:id>')
 @login_required
 def get_one_note(id):
+    """Returns the note queried that matches the id in the params"""
     note = Note.query.get(id)
     print('NOTEEEEEEE', note)
     return note.to_dict()
@@ -30,6 +42,7 @@ def get_one_note(id):
 @notes_routes.route('/new', methods=['POST'])
 @login_required
 def create_note():
+    """Creates note"""
     print("IM IN THE POST ROUTE")
     form = NoteForm()
     form['csrf_token'].data = request.cookies['csrf_token']
@@ -44,7 +57,8 @@ def create_note():
         db.session.add(note)
         db.session.commit()
         return note.to_dict()
-    return {}
+    print(validation_errors_to_error_messages(form.errors))
+    return {'errors': validation_errors_to_error_messages(form.errors)}, 401
 
 
 @notes_routes.route('/edit/<int:id>', methods=['PUT'])

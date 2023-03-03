@@ -106,13 +106,23 @@ export const thunkCreateNote = (note) => async (dispatch) => {
 		body: JSON.stringify(note),
     })
 
+    console.log('RESPONSE')
+
 
     if (response.ok) {
         const note = await response.json()
         console.log('NOTE', note)
         dispatch(createNoteAction(note))
         return note
-    }
+    } else if (response.status < 500) {
+		const data = await response.json();
+        if (data.errors) {
+            console.log('DATA ERRORS', data.errors)
+			return data.errors;
+		}
+	} else {
+		return ["An error occurred. Please try again."];
+	}
 }
 
 export const thunkEditNote = (noteId, note) => async (dispatch) => {

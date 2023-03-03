@@ -5,7 +5,15 @@ from app.forms import NotebookForm
 
 notebooks_routes = Blueprint('notebooks', __name__)
 
-
+def validation_errors_to_error_messages(validation_errors):
+    """
+    Simple function that turns the WTForms validation errors into a simple list
+    """
+    errorMessages = []
+    for field in validation_errors:
+        for error in validation_errors[field]:
+            errorMessages.append(f'{field} : {error}')
+    return errorMessages
 
 @notebooks_routes.route('/all')
 @login_required
@@ -42,7 +50,7 @@ def create_notebook():
         db.session.add(notebook)
         db.session.commit()
         return notebook.to_dict()
-    return {}
+    return {'errors': validation_errors_to_error_messages(form.errors)}, 401
 
 
 @notebooks_routes.route('/edit/<int:id>', methods=['PUT'])
