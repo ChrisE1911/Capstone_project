@@ -22,7 +22,7 @@ function SingleNote() {
 
 
     useEffect(() => {
-        dispatch(thunkGetOneNote(noteId))
+        dispatch(thunkGetOneNote(singleNote.id))
     }, [dispatch])
 
     const handleDeleteNote = async(noteId) => {
@@ -30,7 +30,7 @@ function SingleNote() {
         alert('You have removed this note from its assigned notebook.')
     }
 
-    if (singleNoteArr.length === 0) return null;
+    if (singleNoteArr.length === 0) return <h1>Please click on a note to view there here...</h1>;
     return (
         <>
             <div id='note-design-container'>

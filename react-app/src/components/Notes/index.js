@@ -13,16 +13,15 @@ function Notes({ noteId }) {
     const all_notes = useSelector((state) => state.noteReducer.allNotes)
     const sessionUser = useSelector((state) => state.session.user)
     const all_notes_arr = Object.values(all_notes)
-    const [loaded, setLoaded] = useState(false)
 
     console.log(all_notes_arr)
 
     useEffect(() => {
-        dispatch(thunkGetAllNotes()).then(() => setLoaded(true))
+        dispatch(thunkGetAllNotes())
     }, [dispatch])
 
 
-    if (!loaded) return <h1 id='no-notebooks'>Please create a note to view it here...</h1>;
+    // if (loaded === false) return <h1 id='no-notebooks'>Please create a note to view it here...</h1>;
     if (!sessionUser) history.push('/unknown')
     if(all_notes_arr.length === 0) return <h1 id='no-notebooks'>Please create a note to view it here...</h1>
     return (
@@ -33,7 +32,7 @@ function Notes({ noteId }) {
                     {<div className='total-notes'>{all_notes_arr.length} notes</div>}
                     <div id='side-panel-break-line'></div>
                     <div className='note-side-panel-card-container'>
-                        {loaded && all_notes_arr.map((note) => (
+                        {all_notes_arr.map((note) => (
                             <button onClick={() => dispatch(thunkGetOneNote(note.id))} className='side-panel-one-note' key={note.id}>
                                 <div id='side-panel-notes-content'>
                                     <div>
@@ -47,7 +46,7 @@ function Notes({ noteId }) {
                     </div>
                 </ul>
                 <div id='Note-Component'>
-                    {loaded && <SingleNote />}
+                    {<SingleNote />}
                 </div>
             </div>
         </>

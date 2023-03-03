@@ -77,9 +77,12 @@ function EditNote() {
                 await dispatch(thunkGetAllNotes()).then(() => dispatch(thunkGetOneNote(Number(deletedNote.id + 1))));
             }
             closeModal();
+            alert('Your note has been deleted')
+            history.push('/home')
         } else {
             await dispatch(thunkDeleteNote(noteId)).then(() => dispatch(thunkGetAllNotes())).then(() => dispatch(thunkGetOneNote(allNotesArr[0].id)));
-            history.push('/notes')
+            alert('Your note has been deleted')
+            history.push('/home')
             closeModal();
         }
     }

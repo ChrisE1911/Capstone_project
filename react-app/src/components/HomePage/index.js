@@ -29,7 +29,7 @@ function HomePage() {
                     </div>
                     <div className='note-card-container'>
                         {all_notes_arr.map((note) => (
-                            <Link onClick={() => dispatch(thunkGetOneNote(note.id)).then((history.push('/notes')))} className='one_note' key={note.id}>
+                            <Link onClick={() => dispatch(thunkGetOneNote(note.id)).then(() => console.log(note.id)).then((history.push('/notes')))} className='one_note' key={note.id}>
                                 <div id='notes-content'>
                                     <div id='inner-notes-content'>
                                         <div>{note.note_title?.slice(0,6)}</div>

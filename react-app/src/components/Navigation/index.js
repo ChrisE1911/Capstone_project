@@ -1,5 +1,5 @@
 import React from 'react';
-import { NavLink, useHistory } from 'react-router-dom';
+import { NavLink, useHistory, Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import ProfileButton from './ProfileButton';
 import OpenModalButton from '../OpenModalButton';
@@ -46,10 +46,27 @@ function Navigation({ isLoaded }) {
 						</li>}
 					</div>
 				</div>
-				<div id='about me links'>
-					<NavLink to="https://github.com/ChrisE1911">
-					{!sessionUser && <img src='https://logos-download.com/wp-content/uploads/2016/09/GitHub_logo.png' style={{ width: '100px', height: '100px'}}></img>}
-					</NavLink>
+				<div id='about-me-links'>
+					<div id='indiv-button'>
+						{!sessionUser && <div>My Github</div>}
+						<Link to={{ pathname: "https://github.com/ChrisE1911" }}
+							target='_blank'
+							className='about-me-button-github'>
+							{!sessionUser && <img src='https://logos-download.com/wp-content/uploads/2016/09/GitHub_logo.png' style={{ width: '100px', height: '100px' }}></img>}
+						</Link>
+					</div>
+					<div id='indiv-button'>
+						{!sessionUser && <div>
+							My LinkedIn
+						</div>}
+						<Link
+							to={{ pathname: "https://www.linkedin.com/in/christopher-eatmon-b6a0aa17b" }}
+							target='_blank'
+							className='about-me-button-linkedin'>
+							{!sessionUser && <img src='https://static-00.iconduck.com/assets.00/linkedin-icon-512x512-dhkaf9ri.png' style={{ width: '100px', height: '100px' }}></img>}
+						</Link>
+					</div>
+
 
 				</div>
 			</div>
