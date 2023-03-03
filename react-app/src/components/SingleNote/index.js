@@ -16,6 +16,8 @@ function SingleNote() {
     const history = useHistory()
     const { noteId } = useParams()
     const singleNote = useSelector(state => state.noteReducer.singleNote)
+    const singleNoteArr = Object.values(singleNote)
+
 
 
 
@@ -28,7 +30,7 @@ function SingleNote() {
         alert('You have removed this note from its assigned notebook.')
     }
 
-    if (!singleNote) return null;
+    if (singleNoteArr.length === 0) return null;
     return (
         <>
             <div id='note-design-container'>

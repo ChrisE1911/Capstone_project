@@ -31,6 +31,7 @@ function SingleNotebook() {
         <>
             <h1 id='Notebooks-title'>{`Notes in this notebook - (${currentNotebook.name})`}</h1>
             <div id='notebook-notes-container'>
+            {notesForNotebook.length === 0 && <div>Navigate to the notes page to add some notes to see them here...</div>}
             {notesForNotebook.map((note, idx) => (
                 <Link to={`/notes`} onClick={() => dispatch(thunkGetOneNote(note.id))} className={idx % 2 === 0 ? 'notebook-notes-inner-container': 'notebook-notes-inner-container-two'} key={note.id}>
                     <div>{note.note_title}</div>

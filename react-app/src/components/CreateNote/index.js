@@ -48,6 +48,7 @@ function CreateNote() {
 
     if (createdNote) {
       await dispatch(thunkGetAllNotes()).then(() => dispatch(thunkGetOneNote(createdNote.id)));
+      history.push('/notes')
       closeModal();
     }
   }

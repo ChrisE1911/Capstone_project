@@ -35,6 +35,7 @@ function CreateNotebook() {
 
     if (createdNotebook) {
       await dispatch(thunkGetAllNotebooks());
+      history.push('/notebooks')
       closeModal()
     }
 
