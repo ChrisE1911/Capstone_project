@@ -60,7 +60,7 @@ function EditNotebook() {
 
         closeModal();
 
-        history.push('/notebooks');
+        await history.push('/notebooks');
 
         alert('Your notebook has been deleted.')
     }
