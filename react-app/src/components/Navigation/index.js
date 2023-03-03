@@ -1,5 +1,5 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useHistory } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import ProfileButton from './ProfileButton';
 import OpenModalButton from '../OpenModalButton';
@@ -10,6 +10,7 @@ import './Navigation.css';
 
 
 function Navigation({ isLoaded }) {
+	const history = useHistory()
 	const sessionUser = useSelector(state => state.session.user);
 
 	return (
@@ -44,6 +45,12 @@ function Navigation({ isLoaded }) {
 							<NavLink exact to="/notebooks">Notebooks</NavLink>
 						</li>}
 					</div>
+				</div>
+				<div id='about me links'>
+					<NavLink to="https://github.com/ChrisE1911">
+					{!sessionUser && <img src='https://logos-download.com/wp-content/uploads/2016/09/GitHub_logo.png' style={{ width: '100px', height: '100px'}}></img>}
+					</NavLink>
+
 				</div>
 			</div>
 		</ul>
