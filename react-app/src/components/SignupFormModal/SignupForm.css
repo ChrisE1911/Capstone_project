@@ -11,7 +11,7 @@
 
 .profile-dropdown button {
     background: transparent;
-     border: 2px solid red;
+     /* border: 2px solid red; */
     /* border-radius: 15px; */
     width: 100%;
     padding: 5px;
@@ -24,6 +24,6 @@
 
 .profile-dropdown button:hover {
     transition: 0.3s;
-    background: #216869;
-    color: black
+    background: gray;
+    color: rgb(255, 255, 255)
 }

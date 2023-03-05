@@ -1,8 +1,4 @@
 import './Splashpage.css'
-import { useEffect, useState } from 'react';
-import LoginFormModal from "../LoginFormModal";
-import OpenModalButton from '../OpenModalButton';
-import { colors } from './data'
 
 function SplashPage() {
 
