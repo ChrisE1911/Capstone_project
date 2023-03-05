@@ -4,5 +4,5 @@ from wtforms.validators import DataRequired, ValidationError
 
 
 class NoteForm(FlaskForm):
-    note_title = StringField('Title...', validators=[DataRequired()])
-    note_content = StringField('Write Away', validators=[DataRequired()])
+    note_title = StringField('Title...', validators=[DataRequired(message='Note title is required')])
+    note_content = StringField('Write Away', validators=[DataRequired(message='Note content is required.')])

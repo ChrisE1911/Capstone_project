@@ -4,4 +4,4 @@ from wtforms.validators import DataRequired, ValidationError
 
 
 class NotebookForm(FlaskForm):
-    name = StringField('Name', validators=[DataRequired()])
+    name = StringField('Name', validators=[DataRequired(message='Name is required.')])
