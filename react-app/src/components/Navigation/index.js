@@ -47,6 +47,9 @@ function Navigation({ isLoaded }) {
 					</div>
 				</div>
 				<div id='about-me-links'>
+					<div id='logo-filler'>
+						{!sessionUser && <div id='splash-page-h1-nav'>ETERNAL NOTE</div>}
+					</div>
 					<div id='indiv-button'>
 						{!sessionUser && <div>My Github</div>}
 						<Link to={{ pathname: "https://github.com/ChrisE1911" }}
