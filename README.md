@@ -1,148 +1,214 @@
-# Flask React Project
+# About  Eternal Note:
 
-This is the starter for the Flask React project.
+Eternal Note is a web application inspired by EverNote, that provides a platform for users to create notes and notebooks for organization as well as just for saving quick notes for split decisions, and/or on the go adventures or activities.
 
-## Getting started
-1. Clone this repository (only this branch)
+[Live Link to Website](https://eternalnote.onrender.com/)
 
-2. Install dependencies
+Please see the following project Wiki links below:
 
-      ```bash
-      pipenv install -r requirements.txt
-      ```
 
-3. Create a **.env** file based on the example with proper settings for your
-   development environment
+<!-- Improved compatibility of back to top link: See: https://github.com/othneildrew/Best-README-Template/pull/73 -->
+<a name="readme-top"></a>
+<!--
+*** Thanks for checking out the Best-README-Template. If you have a suggestion
+*** that would make this better, please fork the repo and create a pull request
+*** or simply open an issue with the tag "enhancement".
+*** Don't forget to give the project a star!
+*** Thanks again! Now go create something AMAZING! :D
+-->
 
-4. Make sure the SQLite3 database connection URL is in the **.env** file
 
-5. This starter organizes all tables inside the `flask_schema` schema, defined
-   by the `SCHEMA` environment variable.  Replace the value for
-   `SCHEMA` with a unique name, **making sure you use the snake_case
-   convention**.
 
-6. Get into your pipenv, migrate your database, seed your database, and run your Flask app
+<!-- PROJECT SHIELDS -->
+<!--
+*** I'm using markdown "reference style" links for readability.
+*** Reference links are enclosed in brackets [ ] instead of parentheses ( ).
+*** See the bottom of this document for the declaration of the reference variables
+*** for contributors-url, forks-url, etc. This is an optional, concise syntax you may use.
+*** https://www.markdownguide.org/basic-syntax/#reference-style-links
+-->
 
-   ```bash
-   pipenv shell
+
+
+<!-- TABLE OF CONTENTS -->
+<details>
+  <summary>Table of Contents</summary>
+  <ol>
+    <li>
+      <a href="#about-the-project">About The Project</a>
+      <ul>
+        <li><a href="#built-with">Built With</a></li>
+      </ul>
+    </li>
+    <li>
+      <a href="#getting-started">Getting Started</a>
+      <ul>
+        <li><a href="#installation">Installation</a></li>
+      </ul>
+    </li>
+    <li><a href="#usage">Usage</a></li>
+    <li><a href="#roadmap">Roadmap</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ol>
+</details>
+
+
+
+<!-- ABOUT THE PROJECT -->
+## About The Project
+
+![Eternal Note][splash-page]
+
+Eternal Note is a web application inspired by EverNote, that provides a platform for users to create notes and notebooks for organization as well as just for saving quick notes for split decisions, and/or on the go adventures or activities.
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+
+
+### Built With
+
+* ***React***
+* ***Redux***
+* ***Python***
+* ***Flask***
+* ***HTML5***
+* ***CSS***
+
+### Deployed With
+
+* ***Render***
+
+
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+
+
+<!-- GETTING STARTED -->
+## Getting Started
+
+Here are instructions on how to gain this repo as a local copy of your own:
+
+
+### Installation
+
+Here are some instructions on how to set up locally.
+
+1. Create a folder to hold the repo.
+
+2. Click on the green button above that says ***CODE*** and copy the repo url.
+
+3. Open up your terminal and navigate to the created folder used to hold the repo.
+
+4. Clone the repo
+   ```sh
+   git clone https://github.com/ChrisE1911/Capstone_project.git
+   ```
+5. Install NPM packages
+   ```sh
+   npm install
    ```
 
-   ```bash
-   flask db upgrade
-   ```
-
-   ```bash
-   flask seed all
-   ```
-
-   ```bash
-   flask run
-   ```
-
-7. To run the React App in development, checkout the [README](./react-app/README.md) inside the `react-app` directory.
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
-## Deployment through Render.com
 
-First, refer to your Render.com deployment articles for more detailed
-instructions about getting started with [Render.com], creating a production
-database, and deployment debugging tips.
+<!-- USAGE EXAMPLES -->
+## Usage
 
-From the [Dashboard], click on the "New +" button in the navigation bar, and
-click on "Web Service" to create the application that will be deployed.
+Here is some examples of the functionality within the site:
 
-Look for the name of the application you want to deploy, and click the "Connect"
-button to the right of the name.
+### Logging in
+Users will be able to log in with a previous account (if signed up in the past) or sign up and create a brand new account
+![Eternal Note][log-in]
 
-Now, fill out the form to configure the build and start commands, as well as add
-the environment variables to properly deploy the application.
+### Home Page
 
-### Part A: Configure the Start and Build Commands
+Users will be able to see a collection of all of their notes on the home page upon log in.
 
-Start by giving your application a name.
+![Eternal Note][home]
 
-Leave the root directory field blank. By default, Render will run commands from
-the root directory.
+### Notes/Notebooks Pages
 
-Make sure the Environment field is set set to "Python 3", the Region is set to
-the location closest to you, and the Branch is set to "main".
+Once logged in, users will be able to navigate through the notes and notebooks pages to see what has already been created within both categories.
+![Eternal Note][notebooks-page]
+![Eternal Note][notes-page]
 
-Next, add your Build command. This is a script that should include everything
-that needs to happen _before_ starting the server.
+### Creating a Note and a Notebook
 
-For your Flask project, enter the following command into the Build field, all in
-one line:
+Once a user is ready to create a note, clicking on ***New Note*** at the side of the page will take you to a form. Once the form is complete and every input field is valid, it will allow you to submit and create your own note.
 
-```shell
-# build command - enter all in one line
-npm install --prefix react-app &&
-npm run build --prefix react-app &&
-pip install -r requirements.txt &&
-pip install psycopg2 &&
-flask db upgrade &&
-flask seed all
-```
+Once your note is created you will be navigated to the page to view/edit details as you like. You can also create notebooks by clicking on ***New Notebook*** to put the newly created note inside of that said notebook.
 
-This script will install dependencies for the frontend, and run the build
-command in the __package.json__ file for the frontend, which builds the React
-application. Then, it will install the dependencies needed for the Python
-backend, and run the migration and seed files.
 
-Now, add your start command in the Start field:
 
-```shell
-# start script
-gunicorn app:app
-```
 
-_If you are using websockets, use the following start command instead for increased performance:_
 
-`gunicorn --worker-class eventlet -w 1 app:app`
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-### Part B: Add the Environment Variables
 
-Click on the "Advanced" button at the bottom of the form to configure the
-environment variables your application needs to access to run properly. In the
-development environment, you have been securing these variables in the __.env__
-file, which has been removed from source control. In this step, you will need to
-input the keys and values for the environment variables you need for production
-into the Render GUI.
 
-Click on "Add Environment Variable" to start adding all of the variables you
-need for the production environment.
+<!-- ROADMAP -->
+## Roadmap
 
-Add the following keys and values in the Render GUI form:
+Here are a few features that I look forward to implementing in the near future.
 
-- SECRET_KEY (click "Generate" to generate a secure secret for production)
-- FLASK_ENV production
-- FLASK_APP app
-- SCHEMA (your unique schema name, in snake_case)
-- REACT_APP_BASE_URL (use render.com url, located at top of page, similar to
-  https://this-application-name.onrender.com)
+-  Color Theme - Users will be able to switch between a light theme and a dark theme.
 
-In a new tab, navigate to your dashboard and click on your Postgres database
-instance.
+- AWS? - Still deciding between this feature and another potential feature that will be more intuitive for this application
 
-Add the following keys and values:
 
-- DATABASE_URL (copy value from Internal Database URL field)
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-_Note: Add any other keys and values that may be present in your local __.env__
-file. As you work to further develop your project, you may need to add more
-environment variables to your local __.env__ file. Make sure you add these
-environment variables to the Render GUI as well for the next deployment._
 
-Next, choose "Yes" for the Auto-Deploy field. This will re-deploy your
-application every time you push to main.
 
-Now, you are finally ready to deploy! Click "Create Web Service" to deploy your
-project. The deployment process will likely take about 10-15 minutes if
-everything works as expected. You can monitor the logs to see your build and
-start commands being executed, and see any errors in the build process.
 
-When deployment is complete, open your deployed site and check to see if you
-successfully deployed your Flask application to Render! You can find the URL for
-your site just below the name of the Web Service at the top of the page.
+<!-- CONTACT -->
+## Contact
 
-[Render.com]: https://render.com/
-[Dashboard]: https://dashboard.render.com/
+Project Link: [https://github.com/ChrisE1911/Capstone_project](https://github.com/ChrisE1911/Capstone_project)
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+
+
+
+
+
+
+<!-- MARKDOWN LINKS & IMAGES -->
+<!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
+[contributors-shield]: https://img.shields.io/github/contributors/github_username/repo_name.svg?style=for-the-badge
+[contributors-url]: https://github.com/github_username/repo_name/graphs/contributors
+[forks-shield]: https://img.shields.io/github/forks/github_username/repo_name.svg?style=for-the-badge
+[forks-url]: https://github.com/github_username/repo_name/network/members
+[stars-shield]: https://img.shields.io/github/stars/github_username/repo_name.svg?style=for-the-badge
+[stars-url]: https://github.com/github_username/repo_name/stargazers
+[issues-shield]: https://img.shields.io/github/issues/github_username/repo_name.svg?style=for-the-badge
+[issues-url]: https://github.com/github_username/repo_name/issues
+[license-shield]: https://img.shields.io/github/license/github_username/repo_name.svg?style=for-the-badge
+[license-url]: https://github.com/github_username/repo_name/blob/master/LICENSE.txt
+[linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
+[linkedin-url]: https://linkedin.com/in/linkedin_username
+[product-screenshot]: images/screenshot.png
+[Next.js]: https://img.shields.io/badge/next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white
+[Next-url]: https://nextjs.org/
+[React.js]: https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB
+[React-url]: https://reactjs.org/
+[Vue.js]: https://img.shields.io/badge/Vue.js-35495E?style=for-the-badge&logo=vuedotjs&logoColor=4FC08D
+[Vue-url]: https://vuejs.org/
+[Angular.io]: https://img.shields.io/badge/Angular-DD0031?style=for-the-badge&logo=angular&logoColor=white
+[Angular-url]: https://angular.io/
+[Svelte.dev]: https://img.shields.io/badge/Svelte-4A4A55?style=for-the-badge&logo=svelte&logoColor=FF3E00
+[Svelte-url]: https://svelte.dev/
+[Laravel.com]: https://img.shields.io/badge/Laravel-FF2D20?style=for-the-badge&logo=laravel&logoColor=white
+[Laravel-url]: https://laravel.com
+[Bootstrap.com]: https://img.shields.io/badge/Bootstrap-563D7C?style=for-the-badge&logo=bootstrap&logoColor=white
+[Bootstrap-url]: https://getbootstrap.com
+[JQuery.com]: https://img.shields.io/badge/jQuery-0769AD?style=for-the-badge&logo=jquery&logoColor=white
+[JQuery-url]: https://jquery.com
+[splash-page]: ./splash-page.png
+[home]: ./home.png
+[notebooks-page]: ./notebooks.png
+[notes-page]: ./notes.png
+[log-in]: ./log-in.png
