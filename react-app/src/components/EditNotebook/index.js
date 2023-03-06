@@ -76,7 +76,7 @@ function EditNotebook() {
                     ))}
                 </ul>
                 <label>
-                    Name
+                    Name*
                     <input
                         type="text"
                         value={name}

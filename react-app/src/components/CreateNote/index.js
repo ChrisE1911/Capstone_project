@@ -69,7 +69,7 @@ function CreateNote() {
         </ul>
         <div id="button-container">
           <label>
-            Title
+            Title*
             <input
               type="text"
               value={noteTitle}
@@ -79,7 +79,7 @@ function CreateNote() {
             />
           </label>
           <label>
-            Note
+            Note*
             <textarea
               value={noteContent}
               onChange={(e) => setNoteContent(e.target.value)}
