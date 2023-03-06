@@ -55,7 +55,7 @@ function CreateNotebook() {
                    ))}
                   </ul>
           <label>
-            Title
+            Title*
             <input
               type="text"
               value={name}

@@ -98,7 +98,7 @@ function EditNote() {
                         ))}
                     </ul>
                     <label>
-                        Title
+                        Title*
                         <input
                             type="text"
                             value={noteTitle}
@@ -108,7 +108,7 @@ function EditNote() {
                         />
                     </label>
                     <label>
-                        Note
+                        Note*
                         <textarea
                             type="text"
                             value={noteContent}
