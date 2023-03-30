@@ -46,7 +46,7 @@
     flex-direction: row;
     grid-gap: 50px;
     gap: 50px;
-    overflow: scroll;
+    overflow-x: scroll;
     padding-left: 30px;
     padding-right: 30px;
 }
