@@ -7,6 +7,7 @@ import OpenModalButton from '../OpenModalButton'
 import AddNotetoNotebook from '../AddNotetoNotebook'
 import MoveNotetoNotebook from '../MoveNotetoNotebook'
 import { thunkDeleteNotefromNotebook } from '../../store/note'
+import parse from "html-react-parser"
 import EditNote from '../EditNote'
 import './SingleNote.css'
 
@@ -36,7 +37,7 @@ function SingleNote() {
             <div id='note-design-container'>
                 <div className='single-note-container'>
                     {singleNote.note_title ? <h1>{`${singleNote.note_title}`}</h1> : <h1>Click on a note to view contents</h1>}
-                    <p>{singleNote.note_content}</p>
+                    <p>{parse(singleNote.note_content)}</p>
                     {/* <button onClick={() => history.push(`/notes/edit`)}>Edit Note</button> */}
                     <div id='button-container'>
                         {singleNote.note_title && <OpenModalButton
