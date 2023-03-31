@@ -4,6 +4,7 @@ import { thunkGetAllNotes } from '../../store/note'
 import { useHistory, Link } from 'react-router-dom'
 import SingleNote from '../SingleNote'
 import { thunkGetOneNote } from '../../store/note'
+import parse from 'html-react-parser'
 import './Notes.css'
 
 function Notes({ noteId }) {
@@ -37,7 +38,6 @@ function Notes({ noteId }) {
                                 <div id='side-panel-notes-content'>
                                     <div>
                                     <div id='title'>{note.note_title}</div>
-                                    <div>{`${note.note_content?.slice(0, 20)}...`}</div>
                                     </div>
                                     <div>{new Date(note.updated_at).toDateString().split(' ').splice(1, 2).join(' ')}</div>
                                 </div>

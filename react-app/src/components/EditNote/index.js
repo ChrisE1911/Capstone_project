@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react"
+import { useEffect, useState, useRef } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { useHistory } from "react-router-dom"
 import { thunkEditNote } from "../../store/note"
@@ -7,6 +7,8 @@ import { thunkGetOneNote } from "../../store/note"
 import { thunkDeleteNote } from "../../store/note"
 import { thunkGetAllNotes } from "../../store/note"
 import { useModal } from "../../context/Modal"
+import ReactQuill from 'react-quill';
+import 'react-quill/dist/quill.snow.css';
 
 
 function EditNote() {
@@ -22,6 +24,7 @@ function EditNote() {
     const [noteTitle, setNoteTitle] = useState(currentNote.note_title)
     const [noteContent, setNoteContent] = useState(currentNote.note_content)
     const [errors, setErrors] = useState([])
+    const quillRef = useRef();
 
     console.log('CURRENT NOTE', currentNote.id)
 
@@ -45,6 +48,10 @@ function EditNote() {
         setErrors(errors)
     }, [noteTitle, noteContent])
 
+    const updateContent = (value) => {
+        setNoteContent(value)
+    }
+
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -61,12 +68,12 @@ function EditNote() {
 
         if (editedNote?.length > 0) {
             setErrors(editedNote)
-          } else {
+        } else {
             await dispatch(thunkGetAllNotes()).then(() => dispatch(thunkGetOneNote(editedNote.id)));
             history.push('/notes')
             closeModal();
-          }
         }
+    }
 
     const handleDelete = async (noteId) => {
 
@@ -91,12 +98,7 @@ function EditNote() {
         <>
             <form className="create-note-container" onSubmit={handleSubmit}>
                 <div id='create-note-inner-container'>
-                    <h1>What's on the to-do list for today...</h1>
-                    <ul>
-                        {errors.map((error, idx) => (
-                            <li key={idx}>{error}</li>
-                        ))}
-                    </ul>
+                    <h1>Edit Note...</h1>
                     <label>
                         Title*
                         <input
@@ -107,15 +109,21 @@ function EditNote() {
                             required
                         />
                     </label>
-                    <label>
-                        Note*
-                        <textarea
-                            type="text"
-                            value={noteContent}
-                            onChange={(e) => setNoteContent(e.target.value)}
-                            required
-                        />
-                    </label>
+                    <br />
+                    <ReactQuill value={noteContent} onChange={updateContent} modules={{
+                        toolbar: [
+                            [{ header: [1, 2, 3, false] }],
+                            ['bold', 'italic', 'underline', 'strike'],
+                            [{ list: 'ordered' }, { list: 'bullet' }],
+                            [{ color: [] }, { background: [] }],
+                            ['clean'],
+                        ],
+                    }} />
+                    <ul>
+                        {errors.map((error, idx) => (
+                            <li key={idx}>{error}</li>
+                        ))}
+                    </ul>
                     <button className='universal-button' type="submit">Edit</button>
                     <button onClick={() => handleDelete(currentNote.id)} className='universal-button'>Delete Note</button>
                 </div>

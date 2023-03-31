@@ -131,7 +131,7 @@ export const thunkEditNote = (noteId, note) => async (dispatch) => {
         headers: {
             "Content-Type": "application/json",
         },
-        body: JSON.stringify(note)
+        body: JSON.stringify( note )
     })
 
     if (response.ok) {
