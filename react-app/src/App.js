@@ -16,6 +16,7 @@ import SingleNotebook from "./components/SingleNotebook";
 import EditNotebook from "./components/EditNotebook";
 import CreateNotebook from "./components/CreateNotebook";
 import ErrorPage from "./components/ErrorPage";
+import Tasks from "./components/Tasks";
 
 function App() {
   const dispatch = useDispatch();
@@ -46,6 +47,9 @@ function App() {
           </Route>
           <Route exact path="/notes">
             <Notes />
+          </Route>
+          <Route exact path="/tasks">
+            <Tasks />
           </Route>
           <Route exact path="/notebooks">
             <Notebooks />

@@ -44,6 +44,9 @@ function Navigation({ isLoaded }) {
 						{sessionUser && <li>
 							<NavLink exact to="/notebooks">Notebooks</NavLink>
 						</li>}
+						{sessionUser && <li>
+							<NavLink exact to="/tasks">Tasks</NavLink>
+						</li>}
 					</div>
 				</div>
 				<div id='about-me-links'>
