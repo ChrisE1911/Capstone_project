@@ -30,6 +30,9 @@ function App() {
       <Navigation isLoaded={isLoaded} />
       {isLoaded && (
         <Switch>
+          <Route exact path="/tasks">
+            <Tasks />
+          </Route>
           <Route exact path="/login" >
             <LoginFormPage />
           </Route>
@@ -47,9 +50,6 @@ function App() {
           </Route>
           <Route exact path="/notes">
             <Notes />
-          </Route>
-          <Route exact path="/tasks">
-            <Tasks />
           </Route>
           <Route exact path="/notebooks">
             <Notebooks />
