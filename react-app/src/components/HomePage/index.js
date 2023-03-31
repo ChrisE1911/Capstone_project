@@ -33,7 +33,6 @@ function HomePage() {
                                 <div id='notes-content'>
                                     <div id='inner-notes-content'>
                                         <div>{note.note_title?.slice(0,6)}</div>
-                                        <div>{`${note.note_content?.slice(0, 6)}...`}</div>
                                     </div>
                                     <div>{new Date(note.updated_at).toDateString().split(' ').splice(1, 2).join(' ')}</div>
                                 </div>
