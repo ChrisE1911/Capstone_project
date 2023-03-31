@@ -99,7 +99,7 @@ export default function taskReducer(state = initialState, action) {
         case UPDATE_TASKS:
             newState = { ...state }
             const editedTask = action.payload
-            delete newState.allTask[editedTask.id]
+            delete newState.allTasks[editedTask.id]
             newState.allTasks[action.payload.id] = editedTask
             return newState
         case REMOVE_TASKS:
