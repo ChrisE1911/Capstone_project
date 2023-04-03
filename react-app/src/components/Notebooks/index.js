@@ -2,6 +2,8 @@ import { useDispatch, useSelector } from 'react-redux'
 import { useEffect, useState } from 'react'
 import { thunkGetAllNotebooks } from '../../store/notebook'
 import { Link, useHistory } from 'react-router-dom'
+import OpenModalButton from '../OpenModalButton'
+import CreateNotebook from '../CreateNotebook'
 import './Notebooks.css'
 
 function Notebooks() {
@@ -27,7 +29,15 @@ function Notebooks() {
                 <div className='inner-noteboooks-container'>
                     <h1>NoteBooks</h1>
                     <br />
-                    <div>{`${allNotebooksArr.length} notebooks`}</div>
+                    <div id='inner-notebooks-container-title-bar'>
+                        <div>{`${allNotebooksArr.length} notebooks`}</div>
+                        {sessionUser && <OpenModalButton
+							buttonText="New Notebook"
+							modalComponent={<CreateNotebook />}>
+						</OpenModalButton>}
+                    </div>
+                    <br />
+                    <hr />
                     <br />
                     <div id='column-titles'>
                         <div>Title</div>

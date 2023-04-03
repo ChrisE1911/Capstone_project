@@ -23,17 +23,6 @@ function Navigation({ isLoaded }) {
 
 				)}
 				<div id='component-buttons'>
-					<div id='component-buttons-one'>
-						{sessionUser && <OpenModalButton
-							buttonText="New Note"
-							className=""
-							modalComponent={<CreateNote />}>
-						</OpenModalButton>}
-						{sessionUser && <OpenModalButton
-							buttonText="New Notebook"
-							modalComponent={<CreateNotebook />}>
-						</OpenModalButton>}
-					</div>
 					<div id='component-buttons-two'>
 						{sessionUser && <li>
 							<NavLink exact to="/home">Home</NavLink>

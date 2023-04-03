@@ -52,10 +52,10 @@ function ProfileButton({ user }) {
     <>
       <div className="profile-top-left-container">
         <button className="profile-letter-button" onClick={openMenu}>
-          {user?.firstname.slice(0, 1).toUpperCase()}
+          {user && user?.firstname.slice(0, 1).toUpperCase()}
         </button>
         <div id="profile-name">
-          {`${user.firstname} ${user.lastname}`}
+          {user && `${user.firstname} ${user.lastname}`}
         </div>
       </div>
       <br />
