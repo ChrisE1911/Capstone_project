@@ -50,6 +50,11 @@
   align-items: center;
   justify-content: space-between;
   padding-top: 10px;
+  width: 100%;
+}
+
+.button-container li {
+  width: 100%;
 }
 
 #component-buttons {
@@ -159,11 +164,11 @@
 }
 
 .profile-letter-button:hover {
-    transition: 0.3s;
-    background: linear-gradient(#216869, #9CC5A1);
-    border: inset 1px #216869;
-    box-shadow: 0px 0px 30px #9cc5a1;
-    color: White
+  transition: 0.3s;
+  background: linear-gradient(#216869, #9CC5A1);
+  border: inset 1px #216869;
+  box-shadow: 0px 0px 30px #9cc5a1;
+  color: White
 }
 
 #profile-info {
@@ -221,4 +226,113 @@
   position: relative;
   bottom: 18px;
   font-size: x-large
+}
+
+.profile-top-left-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  grid-gap: 15%;
+  gap: 13%;
+}
+
+#profile-name {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.dropdown-container {
+  position: relative;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.dropdown-button {
+  background-color: #f5f5f5;
+  border: 1px solid #ddd;
+  border-radius: 3px;
+  color: #333;
+  cursor: pointer;
+  padding: 4px;
+  width: 80%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.dropdown-menu {
+  background-color: #f5f5f5;
+  border: 1px solid #ddd;
+  border-radius: 3px;
+  position: absolute;
+  top: 100%;
+  width: 80%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  opacity: 0;
+  pointer-events: none;
+  transform-origin: top center;
+}
+
+.dropdown-item {
+  color: #333;
+  display: block;
+  text-decoration: none;
+  display: flex;
+  flex-direction: row;
+  grid-gap: 4%;
+  grid-gap: 4%;
+  gap: 4%;
+  padding-left: 6%;
+  padding-right: 6%;
+  margin: 5%;
+}
+
+.dropdown-item:hover {
+  transition: 0.3s;
+  background-color: #ddd;
+}
+
+.open-carrot {
+  transform: rotate(180deg);
+}
+
+#plus-new {
+  display: flex;
+  flex-direction: row;
+  gap: 8%;
+  width: 50%;
+}
+
+.open {
+  opacity: 1;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  pointer-events: auto;
+  transform: scaleY(1);
+}
+
+#dropdown-buttons {
+  width: 100%;
+}
+
+#dropdown-buttons button {
+  width: 100%;
+  display: flex;
+  border: none;
+  background-color: #f5f5f5;
+  font-family: 'Dancing Script', cursive;
+  font-family: 'Raleway', sans-serif;
+}
+
+#dropdown-buttons button:hover {
+  transition: 0.3s;
+  background-color: #ddd;
 }

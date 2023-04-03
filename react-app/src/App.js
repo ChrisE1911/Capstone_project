@@ -30,7 +30,7 @@ function App() {
       <Navigation isLoaded={isLoaded} />
       {isLoaded && (
         <Switch>
-          <Route exact path="/tasks">
+          <Route exact path="/all-tasks">
             <Tasks />
           </Route>
           <Route exact path="/login" >
