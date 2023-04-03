@@ -13,6 +13,7 @@ function ProfileButton({ user }) {
   const [showMenu, setShowMenu] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
   const ulRef = useRef();
+  const newDropdownRef = useRef(null)
   const history = useHistory()
 
   const openMenu = () => {
@@ -23,6 +24,12 @@ function ProfileButton({ user }) {
   const toggleDropdown = () => {
     setIsOpen(!isOpen);
   };
+
+  useEffect(() => {
+    document.addEventListener("click", handleClickOutside)
+
+    return () => document.removeEventListener("click", handleClickOutside)
+  }, [])
 
   useEffect(() => {
     if (!showMenu) return;
@@ -37,6 +44,12 @@ function ProfileButton({ user }) {
 
     return () => document.removeEventListener("click", closeMenu);
   }, [showMenu]);
+
+  const handleClickOutside = (e) => {
+    if (newDropdownRef.current && !newDropdownRef.current.contains(e.target)) {
+      setIsOpen(false)
+    }
+  }
 
   const handleLogout = (e) => {
     e.preventDefault();
@@ -61,7 +74,7 @@ function ProfileButton({ user }) {
       <br />
       <br />
       <br />
-      <div className="dropdown-container">
+      <div className="dropdown-container" ref={newDropdownRef}>
         <button className="dropdown-button" onClick={toggleDropdown}>
           <div id="plus-new">
             <i class="fa-light fa-plus"></i>
