@@ -78,14 +78,14 @@ function ProfileButton({ user }) {
         <button className="dropdown-button" onClick={toggleDropdown}>
           <div id="plus-new">
             <i class="fa-light fa-plus"></i>
-            <div>New</div>
+            <div style={{fontFamily: 'Dancing Script, cursive', fontFamily: 'Raleway, sans-serif'}}>New</div>
           </div>
           <i className={`fa-solid fa-angle-up ${isOpen ? 'open-carrot' : ''}`}></i>
         </button>
         {isOpen && (
           <div className={`dropdown-menu ${isOpen ? 'open' : ''}`}>
             <a href="#" className="dropdown-item">
-              <i class="fa-solid fa-note-sticky"></i>
+              <i class="fa-solid fa-note-sticky" style={{color: '#216869'}}></i>
               <div id="dropdown-buttons">
                 {user && <OpenModalButton
                   buttonText="Note"
@@ -95,7 +95,7 @@ function ProfileButton({ user }) {
               </div>
             </a>
             <a href="#" className="dropdown-item">
-              <i class="fa-solid fa-circle-check"></i>
+              <i class="fa-solid fa-circle-check" style={{color: '#216869'}}></i>
               <div>
                 Tasks
               </div>

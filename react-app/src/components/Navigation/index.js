@@ -23,20 +23,22 @@ function Navigation({ isLoaded }) {
 
 				)}
 				<div id='component-buttons'>
-					<div id='component-buttons-two'>
-						{sessionUser && <li>
-							<NavLink exact to="/home">Home</NavLink>
-						</li>}
-						{sessionUser && <li>
-							<NavLink exact to="/notes">Notes</NavLink>
-						</li>}
-						{sessionUser && <li>
-							<NavLink exact to="/notebooks">Notebooks</NavLink>
-						</li>}
-						{sessionUser && <li>
-							<NavLink exact to="/all-tasks">Tasks</NavLink>
-						</li>}
-					</div>
+					{sessionUser && <li>
+						<i class="fa-solid fa-house"></i>
+						<NavLink exact to="/home">Home</NavLink>
+					</li>}
+					{sessionUser && <li>
+						<i class="fa-solid fa-note-sticky"></i>
+						<NavLink exact to="/notes">Notes</NavLink>
+					</li>}
+					{sessionUser && <li>
+						<i class="fa-solid fa-circle-check"></i>
+						<NavLink exact to="/all-tasks">Tasks</NavLink>
+					</li>}
+					{sessionUser && <li>
+						<i class="fa-solid fa-book"></i>
+						<NavLink exact to="/notebooks">Notebooks</NavLink>
+					</li>}
 				</div>
 				<div id='about-me-links'>
 					<div id='logo-filler'>
