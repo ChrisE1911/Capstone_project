@@ -19,11 +19,17 @@ body {
 
 .splash-container-content {
   position: absolute;
-  display: fllex;
+  z-index: 1001;
+  width: 100vw;
+  height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+
+}
+
+.splash-container-content h1 {
+  font-size: xxx-large
 }
 
 .splash-container img {
@@ -32,6 +38,25 @@ body {
   border-radius: 230px;
   border-right: 15px solid #21686985;
   box-shadow: 17px 5px 5px #ffffff36;
+}
+
+#splash-page-buttons {
+  flex-direction: row;
+  gap: 8%;
+  width: 20%;
+  display: flex;
+}
+
+#splash-page-buttons button {
+  background: transparent;
+  border: 2px solid white;
+  color: white;
+  padding: 5%;
+}
+
+#splash-page-buttons button:hover {
+  transition: 0.3s;
+  background-image: linear-gradient(80deg, #21686985, #49A078);
 }
 
 #splash-page-h1 {
