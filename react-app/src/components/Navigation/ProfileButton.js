@@ -74,7 +74,7 @@ function ProfileButton({ user }) {
       <br />
       <br />
       <br />
-      <div className="dropdown-container" ref={newDropdownRef}>
+      {user && <div className="dropdown-container" ref={newDropdownRef}>
         <button className="dropdown-button" onClick={toggleDropdown}>
           <div id="plus-new">
             <i class="fa-light fa-plus"></i>
@@ -102,7 +102,7 @@ function ProfileButton({ user }) {
             </a>
           </div>
         )}
-      </div>
+      </div>}
       <ul className={ulClassName} ref={ulRef}>
         {user ? (
           <>

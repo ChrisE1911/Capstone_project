@@ -3,15 +3,13 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 15vw;
+  width: 17vw;
   padding: 0;
   list-style: none;
   flex-direction: column;
   background: linear-gradient(#216869, black);
-  right: 0px;
   grid-gap: 10px;
-  gap: 10px;
-  margin-top: 10px
+  top: 6%;
 }
 
 .hidden {
