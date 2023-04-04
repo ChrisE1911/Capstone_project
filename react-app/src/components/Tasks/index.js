@@ -1,12 +1,16 @@
 import { useDispatch, useSelector } from 'react-redux'
-import { useEffect, useState } from 'react'
+import { useEffect } from 'react'
 import { thunkGetAllTasks } from '../../store/task'
-import { Link, useHistory } from 'react-router-dom'
+import "./Tasks.css"
+
 
 
 function Tasks() {
     const dispatch = useDispatch()
-    const history = useHistory()
+    const tasks = useSelector(state => state.taskReducer.allTasks)
+    const tasks_arr = Object.values(tasks)
+
+    console.log(tasks_arr)
 
     useEffect(() => {
         dispatch(thunkGetAllTasks())
@@ -14,7 +18,16 @@ function Tasks() {
 
     return (
         <div className="notebooks-container">
-            <h1>Hello World</h1>
+            <h1>Tasks List</h1>
+            <div className='task-list'>
+                <ul>
+                    {tasks_arr.map((task) => (
+                        <li id='task-list-one'>
+                            {task.task_content}
+                        </li>
+                    ))}
+                </ul>
+            </div>
         </div>
     )
 }

@@ -24,7 +24,7 @@ const removeTasksAC = data => ({
 
 
 export const thunkGetAllTasks = () => async (dispatch) => {
-    const response = await fetch("/api/tasks/all");
+    const response = await fetch("/api/tasks/all")
 
     if (response.ok) {
         const data = await response.json()
@@ -32,6 +32,7 @@ export const thunkGetAllTasks = () => async (dispatch) => {
         return data
     }
 }
+
 export const thunkAddTasks = (task) => async (dispatch) => {
     const response = await fetch("/api/tasks/add", {
         method: "POST",
@@ -89,24 +90,75 @@ export default function taskReducer(state = initialState, action) {
                 newTasks[task.id] = task
             })
             newState.allTasks = newTasks
+            // newState.singleNote = {}
             return newState
-        case ADD_TASKS:
-            newState = { ...state }
-            const newTask = action.payload
-            const newTaskState = { ...newState.allTasks, newTask }
-            newState.allTasks = newTaskState
-            return newState
-        case UPDATE_TASKS:
-            newState = { ...state }
-            const editedTask = action.payload
-            delete newState.allTasks[editedTask.id]
-            newState.allTasks[action.payload.id] = editedTask
-            return newState
-        case REMOVE_TASKS:
-            newState = { ...state }
-            delete newState.allTasks[action.payload]
-            return newState
+        // case GET_ONE_NOTE:
+        //     return { ...state, singleNote: action.payload }
+        // case CREATE_NOTE:
+        //     newState = { ...state }
+        //     const newNote = action.payload
+        //     const newNoteState = { ...newState.allNotes, newNote }
+        //     newState.allNotes = newNoteState
+        //     return newState
+        // case EDIT_NOTE:
+        //     newState = { ...state }
+        //     const editedNote = action.payload
+        //     delete newState.allNotes[editedNote.id]
+        //     newState.allNotes[action.payload.id] = editedNote
+        //     newState.singleNote = editedNote
+        //     return newState
+        // case DELETE_NOTE:
+        //     newState = { ...state }
+        //     delete newState.allNotes[action.payload]
+        //     return newState
+        // case ADD_NOTE_TO_NOTEBOOK:
+        //     newState = { ...state }
+        //     const addedNote = action.payload
+        //     delete newState.allNotes[addedNote.id]
+        //     newState.allNotes[action.payload.id] = addedNote
+        //     newState.singleNote = addedNote
+        //     return newState
+        // case DELETE_NOTE_TO_NOTEBOOK:
+        //     newState = { ...state }
+        //     const deletedNote = action.payload
+        //     delete newState.allNotes[deletedNote.id]
+        //     newState.singleNote = {}
+        //     return newState
         default:
             return state
     }
 }
+
+
+
+// export default function taskReducer(state = initialState, action) {
+//     let newState;
+//     switch (action.type) {
+//         case GET_TASKS:
+//             newState = { ...state }
+//             const newTasks = {}
+//             action.payload.forEach((task) => {
+//                 newTasks[task.id] = task
+//             })
+//             newState.allTasks = newTasks
+//             return newState
+//         case ADD_TASKS:
+//             newState = { ...state }
+//             const newTask = action.payload
+//             const newTaskState = { ...newState.allTasks, newTask }
+//             newState.allTasks = newTaskState
+//             return newState
+//         case UPDATE_TASKS:
+//             newState = { ...state }
+//             const editedTask = action.payload
+//             delete newState.allTasks[editedTask.id]
+//             newState.allTasks[action.payload.id] = editedTask
+//             return newState
+//         case REMOVE_TASKS:
+//             newState = { ...state }
+//             delete newState.allTasks[action.payload]
+//             return newState
+//         default:
+//             return state
+//     }
+// }

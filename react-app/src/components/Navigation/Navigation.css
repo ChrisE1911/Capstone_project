@@ -25,7 +25,7 @@
   height: 100%;
   left: 0;
   background: black;
-  width: 15vw;
+  width: 17vw;
   overflow: hidden;
   transition: width 0.2s linear;
   margin: 0;
@@ -38,26 +38,51 @@
   z-index: 1000;
 }
 
-.nav-bar:hover {
-  transition: 0.3s;
-  background-color: rgba(46, 41, 41, 0.65);
-}
 
 .button-container {
   display: flex;
   height: 80vh;
   flex-direction: column;
   align-items: center;
-  justify-content: space-between;
   padding-top: 10px;
+  width: 100%;
+  gap: 4%;
+}
+
+.button-container li {
+  width: 100%;
 }
 
 #component-buttons {
   display: flex;
-  align-items: center;
-  justify-content: center;
   flex-direction: column;
-  gap: 100px;
+  width: 100%;
+}
+
+#component-buttons li {
+  display: flex;
+  flex-direction: row;
+  gap: 9%;
+  padding-left: 8%;
+  align-items: center;
+  width: 92%;
+  height: 28px;
+  color: #216869
+}
+
+#component-buttons li:hover {
+  transition:0.3s;
+  background-color: rgb(72, 72, 72);
+}
+
+#component-buttons li:hover i {
+  transition: 0.3s;
+  color: #9CC5A1
+}
+
+#component-buttons li a {
+  color: white;
+  text-decoration: none;
 }
 
 #component-buttons-one {
@@ -159,11 +184,11 @@
 }
 
 .profile-letter-button:hover {
-    transition: 0.3s;
-    background: linear-gradient(#216869, #9CC5A1);
-    border: inset 1px #216869;
-    box-shadow: 0px 0px 30px #9cc5a1;
-    color: White
+  transition: 0.3s;
+  background: linear-gradient(#216869, #9CC5A1);
+  border: inset 1px #216869;
+  box-shadow: 0px 0px 30px #9cc5a1;
+  color: White
 }
 
 #profile-info {
@@ -221,4 +246,126 @@
   position: relative;
   bottom: 18px;
   font-size: x-large
+}
+
+.profile-top-left-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  grid-gap: 15%;
+  gap: 13%;
+}
+
+#profile-name {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.dropdown-container {
+  position: relative;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.dropdown-button {
+  background: linear-gradient(#216869, #9CC5A1);
+  border: 1px solid #ddd;
+  border-radius: 20px;
+  color: #333;
+  cursor: pointer;
+  padding: 4px;
+  width: 80%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  height: 30px;
+}
+
+.dropdown-menu {
+  background-color: #f5f5f5;
+  border: 1px solid #ddd;
+  border-radius: 3px;
+  position: absolute;
+  top: 120%;
+  width: 80%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  opacity: 0;
+  pointer-events: none;
+  transform-origin: top center;
+}
+
+.dropdown-item {
+  color: #333;
+  text-decoration: none;
+  display: flex;
+  flex-direction: row;
+  gap: 4%;
+  padding-left: 6%;
+  padding-right: 6%;
+  margin: 3%;
+  border-radius: 20px;
+  background: white;
+  height: 30px;
+  align-items: center;
+}
+
+/* .dropdown-item:hover {
+  transition: 0.3s;
+  background-color: #ddd;
+} */
+
+.open-carrot {
+  color: white;
+  transform: rotate(180deg);
+}
+
+#plus-new {
+  display: flex;
+    flex-direction: row;
+    grid-gap: 8%;
+    gap: 8%;
+    width: 50%;
+    color: white;
+}
+
+.open {
+  opacity: 1;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  pointer-events: auto;
+  transform: scaleY(1);
+  background-color: rgb(72, 72, 72);
+}
+
+#dropdown-buttons {
+  width: 100%;
+}
+
+#dropdown-buttons button {
+  width: 100%;
+  display: flex;
+  border: none;
+  background-color: white;
+  font-family: 'Dancing Script', cursive;
+  font-family: 'Raleway', sans-serif;
+  color: black
+}
+
+
+
+/* #dropdown-buttons button:hover {
+  transition: 0.3s;
+  color: #ddd
+} */
+
+#dropdown-buttons  {
+  color: black
 }
