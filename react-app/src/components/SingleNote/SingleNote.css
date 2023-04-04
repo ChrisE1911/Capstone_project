@@ -8,6 +8,10 @@
     gap: 60px;
 }
 
+.single-note-container p {
+    font-family: none
+}
+
 #button-container {
     display: flex;
     flex-direction: column;

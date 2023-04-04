@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
-import { Route, Switch } from "react-router-dom";
+import { Route, Switch, useLocation } from "react-router-dom";
 import SignupFormPage from "./components/SignupFormPage";
 import LoginFormPage from "./components/LoginFormPage";
 import Notes from "./components/Notes";
@@ -20,14 +20,17 @@ import Tasks from "./components/Tasks";
 
 function App() {
   const dispatch = useDispatch();
+  const location = useLocation()
   const [isLoaded, setIsLoaded] = useState(false);
   useEffect(() => {
     dispatch(authenticate()).then(() => setIsLoaded(true));
   }, [dispatch]);
 
+  const isSplashPage = location.pathname === "/"
+
   return (
     <>
-      <Navigation isLoaded={isLoaded} />
+      {!isSplashPage && <Navigation isLoaded={isLoaded} />}
       {isLoaded && (
         <Switch>
           <Route exact path="/all-tasks">
@@ -67,7 +70,7 @@ function App() {
             <HomePage />
           </Route>
           <Route exact path="/">
-            <SplashPage />
+            <SplashPage isLoaded={isLoaded} />
           </Route>
           <Route exact path="/unknown">
             <ErrorPage />
