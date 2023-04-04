@@ -1,12 +1,15 @@
 .splash-container {
-  margin-left: 15vw;
-  width: 85vw;
+  width: 100vw;
   height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-image: linear-gradient(80deg, rgb(21, 118, 156), black);
+  overflow: hidden;
+}
+
+html,
+body {
   overflow: hidden;
 }
 
@@ -32,10 +35,47 @@
 }
 
 #splash-page-h1 {
-  font-family: 'Rampart One', cursive;
-  font-size: xxx-large;
-  width: 50%;
-  text-align: center;
+  font-family: 'Dancing Script', cursive;
+  font-family: 'Raleway', sans-serif;
+  font-size: x-large;
+  width: 100%;
+  padding-left: 2%;
+
+}
+
+#splash-top-bar-title-logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  padding-left: 10%;
+  padding-right: 10%;
+  width: 90%;
+}
+
+#e-circle-logo {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  color: rgba(255, 255, 255, 0.886);
+  background-image: linear-gradient(80deg, #21686985, #49A078);
+}
+
+#e-circle-logo i {
+  font-family: 'Dancing Script', cursive;
+  font-family: 'Raleway', sans-serif;
+  font-size: x-large
+}
+
+.splash-top-bar {
+  width: 100vw;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 10vh;
 }
 
 #splash-page-h1-nav {
@@ -45,7 +85,7 @@
   justify-content: center;
   align-items: center;
   display: flex;
-  
+
 }
 
 #thought-bubble {
@@ -70,12 +110,12 @@
 
 #thought-bubble-tail-one {
   width: 4px;
-    height: 4px;
-    border-radius: 100%;
-    border: 2px solid red;
-    position: relative;
-    right: 18vw;
-    top: 18vh;
+  height: 4px;
+  border-radius: 100%;
+  border: 2px solid red;
+  position: relative;
+  right: 18vw;
+  top: 18vh;
 }
 
 #splashpage-button {
@@ -102,76 +142,88 @@
 
 #up {
   position: absolute;
-  height: 800px;
-  width: 800px;
+  height: 400px;
+  width: 400px;
   border-radius: 50%;
   background-image: linear-gradient(80deg, rgb(85, 85, 85), teal);
   filter: blur(40px);
-  animation: up 30s infinite;
+  animation: up 20s infinite;
 }
 
 #down {
   position: absolute;
-  height: 500px;
-  width: 500px;
+  height: 400px;
+  width: 400px;
   border-radius: 50%;
   background-image: linear-gradient(80deg, teal, rgb(255, 255, 255));
   filter: blur(40px);
-  animation: down 40s infinite;
+  animation: down 30s infinite;
 }
 
 #left {
   position: absolute;
-  height: 500px;
-  width: 500px;
+  height: 400px;
+  width: 400px;
   border-radius: 50%;
   background-image: linear-gradient(80deg, black, #49A078);
   filter: blur(40px);
-  animation: left 45s infinite;
+  animation: left 40s infinite;
 }
 
 #right {
   position: absolute;
-  height: 500px;
-  width: 500px;
+  height: 400px;
+  width: 400px;
   border-radius: 50%;
   background-image: linear-gradient(80deg, #21686985, #49A078);
   filter: blur(40px);
-  animation: right 25s infinite;
+  animation: right 50s infinite;
 }
 
 @keyframes down {
-  0%, 100%{
-    top: -100px
+
+  0%,
+  100% {
+    top: 5%
   }
-  70%{
-    top: 700px
+
+  70% {
+    top: 45%
   }
 }
 
 @keyframes up {
-  0%, 100%{
-    bottom: 700px
+
+  0%,
+  100% {
+    bottom: 5%
   }
-  70%{
-    bottom: -700px
+
+  70% {
+    bottom: 45%
   }
 }
 
 @keyframes left {
-  0%, 100%{
-    left: -700px
+
+  0%,
+  100% {
+    left: 5%
   }
-  70%{
-    left: 700px
+
+  70% {
+    left: 45%
   }
 }
 
 @keyframes right {
-  0%, 100%{
-    right: 700px
+
+  0%,
+  100% {
+    right: 5%
   }
-  70%{
-    right: -700px
+
+  70% {
+    right: 45%
   }
 }
