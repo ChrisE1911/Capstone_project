@@ -1,7 +1,10 @@
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
+import { useSelector } from "react-redux";
 import { login } from "../../store/session";
 import { useDispatch } from "react-redux";
 import { useModal } from "../../context/Modal";
+import OpenModalButton from "../OpenModalButton";
+import SignupFormModal from "../SignupFormModal";
 import { useHistory } from "react-router-dom";
 import "./LoginForm.css";
 
@@ -10,12 +13,39 @@ function LoginFormModal() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [errors, setErrors] = useState([]);
-  const { closeModal } = useModal();
+  const [showMenu, setShowMenu] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
+  const ulRef = useRef();
+  const newDropdownRef = useRef(null)
   const history = useHistory()
+  const sessionUser = useSelector(state => state.session.user);
+
+  const { closeModal } = useModal();
   const demoUser = () => {
     setEmail('demo@aa.io');
     setPassword('password');
   }
+
+  const openMenu = () => {
+    if (showMenu) return;
+    setShowMenu(true);
+  };
+
+  useEffect(() => {
+    if (!showMenu) return;
+
+    const closeMenu = (e) => {
+      if (!ulRef?.current?.contains(e.target)) {
+        setShowMenu(false);
+      }
+    };
+
+    document.addEventListener("click", closeMenu);
+
+    return () => document.removeEventListener("click", closeMenu);
+  }, [showMenu]);
+
+  const closeMenu = () => setShowMenu(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -32,6 +62,13 @@ function LoginFormModal() {
   return (
     <>
       <h1>Log In</h1>
+      <div style={{textAlign: "center"}}>
+        <OpenModalButton
+          buttonText="Don't have an account? Create one"
+          onItemClick={closeMenu}
+          modalComponent={<SignupFormModal />}
+        />
+      </div>
       <form onSubmit={handleSubmit}>
         <div id="create-note-inner-container">
           <ul>
