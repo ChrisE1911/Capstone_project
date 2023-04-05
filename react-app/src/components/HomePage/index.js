@@ -9,9 +9,11 @@ function HomePage() {
     const dispatch = useDispatch()
     const history = useHistory()
     const all_notes = useSelector((state) => state.noteReducer.allNotes)
+    const sessionUser = useSelector((state) => state.session.user)
     const all_notes_arr = Object.values(all_notes)
 
 
+    const date = new Date(Date.now()).toDateString()
 
 
 
@@ -22,6 +24,10 @@ function HomePage() {
     if (all_notes_arr.length === 0) return <h1 id='no-notebooks'>Please create a note to view it here...</h1>;
     return (
         <>
+            <div>
+                <h3 style={{ marginLeft: '21vw' }}>{`Hello, ${sessionUser.firstname}!`}</h3>
+                <h4>{date}</h4>
+            </div>
             <ul className='notes-container'>
                 <div id='notes-additional-style-container'>
                     <div id='notes-title-container'>
