@@ -52,10 +52,10 @@ body {
   border: 2px solid white;
   color: white;
   padding: 5%;
+  border-radius: 5px;
 }
 
 #splash-page-buttons button:hover {
-  transition: 0.3s;
   background-image: linear-gradient(80deg, #21686985, #49A078);
 }
 
@@ -70,7 +70,7 @@ body {
 
 #splash-top-bar-title-logo {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   flex-direction: row;
   padding-left: 10%;
@@ -148,6 +148,45 @@ body {
   border: none;
 }
 
+#logo-and-title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8%;
+  width: 40%;
+}
+
+#splash-page-content-buttons button {
+  background: transparent;
+  border: 2px solid white;
+  color: white;
+  padding: 5%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  height: 49px;
+  width: 160px;
+  padding: 12px;
+  font-size: large;
+  border-radius: 5px;
+}
+
+#splash-page-content-buttons button:hover {
+  background-image: linear-gradient(80deg, #21686985, #49A078);
+  color: white;
+  font-weight: 700;
+}
+
+#splash-page-content-buttons {
+  width: 100%;
+  height: 8%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
 .splash-container h3 {
   display: flex;
   width: 300px;
@@ -162,6 +201,14 @@ body {
   align-items: center;
   flex-direction: column;
   width: 80%;
+}
+
+#account-already-made {
+  border: none;
+  background: none;
+  color: white;
+  font-size: medium;
+  text-decoration: underline;
 }
 
 
