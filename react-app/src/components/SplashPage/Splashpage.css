@@ -211,6 +211,16 @@ body {
   width: 80%;
 }
 
+#splash-about-me-links a {
+  color: white;
+  text-decoration: none;
+  text-align: center;
+}
+
+#splash-about-me-links a:hover {
+  color: #49A078
+}
+
 #account-already-made {
   border: none;
   background: none;
