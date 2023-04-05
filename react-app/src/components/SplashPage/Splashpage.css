@@ -211,6 +211,14 @@ body {
   text-decoration: underline;
 }
 
+#account-already-made button {
+  border: none;
+  background: none;
+  color: white;
+  text-decoration: underline;
+  font-size: medium;
+}
+
 
 #up {
   position: absolute;

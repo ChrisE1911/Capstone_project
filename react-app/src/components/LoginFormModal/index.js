@@ -62,7 +62,7 @@ function LoginFormModal() {
   return (
     <>
       <h1>Log In</h1>
-      <div style={{textAlign: "center"}}>
+      <div style={{textAlign: "center"}} id='account-already-made'>
         <OpenModalButton
           buttonText="Don't have an account? Create one"
           onItemClick={closeMenu}
