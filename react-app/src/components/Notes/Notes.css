@@ -1,6 +1,6 @@
 .one_note {
     border: 2px solid gray;
-    width: 50%;
+    width: 100px;
     height: 175px;
     padding: 15px;
     display: flex;
@@ -12,6 +12,7 @@
     background-color: #216869;
     color: white;
     text-decoration: none;
+    text-align: center;
 }
 
 .one_note:hover {
@@ -21,20 +22,25 @@
 
 }
 .notes-container {
-    border: 18px solid gray;
-    border-style: outset;
+    border: 5px solid gray;
     flex-direction: column;
     align-items: center;
-    width: 68vw;
-    height: auto;
+    width: 72vw;
+    height: 75vh;
     margin-left: 20vw;
     padding-bottom: 50px;
     position: fixed;
-    grid-gap: 20px;
-    grid-gap: 20px;
     gap: 20px;
-    background: #216869;
-    border-radius: 28px;
+    background: black;
+    border-radius: 14px;
+}
+
+#intro-bar {
+    display: flex;
+    flex-direction: row;
+    width: 95%;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .notes-container h1 {
@@ -44,11 +50,12 @@
 .note-card-container {
     display: flex;
     flex-direction: row;
-    grid-gap: 50px;
-    gap: 50px;
+    gap: 10px;
+    /* justify-content: space-between; */
     overflow-x: scroll;
     padding-left: 30px;
     padding-right: 30px;
+    padding-bottom: 15px;
 }
 
 #notes-content {
@@ -59,8 +66,19 @@
     gap: 85px;
 }
 
+#notes-title-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 1%;
+}
+
+#notes-title-container i {
+    color: #9CC5A1
+}
+
 #note-title {
-    padding-left: 10px;
+    padding-left: 5%;
 }
 
 .notes-side-panel-container {

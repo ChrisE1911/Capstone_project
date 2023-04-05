@@ -1,13 +1,20 @@
-import React, { useState } from "react";
-import { useDispatch } from "react-redux";
+import React, { useState, useEffect, useRef } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { useModal } from "../../context/Modal";
 import { signUp } from "../../store/session";
-import { useHistory } from "react-router-dom";
+import { useHistory, Link } from "react-router-dom";
+import OpenModalButton from "../OpenModalButton";
+import LoginFormModal from "../LoginFormModal";
 import "./SignupForm.css";
 
 function SignupFormModal() {
 	const dispatch = useDispatch();
 	const history = useHistory();
+	const [showMenu, setShowMenu] = useState(false);
+    const [isOpen, setIsOpen] = useState(false);
+    const ulRef = useRef();
+	const newDropdownRef = useRef(null)
+	const sessionUser = useSelector(state => state.session.user);
 	const [email, setEmail] = useState("");
 	const [firstName, setFirstName] = useState("");
 	const [lastName, setLastName] = useState("");
@@ -16,6 +23,27 @@ function SignupFormModal() {
 	const [confirmPassword, setConfirmPassword] = useState("");
 	const [errors, setErrors] = useState([]);
 	const { closeModal } = useModal();
+
+	const openMenu = () => {
+        if (showMenu) return;
+        setShowMenu(true);
+    };
+
+    useEffect(() => {
+        if (!showMenu) return;
+
+        const closeMenu = (e) => {
+            if (!ulRef?.current?.contains(e.target)) {
+                setShowMenu(false);
+            }
+        };
+
+        document.addEventListener("click", closeMenu);
+
+        return () => document.removeEventListener("click", closeMenu);
+    }, [showMenu]);
+
+    const closeMenu = () => setShowMenu(false);
 
 	const handleSubmit = async (e) => {
 		e.preventDefault();
@@ -37,6 +65,13 @@ function SignupFormModal() {
 	return (
 		<>
 			<h1>Sign Up</h1>
+			<div id='account-already-made' style={{textAlign: 'center'}}>
+                        <OpenModalButton
+                            buttonText="Already have an account? Log in"
+                            onItemClick={closeMenu}
+                            modalComponent={<LoginFormModal />}
+                        />
+                    </div>
 			<form onSubmit={handleSubmit}>
 				<div id="create-note-inner-container">
 					<ul>
