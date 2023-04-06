@@ -29,13 +29,15 @@ function Tasks() {
             <h1 style={{ textAlign: 'center' }}>Tasks</h1>
             <div className='task-list'>
                 <div style={{ width: '100%', display: 'flex', justifyContent: 'space-around' }}>
-                    <button id='task-toggle-button' onClick={() => setShowCompleted(true)}>Completed Tasks</button>
-                    <button id='task-toggle-button' onClick={() => setShowCompleted(false)}>Uncompleted Tasks</button>
+                    <div id='task-toggle-modal'>
                     <OpenModalButton
                         buttonText="Add Task"
                         className=""
                         modalComponent={<AddTask />}>
                     </OpenModalButton>
+                            </div>
+                    <button id='task-toggle-button' onClick={() => setShowCompleted(true)}>Completed Tasks</button>
+                    <button id='task-toggle-button' onClick={() => setShowCompleted(false)}>Uncompleted Tasks</button>
                 </div>
                 <h2 style={{ textAlign: 'center' }}>{showCompleted ? 'Completed Tasks' : 'Uncompleted Tasks'}</h2>
                 <ul>
