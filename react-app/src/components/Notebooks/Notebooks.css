@@ -37,6 +37,28 @@
        justify-content: space-between;
 }
 
+#new-notebook-button button {
+    background: none;
+    color: white;
+    border: 2px solid white;
+    border-radius: 10px;
+    padding: 9px;
+}
+
+#new-notebook-button button:hover {
+    transition: 0.3s;
+    background: linear-gradient(#216869, #49A078);
+}
+
+#no-notebooks-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-left: 17vw;
+    padding-right: 17vw;
+    gap: 20px;
+}
+
 #notebooks-content:hover {
     transition: 0.3s;
     background-color: rgba(39, 34, 34, 0.566);
