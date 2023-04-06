@@ -45,22 +45,22 @@ function Navigation({ isLoaded }) {
 						{!sessionUser && <div id='splash-page-h1-nav'>ETERNAL NOTE</div>}
 					</div>
 					<div id='indiv-button'>
-						{!sessionUser && <div>My Github</div>}
+						{<div>My Github</div>}
 						<Link to={{ pathname: "https://github.com/ChrisE1911" }}
 							target='_blank'
 							className='about-me-button-github'>
-							{!sessionUser && <img src='https://logos-download.com/wp-content/uploads/2016/09/GitHub_logo.png' style={{ width: '100px', height: '100px' }}></img>}
+							{<img src='https://logos-download.com/wp-content/uploads/2016/09/GitHub_logo.png' style={{ width: '100px', height: '100px' }}></img>}
 						</Link>
 					</div>
 					<div id='indiv-button'>
-						{!sessionUser && <div>
+						{<div>
 							My LinkedIn
 						</div>}
 						<Link
 							to={{ pathname: "https://www.linkedin.com/in/christopher-eatmon-b6a0aa17b" }}
 							target='_blank'
 							className='about-me-button-linkedin'>
-							{!sessionUser && <img src='https://static-00.iconduck.com/assets.00/linkedin-icon-512x512-dhkaf9ri.png' style={{ width: '100px', height: '100px' }}></img>}
+							{<img src='https://static-00.iconduck.com/assets.00/linkedin-icon-512x512-dhkaf9ri.png' style={{ width: '100px', height: '100px' }}></img>}
 						</Link>
 					</div>
 

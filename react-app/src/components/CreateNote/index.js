@@ -19,20 +19,6 @@ function CreateNote() {
   const [errors, setErrors] = useState([])
 
 
-  useEffect(() => {
-    const errors = []
-
-    if (noteTitle?.length < 1) {
-      errors.push('You must specify a title for this note')
-    }
-
-    if (noteContent?.length < 1) {
-      errors.push('Please provide content for this note')
-    }
-
-    setErrors(errors)
-  }, [noteTitle, noteContent])
-
 
   const handleSubmit = async (e) => {
     e.preventDefault();

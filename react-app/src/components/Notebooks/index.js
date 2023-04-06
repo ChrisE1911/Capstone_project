@@ -21,7 +21,19 @@ function Notebooks() {
 
 
 
-    if (allNotebooksArr.length === 0) return <h1 id='no-notebooks'>Please create a notebook to view them here...</h1>;
+    if (allNotebooksArr.length === 0) return (
+        <div>
+            <div id='no-notebooks-container'>
+                <h1 id='no-notebooks'>Please create a notebook to view them here...</h1>
+                <div id='new-notebook-button'>
+                    {sessionUser && <OpenModalButton
+                        buttonText="New Notebook"
+                        modalComponent={<CreateNotebook />}>
+                    </OpenModalButton>}
+                </div>
+            </div>
+        </div>
+    );
     if (!sessionUser) history.push('/unknown')
     return (
         <>
@@ -31,10 +43,12 @@ function Notebooks() {
                     <br />
                     <div id='inner-notebooks-container-title-bar'>
                         <div>{`${allNotebooksArr.length} notebooks`}</div>
-                        {sessionUser && <OpenModalButton
-							buttonText="New Notebook"
-							modalComponent={<CreateNotebook />}>
-						</OpenModalButton>}
+                        <div id='new-notebook-button'>
+                            {sessionUser && <OpenModalButton
+                                buttonText="New Notebook"
+                                modalComponent={<CreateNotebook />}>
+                            </OpenModalButton>}
+                        </div>
                     </div>
                     <br />
                     <hr />

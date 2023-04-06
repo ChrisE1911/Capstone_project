@@ -2,7 +2,7 @@
 
     flex-direction: column;
     align-items: center;
-    width: 68vw;
+    width: 76vw;
     height: auto;
     margin-left: 20vw;
     padding-bottom: 50px;
@@ -35,6 +35,28 @@
        background-color: #216869;
        color: white;
        justify-content: space-between;
+}
+
+#new-notebook-button button {
+    background: none;
+    color: white;
+    border: 2px solid white;
+    border-radius: 10px;
+    padding: 9px;
+}
+
+#new-notebook-button button:hover {
+    transition: 0.3s;
+    background: linear-gradient(#216869, #49A078);
+}
+
+#no-notebooks-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-left: 17vw;
+    padding-right: 17vw;
+    gap: 20px;
 }
 
 #notebooks-content:hover {

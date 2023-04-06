@@ -1,23 +1,58 @@
-.tasklist ul {
-    list-style: none;
-    padding: 0;
-  }
+.task-list {
+  background-color: #444;
+  color: white;
+  border: 1px solid #333;
+  border-radius: 4px;
+  margin: 10px;
+  padding: 10px;
+  overflow-y: scroll;
+  height: 80vh;
+}
 
-.tasklist ul li {
-    background-color: #f9f9f9;
-    border: 1px solid #ddd;
-    padding: 10px;
-    margin-bottom: 10px;
-  }
+.task-list ul {
+  list-style: none;
+  padding: 0;
+}
 
-#task-list-one:hover {
-    transition: 0.3s;
-    background-color: gray;
-  }
+.task-list li {
+  border-bottom: 1px solid #333;
+  padding: 10px 0;
+}
 
-  .task-list {
-    background: linear-gradient(to bottom, black, gray);
-    border-radius: 10px;
-    box-shadow: 0px 5px 10px rgba(0,0,0,0.1);
-    padding: 20px;
-  }
+.task-list li:last-child {
+  border-bottom: none;
+}
+
+#task-container {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  gap: 4%;
+}
+
+#task-toggle-modal button {
+  background: none;
+  color: white;
+  border: 2px solid white;
+  border-radius: 10px;
+  padding: 9px;
+}
+
+#task-toggle-modal button:hover {
+  transition: 0.3s;
+  background: linear-gradient(#216869, #49A078);
+}
+
+
+#task-toggle-button {
+  background: none;
+  color: white;
+  border: 2px solid white;
+  border-radius: 10px;
+  padding: 9px;
+}
+
+#task-toggle-button:hover {
+  transition: 0.3s;
+  background: linear-gradient(#216869, #49A078);
+}

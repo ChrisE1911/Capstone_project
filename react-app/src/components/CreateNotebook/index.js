@@ -13,16 +13,6 @@ function CreateNotebook() {
   const [name, setName] = useState("")
   const { closeModal } = useModal();
 
-  useEffect(() => {
-    const errors = []
-
-    if (name?.length < 1) {
-      errors.push('You must specify a title for this notebook')
-    }
-
-    setErrors(errors)
-  }, [name])
-
 
   const handleSubmit = async (e) => {
     e.preventDefault()

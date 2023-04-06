@@ -9,7 +9,7 @@ const getAllTasksAC = data => ({
     payload: data
 })
 const addTasksAC = data => ({
-    type: GET_TASKS,
+    type: ADD_TASKS,
     payload: data
 })
 const updateTasksAC = data => ({
@@ -46,7 +46,15 @@ export const thunkAddTasks = (task) => async (dispatch) => {
         const data = await response.json()
         dispatch(addTasksAC(data))
         return data
-    }
+    } else if (response.status < 500) {
+		const data = await response.json();
+        if (data.errors) {
+            console.log('DATA ERRORS', data.errors)
+			return data.errors;
+		}
+	} else {
+		return ["An error occurred. Please try again."];
+	}
 }
 export const thunkUpdateTasks = (taskId, task) => async (dispatch) => {
     const response = await fetch(`/api/tasks/update/${taskId}`, {
@@ -76,8 +84,7 @@ export const thunkRemoveTasks = (taskId) => async (dispatch) => {
     }
 }
 const initialState = {
-    allTasks: {},
-    completedTasks: {}
+    allTasks: {}
 }
 
 export default function taskReducer(state = initialState, action) {
@@ -94,19 +101,18 @@ export default function taskReducer(state = initialState, action) {
             return newState
         // case GET_ONE_NOTE:
         //     return { ...state, singleNote: action.payload }
-        // case CREATE_NOTE:
-        //     newState = { ...state }
-        //     const newNote = action.payload
-        //     const newNoteState = { ...newState.allNotes, newNote }
-        //     newState.allNotes = newNoteState
-        //     return newState
-        // case EDIT_NOTE:
-        //     newState = { ...state }
-        //     const editedNote = action.payload
-        //     delete newState.allNotes[editedNote.id]
-        //     newState.allNotes[action.payload.id] = editedNote
-        //     newState.singleNote = editedNote
-        //     return newState
+        case ADD_TASKS:
+            newState = { ...state }
+            const newTask = action.payload
+            const newTaskState = { ...newState.allTasks, newTask }
+            newState.allTasks = newTaskState
+            return newState
+        case UPDATE_TASKS:
+            newState = { ...state }
+            const editedTask = action.payload;
+            const newTasksState = { ...newState.allTasks, [editedTask.id]: editedTask }
+            newState.allTasks = newTasksState
+            return newState
         // case DELETE_NOTE:
         //     newState = { ...state }
         //     delete newState.allNotes[action.payload]

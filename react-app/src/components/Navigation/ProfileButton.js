@@ -2,10 +2,12 @@ import React, { useState, useEffect, useRef } from "react";
 import { useDispatch } from "react-redux";
 import { logout } from "../../store/session";
 import OpenModalButton from "../OpenModalButton";
+import { thunkAddTasks } from '../../store/task'
 import LoginFormModal from "../LoginFormModal";
 import SignupFormModal from "../SignupFormModal";
 import { useHistory } from "react-router-dom";
 import CreateNote from "../CreateNote";
+import AddTask from "../AddTask";
 import './Navigation.css'
 
 function ProfileButton({ user }) {
@@ -96,8 +98,12 @@ function ProfileButton({ user }) {
             </a>
             <a href="#" className="dropdown-item">
               <i class="fa-solid fa-circle-check" style={{color: '#216869'}}></i>
-              <div>
-                Tasks
+              <div id="dropdown-buttons">
+              {user && <OpenModalButton
+                  buttonText="Tasks"
+                  className=""
+                  modalComponent={<AddTask />}>
+                </OpenModalButton>}
               </div>
             </a>
           </div>
