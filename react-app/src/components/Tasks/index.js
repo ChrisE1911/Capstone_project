@@ -1,7 +1,9 @@
 import { useDispatch, useSelector } from 'react-redux'
 import { useEffect, useState } from 'react'
 import { thunkGetAllTasks } from '../../store/task'
+import OpenModalButton from '../OpenModalButton'
 import { thunkUpdateTasks } from '../../store/task'
+import AddTask from '../AddTask'
 import "./Tasks.css"
 
 function Tasks() {
@@ -17,7 +19,6 @@ function Tasks() {
     }, [dispatch])
 
     const handleCheckboxChange = async (taskId, task) => {
-        // Implement the logic to update the completed status of the task with taskId
         await dispatch(thunkUpdateTasks(taskId, task))
     }
 
@@ -25,11 +26,16 @@ function Tasks() {
 
     return (
         <div className="notebooks-container">
-            <h1 style={{ textAlign: 'center' }}>Tasks List</h1>
+            <h1 style={{ textAlign: 'center' }}>Tasks</h1>
             <div className='task-list'>
-                <div style={{width: '100%', display: 'flex', justifyContent: 'space-around'}}>
+                <div style={{ width: '100%', display: 'flex', justifyContent: 'space-around' }}>
                     <button id='task-toggle-button' onClick={() => setShowCompleted(true)}>Completed Tasks</button>
                     <button id='task-toggle-button' onClick={() => setShowCompleted(false)}>Uncompleted Tasks</button>
+                    <OpenModalButton
+                        buttonText="Add Task"
+                        className=""
+                        modalComponent={<AddTask />}>
+                    </OpenModalButton>
                 </div>
                 <h2 style={{ textAlign: 'center' }}>{showCompleted ? 'Completed Tasks' : 'Uncompleted Tasks'}</h2>
                 <ul>
@@ -38,11 +44,11 @@ function Tasks() {
                             <li id='task-list-one' key={task.id}>
                                 {task.task_content}
                             </li>
-                                <input
-                                    type="checkbox"
-                                    checked={task.is_completed}
-                                    onChange={() => handleCheckboxChange(task.id, task)}
-                                />
+                            <input
+                                type="checkbox"
+                                checked={task.is_completed}
+                                onChange={() => handleCheckboxChange(task.id, task)}
+                            />
                         </div>
                     ))}
                 </ul>

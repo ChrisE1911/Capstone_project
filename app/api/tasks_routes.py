@@ -34,3 +34,22 @@ def update_task(id):
     db.session.commit()
 
     return to_update_task.to_dict()
+
+@tasks_routes.route('/add', methods=['POST'])
+@login_required
+def create_task():
+    """Creates task"""
+    print("IM IN THE POST ROUTE")
+    form = TaskForm()
+    form['csrf_token'].data = request.cookies['csrf_token']
+    # print('FORMMMMMMMMMMMM', form.data)
+    if form.validate_on_submit():
+        task = Task(
+            user_id=current_user.id,
+            task_content=form.data['task_content']
+        )
+        db.session.add(task)
+        db.session.commit()
+        return task.to_dict()
+    print(validation_errors_to_error_messages(form.errors))
+    return {'errors': validation_errors_to_error_messages(form.errors)}, 401

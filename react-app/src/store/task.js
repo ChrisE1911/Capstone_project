@@ -9,7 +9,7 @@ const getAllTasksAC = data => ({
     payload: data
 })
 const addTasksAC = data => ({
-    type: GET_TASKS,
+    type: ADD_TASKS,
     payload: data
 })
 const updateTasksAC = data => ({
@@ -76,8 +76,7 @@ export const thunkRemoveTasks = (taskId) => async (dispatch) => {
     }
 }
 const initialState = {
-    allTasks: {},
-    completedTasks: {}
+    allTasks: {}
 }
 
 export default function taskReducer(state = initialState, action) {
@@ -94,12 +93,12 @@ export default function taskReducer(state = initialState, action) {
             return newState
         // case GET_ONE_NOTE:
         //     return { ...state, singleNote: action.payload }
-        // case CREATE_NOTE:
-        //     newState = { ...state }
-        //     const newNote = action.payload
-        //     const newNoteState = { ...newState.allNotes, newNote }
-        //     newState.allNotes = newNoteState
-        //     return newState
+        case ADD_TASKS:
+            newState = { ...state }
+            const newTask = action.payload
+            const newTaskState = { ...newState.allTasks, newTask }
+            newState.allTasks = newTaskState
+            return newState
         case UPDATE_TASKS:
             newState = { ...state }
             const editedTask = action.payload;
