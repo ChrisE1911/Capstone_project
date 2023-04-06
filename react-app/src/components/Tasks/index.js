@@ -25,22 +25,25 @@ function Tasks() {
 
     return (
         <div className="notebooks-container">
-            <h1>Tasks List</h1>
+            <h1 style={{ textAlign: 'center' }}>Tasks List</h1>
             <div className='task-list'>
-                <div>
-                    <button onClick={() => setShowCompleted(true)}>Completed Tasks</button>
-                    <button onClick={() => setShowCompleted(false)}>Uncompleted Tasks</button>
+                <div style={{width: '100%', display: 'flex', justifyContent: 'space-around'}}>
+                    <button id='task-toggle-button' onClick={() => setShowCompleted(true)}>Completed Tasks</button>
+                    <button id='task-toggle-button' onClick={() => setShowCompleted(false)}>Uncompleted Tasks</button>
                 </div>
+                <h2 style={{ textAlign: 'center' }}>{showCompleted ? 'Completed Tasks' : 'Uncompleted Tasks'}</h2>
                 <ul>
                     {filteredTasks.map((task) => (
-                        <li id='task-list-one' key={task.id}>
-                            {task.task_content}
-                            <input
-                                type="checkbox"
-                                checked={task.is_completed}
-                                onChange={() => handleCheckboxChange(task.id, task)}
-                            />
-                        </li>
+                        <div id='task-container'>
+                            <li id='task-list-one' key={task.id}>
+                                {task.task_content}
+                            </li>
+                                <input
+                                    type="checkbox"
+                                    checked={task.is_completed}
+                                    onChange={() => handleCheckboxChange(task.id, task)}
+                                />
+                        </div>
                     ))}
                 </ul>
             </div>

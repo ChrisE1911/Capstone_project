@@ -20,3 +20,23 @@
 .task-list li:last-child {
   border-bottom: none;
 }
+
+#task-container {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  gap: 4%;
+}
+
+#task-toggle-button {
+  background: none;
+  color: white;
+  border: 2px solid white;
+  border-radius: 10px;
+  padding: 9px;
+}
+
+#task-toggle-button:hover {
+  transition: 0.3s;
+  background: linear-gradient(#216869, #49A078);
+}
