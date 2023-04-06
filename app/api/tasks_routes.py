@@ -23,3 +23,14 @@ def get_all_tasks():
     all_tasks = Task.query.filter(Task.user_id == current_user.id).all()
     all_tasks_arr = [task.to_dict() for task in all_tasks]
     return all_tasks_arr
+
+@tasks_routes.route('/update/<int:id>', methods=['PUT'])
+@login_required
+def update_task(id):
+    to_update_task = Task.query.get(id)
+
+    to_update_task.is_completed = not to_update_task.is_completed
+
+    db.session.commit()
+
+    return to_update_task.to_dict()

@@ -100,13 +100,12 @@ export default function taskReducer(state = initialState, action) {
         //     const newNoteState = { ...newState.allNotes, newNote }
         //     newState.allNotes = newNoteState
         //     return newState
-        // case EDIT_NOTE:
-        //     newState = { ...state }
-        //     const editedNote = action.payload
-        //     delete newState.allNotes[editedNote.id]
-        //     newState.allNotes[action.payload.id] = editedNote
-        //     newState.singleNote = editedNote
-        //     return newState
+        case UPDATE_TASKS:
+            newState = { ...state }
+            const editedTask = action.payload;
+            const newTasksState = { ...newState.allTasks, [editedTask.id]: editedTask }
+            newState.allTasks = newTasksState
+            return newState
         // case DELETE_NOTE:
         //     newState = { ...state }
         //     delete newState.allNotes[action.payload]
