@@ -46,7 +46,15 @@ export const thunkAddTasks = (task) => async (dispatch) => {
         const data = await response.json()
         dispatch(addTasksAC(data))
         return data
-    }
+    } else if (response.status < 500) {
+		const data = await response.json();
+        if (data.errors) {
+            console.log('DATA ERRORS', data.errors)
+			return data.errors;
+		}
+	} else {
+		return ["An error occurred. Please try again."];
+	}
 }
 export const thunkUpdateTasks = (taskId, task) => async (dispatch) => {
     const response = await fetch(`/api/tasks/update/${taskId}`, {
