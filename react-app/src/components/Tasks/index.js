@@ -56,11 +56,13 @@ function Tasks() {
                                 {task.task_content}
                             </li>
                             <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'center', alignItems: 'center', gap: '10%' }}>
-                                <OpenModalButton
-                                    buttonText={pencil}
-                                    className=""
-                                    modalComponent={<EditTask taskId={task.id} task={task} />}>
-                                </OpenModalButton>
+                                <div id='task-toggle-modal-pencil'>
+                                    <OpenModalButton
+                                        buttonText={pencil}
+                                        className=""
+                                        modalComponent={<EditTask taskId={task.id} task={task} />}>
+                                    </OpenModalButton>
+                                </div>
                                 <i class="fa-solid fa-xmark" onClick={() => handleDelete(task.id)}></i>
                                 <input
                                     type="checkbox"

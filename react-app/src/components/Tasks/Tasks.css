@@ -38,6 +38,37 @@
   padding: 9px;
 }
 
+#task-toggle-modal-pencil button {
+  background: none;
+  color: white;
+  padding: 9px;
+  border: none;
+}
+
+.task-list::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+  background: linear-gradient(#216869, #9CC5A1);
+}
+
+/* Track */
+.task-list::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey;
+  border-radius: 10px;
+}
+
+/* Handle */
+.task-list::-webkit-scrollbar-thumb {
+  background: white;
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+.task-list::-webkit-scrollbar-thumb:hover {
+  transition: 1s;
+  background: gray;
+}
+
 #task-toggle-modal button:hover {
   transition: 0.3s;
   background: linear-gradient(#216869, #49A078);
