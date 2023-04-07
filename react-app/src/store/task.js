@@ -102,7 +102,7 @@ export const thunkUpdateTasks = (taskId, task) => async (dispatch) => {
     }
 }
 
-export const thunkRemoveTasks = (taskId) => async (dispatch) => {
+export const thunkRemoveTask = (taskId) => async (dispatch) => {
     const response = await fetch(`/api/tasks/remove/${taskId}`, {
         method: "DELETE"
     });
@@ -143,10 +143,10 @@ export default function taskReducer(state = initialState, action) {
             const newTasksState = { ...newState.allTasks, [editedTask.id]: editedTask }
             newState.allTasks = newTasksState
             return newState
-        // case DELETE_NOTE:
-        //     newState = { ...state }
-        //     delete newState.allNotes[action.payload]
-        //     return newState
+        case REMOVE_TASKS:
+            newState = { ...state }
+            delete newState.allTasks[action.payload]
+            return newState
         // case ADD_NOTE_TO_NOTEBOOK:
         //     newState = { ...state }
         //     const addedNote = action.payload

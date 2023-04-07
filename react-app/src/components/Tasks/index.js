@@ -2,8 +2,8 @@ import { useDispatch, useSelector } from 'react-redux'
 import { useEffect, useState } from 'react'
 import { thunkGetAllTasks } from '../../store/task'
 import OpenModalButton from '../OpenModalButton'
-import { Modal } from '../../context/Modal'
 import { thunkUpdateTasks } from '../../store/task'
+import { thunkRemoveTask } from '../../store/task'
 import EditTask from '../EditTask'
 import AddTask from '../AddTask'
 import "./Tasks.css"
@@ -13,7 +13,6 @@ function Tasks() {
     const tasks = useSelector(state => state.taskReducer.allTasks)
     const tasks_arr = Object.values(tasks)
     const [showCompleted, setShowCompleted] = useState(false)
-    const [isModalOpen, setIsModalOpen] = useState(true)
 
     console.log(tasks_arr)
 
@@ -27,7 +26,12 @@ function Tasks() {
 
     const filteredTasks = tasks_arr.filter(task => task.is_completed === showCompleted)
 
-    const pencil = <i class="fa-solid fa-pencil" onClick={() => setIsModalOpen(!isModalOpen)}></i>
+    const pencil = <i class="fa-solid fa-pencil"></i>
+
+    const handleDelete = async (taskId) => {
+        await dispatch(thunkRemoveTask(taskId));
+        dispatch(thunkGetAllTasks());
+    }
 
     return (
         <div className="notebooks-container">
@@ -57,6 +61,7 @@ function Tasks() {
                                     className=""
                                     modalComponent={<EditTask taskId={task.id} task={task} />}>
                                 </OpenModalButton>
+                                <i class="fa-solid fa-xmark" onClick={() => handleDelete(task.id)}></i>
                                 <input
                                     type="checkbox"
                                     checked={task.is_completed}

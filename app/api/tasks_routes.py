@@ -71,3 +71,12 @@ def edit_task(id):
         return to_update_task.to_dict()
     print(validation_errors_to_error_messages(form.errors))
     return {'errors': validation_errors_to_error_messages(form.errors)}, 401
+
+
+@tasks_routes.route('/remove/<int:id>', methods=['DELETE'])
+@login_required
+def delete_task(id):
+    task = Task.query.get(id)
+    db.session.delete(task)
+    db.session.commit()
+    return task.to_dict()
