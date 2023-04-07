@@ -53,3 +53,30 @@ def create_task():
         return task.to_dict()
     print(validation_errors_to_error_messages(form.errors))
     return {'errors': validation_errors_to_error_messages(form.errors)}, 401
+
+
+@tasks_routes.route('/edit/<int:id>', methods=['PUT'])
+@login_required
+def edit_task(id):
+    form = TaskForm()
+    form['csrf_token'].data = request.cookies['csrf_token']
+
+    if form.validate_on_submit():
+        to_update_task = Task.query.get(id)
+
+        to_update_task.user_id = current_user.id
+        to_update_task.task_content = form.data['task_content']
+
+        db.session.commit()
+        return to_update_task.to_dict()
+    print(validation_errors_to_error_messages(form.errors))
+    return {'errors': validation_errors_to_error_messages(form.errors)}, 401
+
+
+@tasks_routes.route('/remove/<int:id>', methods=['DELETE'])
+@login_required
+def delete_task(id):
+    task = Task.query.get(id)
+    db.session.delete(task)
+    db.session.commit()
+    return task.to_dict()
