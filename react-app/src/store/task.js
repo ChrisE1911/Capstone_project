@@ -2,6 +2,7 @@ const GET_TASKS = "tasks/GET_TASKS"
 const ADD_TASKS = "tasks/ADD_TASKS"
 const UPDATE_TASKS = "tasks/UPDATE_TASKS"
 const REMOVE_TASKS = "tasks/REMOVE_TASKS"
+const EDIT_TASKS = "tasks/EDIT_TASKS"
 const COMPLETE_TASKS = "tasks/REMOVE_TASKS"
 
 const getAllTasksAC = data => ({
@@ -10,6 +11,11 @@ const getAllTasksAC = data => ({
 })
 const addTasksAC = data => ({
     type: ADD_TASKS,
+    payload: data
+})
+
+const editTasksAC = data => ({
+    type: UPDATE_TASKS,
     payload: data
 })
 const updateTasksAC = data => ({
@@ -31,6 +37,30 @@ export const thunkGetAllTasks = () => async (dispatch) => {
         dispatch(getAllTasksAC(data))
         return data
     }
+}
+
+export const thunkEditTask = (taskId, task) => async (dispatch) => {
+    const response = await fetch(`/api/tasks/edit/${taskId}`, {
+        method: "PUT",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify( task )
+    })
+
+    if (response.ok) {
+        const data = await response.json()
+        dispatch(editTasksAC(data))
+        return data
+    } else if (response.status < 500) {
+		const data = await response.json();
+        if (data.errors) {
+            console.log('DATA ERRORS', data.errors)
+			return data.errors;
+		}
+	} else {
+		return ["An error occurred. Please try again."];
+	}
 }
 
 export const thunkAddTasks = (task) => async (dispatch) => {
