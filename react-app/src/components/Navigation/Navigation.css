@@ -227,6 +227,53 @@
   gap: 60px;
 }
 
+@media screen and (max-width: 999px) {
+  #root {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  #splash-about-me-links a, #up, #down, #left, #right {
+    display: none;
+  }
+
+  .splash-container {
+    padding-bottom: 5%;
+    overflow-y: scroll;
+  }
+
+  .splash-container-content h1, h2 {
+    text-align: center;
+    width: 80vw;
+    font-size: small
+  }
+
+  #modal-content {
+    width: 50vw
+  }
+
+  .notes-container {
+    height: 100vh;
+    position: relative;
+    overflow: scroll;
+    margin-left: 45vw;
+    margin-right: 17vw
+  }
+
+  #notes-additional-style-container {
+    flex-direction: column;
+  }
+  .nav-bar {
+    width: auto;
+  }
+
+  #intro-bar {
+    display: none;
+  }
+}
+
 #indiv-button {
   display: flex;
   justify-content: center;
