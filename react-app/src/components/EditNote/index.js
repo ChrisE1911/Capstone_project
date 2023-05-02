@@ -124,7 +124,7 @@ function EditNote() {
                             <li key={idx}>{error}</li>
                         ))}
                     </ul>
-                    <button className='universal-button' type="submit">Edit</button>
+                    <button className='universal-button' type="submit">Save</button>
                     <button onClick={() => handleDelete(currentNote.id)} className='universal-button'>Delete Note</button>
                 </div>
             </form>

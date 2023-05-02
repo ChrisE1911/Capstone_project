@@ -5,6 +5,7 @@ import { thunkCreateNote } from "../../store/note"
 import { thunkGetAllNotes } from "../../store/note"
 import { thunkGetOneNote } from "../../store/note"
 import { useModal } from "../../context/Modal"
+import ReactQuill from 'react-quill';
 import "./CreateNote.css"
 
 
@@ -19,6 +20,9 @@ function CreateNote() {
   const [errors, setErrors] = useState([])
 
 
+  const createContent = (value) => {
+    setNoteContent(value)
+  }
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -47,13 +51,12 @@ function CreateNote() {
     <>
       <form className="create-note-container" onSubmit={handleSubmit}>
         <div id="create-note-inner-container">
-        <h1>Create Note...</h1>
-        <ul>
-          {errors.map((error, idx) => (
-            <li key={idx}>{error}</li>
-          ))}
-        </ul>
-        <div id="button-container">
+          <h1>Create Note...</h1>
+          <ul>
+            {errors.map((error, idx) => (
+              <li key={idx}>{error}</li>
+            ))}
+          </ul>
           <label>
             Title*
             <input
@@ -66,17 +69,27 @@ function CreateNote() {
           </label>
           <label>
             Note*
-            <textarea
+            {/* <textarea
               value={noteContent}
               onChange={(e) => setNoteContent(e.target.value)}
               rows="5"
               cols="33"
               required
-            />
-          </label>
+            /> */}
+              </label>
+            <ReactQuill onChange={createContent} modules={{
+              toolbar: [
+                [{ header: [1, 2, 3, false] }],
+                ['bold', 'italic', 'underline', 'strike'],
+                [{ list: 'ordered' }, { list: 'bullet' }],
+                [{ color: [] }, { background: [] }],
+                ['clean'],
+              ],
+            }} />
         </div>
+        <div id="button-container">
           <button className='universal-button' type="submit">Create Note</button>
-          </div>
+        </div>
       </form>
     </>
   );
