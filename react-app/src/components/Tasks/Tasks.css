@@ -48,7 +48,7 @@
 .task-list::-webkit-scrollbar {
   width: 10px;
   height: 10px;
-  background: linear-gradient(#216869, #9CC5A1);
+  background: rgb(73, 73, 73);
 }
 
 /* Track */
@@ -59,7 +59,7 @@
 
 /* Handle */
 .task-list::-webkit-scrollbar-thumb {
-  background: white;
+  background: linear-gradient(#216869, #9CC5A1);
   border-radius: 10px;
 }
 
