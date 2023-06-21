@@ -101,8 +101,11 @@ function LoginFormModal() {
               required
             />
           </label>
-          <button className='universal-button' type="submit">Log In</button>
-          <button className='universal-button' onClick={demoUser}>Demo User</button>
+          <div style={{ marginTop: '2vh', display: 'flex', flexDirection: 'column', gap: '4px' }}>
+            <button className='universal-button' type="submit">Log In</button>
+            <button className='universal-button' onClick={demoUser}>Demo User</button>
+          </div>
+
         </div>
       </form>
     </>

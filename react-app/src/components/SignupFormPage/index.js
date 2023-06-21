@@ -75,7 +75,7 @@ function SignupFormPage() {
             required
           />
         </label>
-        <button type="submit">Sign Up</button>
+        <button type="submit" style={{marginTop: '1vh'}}>Sign Up</button>
       </form>
     </>
   );
