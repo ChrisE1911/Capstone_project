@@ -241,7 +241,7 @@ body {
 #account-already-made {
   border: none;
   background: none;
-  color: white;
+  color: black;
   font-size: medium;
   text-decoration: underline;
 }
@@ -249,7 +249,7 @@ body {
 #account-already-made button {
   border: none;
   background: none;
-  color: white;
+  color: black;
   text-decoration: underline;
   font-size: medium;
 }
