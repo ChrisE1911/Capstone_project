@@ -62,7 +62,12 @@ function LoginFormModal() {
   return (
     <>
       <h1>Log In</h1>
-      <div style={{textAlign: "center"}} id='account-already-made'>
+      <div style={{ display: 'flex', justifyContent: 'center' }}>
+        <div id='e-circle-logo-modal'>
+          <i class="fa-solid fa-e" style={{ display: 'flex', justifyContent: 'center' }}></i>
+        </div>
+      </div >
+      <div style={{ textAlign: "center" }} id='account-already-made'>
         <OpenModalButton
           buttonText="Don't have an account? Create one"
           onItemClick={closeMenu}
@@ -96,8 +101,11 @@ function LoginFormModal() {
               required
             />
           </label>
-          <button className='universal-button' type="submit">Log In</button>
-          <button className='universal-button' onClick={demoUser}>Demo User</button>
+          <div style={{ marginTop: '2vh', display: 'flex', flexDirection: 'column', gap: '4px' }}>
+            <button className='universal-button' type="submit">Log In</button>
+            <button className='universal-button' onClick={demoUser}>Demo User</button>
+          </div>
+
         </div>
       </form>
     </>

@@ -18,18 +18,23 @@ function SignupFormPage() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (password === confirmPassword) {
-        const data = await dispatch(signUp(username, email, password));
-        if (data) {
-          setErrors(data)
-        }
+      const data = await dispatch(signUp(username, email, password));
+      if (data) {
+        setErrors(data)
+      }
     } else {
-        setErrors(['Confirm Password field must be the same as the Password field']);
+      setErrors(['Confirm Password field must be the same as the Password field']);
     }
   };
 
   return (
     <>
       <h1>Sign Up</h1>
+      <div style={{ display: 'flex', justifyContent: 'center' }}>
+        <div id='e-circle-logo-modal'>
+          <i class="fa-solid fa-e" style={{ display: 'flex', justifyContent: 'center' }}></i>
+        </div>
+      </div >
       <form onSubmit={handleSubmit}>
         <ul>
           {errors.map((error, idx) => <li key={idx}>{error}</li>)}
@@ -70,7 +75,7 @@ function SignupFormPage() {
             required
           />
         </label>
-        <button type="submit">Sign Up</button>
+        <button type="submit" style={{marginTop: '1vh'}}>Sign Up</button>
       </form>
     </>
   );

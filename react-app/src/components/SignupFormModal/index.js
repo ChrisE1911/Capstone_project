@@ -11,8 +11,8 @@ function SignupFormModal() {
 	const dispatch = useDispatch();
 	const history = useHistory();
 	const [showMenu, setShowMenu] = useState(false);
-    const [isOpen, setIsOpen] = useState(false);
-    const ulRef = useRef();
+	const [isOpen, setIsOpen] = useState(false);
+	const ulRef = useRef();
 	const newDropdownRef = useRef(null)
 	const sessionUser = useSelector(state => state.session.user);
 	const [email, setEmail] = useState("");
@@ -25,30 +25,30 @@ function SignupFormModal() {
 	const { closeModal } = useModal();
 
 	const openMenu = () => {
-        if (showMenu) return;
-        setShowMenu(true);
-    };
+		if (showMenu) return;
+		setShowMenu(true);
+	};
 
-    useEffect(() => {
-        if (!showMenu) return;
+	useEffect(() => {
+		if (!showMenu) return;
 
-        const closeMenu = (e) => {
-            if (!ulRef?.current?.contains(e.target)) {
-                setShowMenu(false);
-            }
-        };
+		const closeMenu = (e) => {
+			if (!ulRef?.current?.contains(e.target)) {
+				setShowMenu(false);
+			}
+		};
 
-        document.addEventListener("click", closeMenu);
+		document.addEventListener("click", closeMenu);
 
-        return () => document.removeEventListener("click", closeMenu);
-    }, [showMenu]);
+		return () => document.removeEventListener("click", closeMenu);
+	}, [showMenu]);
 
-    const closeMenu = () => setShowMenu(false);
+	const closeMenu = () => setShowMenu(false);
 
 	const handleSubmit = async (e) => {
 		e.preventDefault();
 		if (password === confirmPassword) {
-			const data = await dispatch(signUp(username,firstName, lastName, email, password));
+			const data = await dispatch(signUp(username, firstName, lastName, email, password));
 			if (data) {
 				setErrors(data);
 			} else {
@@ -65,13 +65,18 @@ function SignupFormModal() {
 	return (
 		<>
 			<h1>Sign Up</h1>
-			<div id='account-already-made' style={{textAlign: 'center'}}>
-                        <OpenModalButton
-                            buttonText="Already have an account? Log in"
-                            onItemClick={closeMenu}
-                            modalComponent={<LoginFormModal />}
-                        />
-                    </div>
+			<div style={{ display: 'flex', justifyContent: 'center' }}>
+				<div id='e-circle-logo-modal'>
+					<i class="fa-solid fa-e" style={{ display: 'flex', justifyContent: 'center' }}></i>
+				</div>
+			</div >
+			<div id='account-already-made' style={{ textAlign: 'center' }}>
+				<OpenModalButton
+					buttonText="Already have an account? Log in"
+					onItemClick={closeMenu}
+					modalComponent={<LoginFormModal />}
+				/>
+			</div>
 			<form onSubmit={handleSubmit}>
 				<div id="create-note-inner-container">
 					<ul>
