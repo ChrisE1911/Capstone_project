@@ -1,13 +1,15 @@
 #modal-content {
-    width: 350px;
-    color: white;
-    background: linear-gradient(#216869, black);
+    width: 500px;
+    color: #000;
+    background: #fff;
     height: auto;
     position: absolute;
-    border-radius: 20px;
-    border: inset 10px #9CC5A1;
-    padding: 30px;
-}
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+  }
+
+
 
 #modal-content h1 {
     text-align: center;

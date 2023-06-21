@@ -78,6 +78,23 @@ body {
   width: 90%;
 }
 
+#e-circle-logo-modal {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  color: rgba(255, 255, 255, 0.886);
+  background-image: linear-gradient(80deg, #21686985, #49A078);
+}
+
+#e-circle-logo-modal i {
+  font-family: 'Dancing Script', cursive;
+  font-family: 'Raleway', sans-serif;
+  font-size: x-large
+}
+
 #e-circle-logo {
   width: 50px;
   height: 50px;

@@ -62,7 +62,12 @@ function LoginFormModal() {
   return (
     <>
       <h1>Log In</h1>
-      <div style={{textAlign: "center"}} id='account-already-made'>
+      <div style={{ display: 'flex', justifyContent: 'center' }}>
+      <div id='e-circle-logo-modal'>
+        <i class="fa-solid fa-e" style={{ display: 'flex', justifyContent: 'center' }}></i>
+      </div>
+    </div >
+      <div style={{ textAlign: "center" }} id='account-already-made'>
         <OpenModalButton
           buttonText="Don't have an account? Create one"
           onItemClick={closeMenu}
