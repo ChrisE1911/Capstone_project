@@ -1,5 +1,5 @@
 .universal-button {
-    background: none;
+    background: linear-gradient(#216869, #9CC5A1);
     border: none;
     color: white;
     border: 2px solid #9CC5A1;
@@ -13,7 +13,7 @@
 .universal-button:hover {
     color: white;
     transition: 0.3s;
-    background: linear-gradient(#216869, #9CC5A1)
+    background: linear-gradient(#216869, #000000)
 }
 
 #input-field {
