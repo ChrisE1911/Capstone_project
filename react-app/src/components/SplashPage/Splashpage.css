@@ -76,6 +76,7 @@ body {
   padding-left: 10%;
   padding-right: 10%;
   width: 90%;
+  z-index: 5;
 }
 
 #e-circle-logo-modal {
