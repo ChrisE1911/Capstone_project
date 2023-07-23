@@ -23,7 +23,6 @@ function AddTask() {
 
         const createdTask = await dispatch(thunkAddTasks(newTask));
 
-        console.log(createdTask)
 
         if (createdTask.length > 0) {
             setErrors(createdTask)

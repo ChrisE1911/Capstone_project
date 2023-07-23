@@ -106,18 +106,18 @@ export const thunkCreateNote = (note) => async (dispatch) => {
 		body: JSON.stringify(note),
     })
 
-    console.log('RESPONSE')
+
 
 
     if (response.ok) {
         const note = await response.json()
-        console.log('NOTE', note)
+
         dispatch(createNoteAction(note))
         return note
     } else if (response.status < 500) {
 		const data = await response.json();
         if (data.errors) {
-            console.log('DATA ERRORS', data.errors)
+
 			return data.errors;
 		}
 	} else {
@@ -141,7 +141,7 @@ export const thunkEditNote = (noteId, note) => async (dispatch) => {
     } else if (response.status < 500) {
 		const data = await response.json();
         if (data.errors) {
-            console.log('DATA ERRORS', data.errors)
+
 			return data.errors;
 		}
 	} else {
@@ -150,13 +150,13 @@ export const thunkEditNote = (noteId, note) => async (dispatch) => {
 }
 
 export const thunkDeleteNote = (noteId) => async (dispatch) => {
-    console.log('NOTE ID', noteId)
+
     const response = await fetch(`/api/notes/delete/${noteId}`, {
         method: "DELETE"
     })
 
     if (response.ok) {
-        // console.log('REMOVED NOTE', removedNote)
+        
         const data = await response.json()
         dispatch(deleteNoteAction(noteId))
         return data

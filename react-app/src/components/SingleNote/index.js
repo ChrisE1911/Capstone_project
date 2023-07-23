@@ -20,7 +20,7 @@ function SingleNote() {
     const singleNoteArr = Object.values(singleNote)
 
 
-    console.log('SINGLE NOTE', singleNote)
+
 
     useEffect(() => {
         dispatch(thunkGetOneNote())

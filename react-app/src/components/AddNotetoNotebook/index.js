@@ -17,7 +17,6 @@ function AddNotetoNotebook() {
     const { noteId } = useParams()
 
 
-    console.log(allNotebooks)
 
 
     useEffect(() => {

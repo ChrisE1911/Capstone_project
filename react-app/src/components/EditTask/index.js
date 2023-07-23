@@ -23,7 +23,7 @@ function EditTask({ taskId, task }) {
 
         const editedTask = await dispatch(thunkEditTask(taskId, updatedTask));
 
-        console.log(editedTask)
+        
 
         if (editedTask.length > 0) {
             setErrors(editedTask)

@@ -26,9 +26,9 @@ function EditNote() {
     const [errors, setErrors] = useState([])
     const quillRef = useRef();
 
-    console.log('CURRENT NOTE', currentNote.id)
 
-    console.log(allNotesArr[0])
+
+
 
     useEffect(() => {
         dispatch(thunkGetOneNote(+currentNote.id))
@@ -63,7 +63,7 @@ function EditNote() {
 
         const editedNote = await dispatch(thunkEditNote(currentNote.id, updatedNote))
 
-        console.log(editedNote)
+        
 
 
         if (editedNote?.length > 0) {

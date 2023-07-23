@@ -53,10 +53,6 @@ function SplashPage({ isLoaded }) {
                     </div>
                     <div id='splash-about-me-links'>
                         <Link
-                        to={{ pathname: "https://chrise1911.github.io./" }}
-                        target='_blank'
-                        className='about-me-button-github'>Portfolio Site</Link>
-                        <Link
                         to={{ pathname: "https://github.com/ChrisE1911" }}
                         target='_blank'
                         className='about-me-button-github'>Github</Link>
@@ -64,6 +60,10 @@ function SplashPage({ isLoaded }) {
                         to={{ pathname: "https://www.linkedin.com/in/christopher-eatmon-b6a0aa17b" }}
                         target='_blank'
                         className='about-me-button-linkedin'>LinkedIn</Link>
+                        <Link
+                        to={{ pathname: "https://c-eatmon-port.onrender.com/" }}
+                        target='_blank'
+                        className='about-me-button-github'>Portfolio Site</Link>
                     </div>
                     <div id='splash-page-buttons'>
                         <OpenModalButton

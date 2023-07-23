@@ -18,10 +18,10 @@ function MoveNotetoNotebook() {
     const allOtherNotebooks = allNotebooks_arr.filter(notebook => notebook.id !== currentNote.notebook_id)
     const { noteId } = useParams()
 
-    console.log('AOOOONNNN', allOtherNotebooks)
 
 
-    console.log(allNotebooks)
+
+    
 
 
     useEffect(() => {

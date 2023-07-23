@@ -13,7 +13,7 @@ function Notebooks() {
     const sessionUser = useSelector(state => state.session.user)
     const history = useHistory()
 
-    console.log(allNotebooksArr)
+    
 
     useEffect(() => {
         dispatch(thunkGetAllNotebooks())

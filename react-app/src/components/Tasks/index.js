@@ -14,7 +14,7 @@ function Tasks() {
     const tasks_arr = Object.values(tasks)
     const [showCompleted, setShowCompleted] = useState(false)
 
-    console.log(tasks_arr)
+    
 
     useEffect(() => {
         dispatch(thunkGetAllTasks())

@@ -32,11 +32,11 @@ function CreateNote() {
       note_content: noteContent
     }
 
-    // console.log('NEW NOTTTEEEEE', new_note)
+
 
     const createdNote = await dispatch(thunkCreateNote(newNote));
 
-    console.log(createdNote)
+    
 
     if (createdNote.length > 0) {
       setErrors(createdNote)
