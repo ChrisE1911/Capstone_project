@@ -18,7 +18,7 @@ function SingleNotebook() {
     const notesForNotebook = allNotesArr.filter(note => note.notebook_id === Number(notebookId))
     const currentNotebook = useSelector(state => state.notebookReducer.singleNotebook)
 
-    console.log('ALL NOTES', notesForNotebook)
+    
 
     useEffect(() => {
         dispatch(thunkGetOneNotebook(notebookId))

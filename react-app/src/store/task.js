@@ -55,7 +55,7 @@ export const thunkEditTask = (taskId, task) => async (dispatch) => {
     } else if (response.status < 500) {
 		const data = await response.json();
         if (data.errors) {
-            console.log('DATA ERRORS', data.errors)
+
 			return data.errors;
 		}
 	} else {
@@ -79,7 +79,7 @@ export const thunkAddTasks = (task) => async (dispatch) => {
     } else if (response.status < 500) {
 		const data = await response.json();
         if (data.errors) {
-            console.log('DATA ERRORS', data.errors)
+            
 			return data.errors;
 		}
 	} else {

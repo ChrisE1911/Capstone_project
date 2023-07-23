@@ -15,7 +15,7 @@ function Notes({ noteId }) {
     const sessionUser = useSelector((state) => state.session.user)
     const all_notes_arr = Object.values(all_notes)
 
-    console.log(all_notes_arr)
+    
 
     useEffect(() => {
         dispatch(thunkGetAllNotes())

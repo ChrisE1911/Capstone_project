@@ -42,13 +42,13 @@ export const thunkCreateNotebook = (notebook) => async (dispatch) => {
 
     if (response.ok) {
         const data = await response.json()
-        console.log('NOTEBOOK', data)
+
         dispatch(createNotebookAction(data))
         return data
     } else if (response.status < 500) {
 		const data = await response.json();
         if (data.errors) {
-            console.log('DATA ERRORS', data.errors)
+
 			return data.errors;
 		}
 	} else {
@@ -94,7 +94,7 @@ export const thunkEditNotebook = (notebookId, notebook) => async (dispatch) => {
     } else if (response.status < 500) {
 		const data = await response.json();
         if (data.errors) {
-            console.log('DATA ERRORS', data.errors)
+
 			return data.errors;
 		}
 	} else {
@@ -103,7 +103,7 @@ export const thunkEditNotebook = (notebookId, notebook) => async (dispatch) => {
 }
 
 export const thunkDeleteNotebook = (notebookId) => async (dispatch) => {
-    console.log('NOTE ID', notebookId)
+    
     const response = await fetch(`/api/notebooks/delete/${notebookId}`, {
         method: "DELETE"
     })

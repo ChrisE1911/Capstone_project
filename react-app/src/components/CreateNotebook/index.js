@@ -23,7 +23,7 @@ function CreateNotebook() {
 
     const createdNotebook = await dispatch(thunkCreateNotebook(newNotebook))
 
-    console.log(createdNotebook)
+    
 
     if (createdNotebook.length) {
       setErrors(createdNotebook)
