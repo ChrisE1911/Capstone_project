@@ -53,7 +53,7 @@ function SplashPage({ isLoaded }) {
                     </div>
                     <div id='splash-about-me-links'>
                         <Link
-                        to={{ pathname: "https://chrise1911.github.io./" }}
+                        to={{ pathname: "https://c-eatmon-port.onrender.com/" }}
                         target='_blank'
                         className='about-me-button-github'>Portfolio Site</Link>
                         <Link
