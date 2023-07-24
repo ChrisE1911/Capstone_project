@@ -116,7 +116,7 @@ Here are some instructions on how to set up locally.
 <!-- USAGE EXAMPLES -->
 ## Usage
 
-Here is some examples of the functionality within the site:
+Here are some examples of the functionality within the site:
 
 ### Logging in
 Users will be able to log in with a previous account (if signed up in the past) or sign up and create a brand new account
@@ -208,7 +208,7 @@ Project Link: [https://github.com/ChrisE1911/Capstone_project](https://github.co
 [JQuery.com]: https://img.shields.io/badge/jQuery-0769AD?style=for-the-badge&logo=jquery&logoColor=white
 [JQuery-url]: https://jquery.com
 [splash-page]: ./splash-page.png
-[home]: ./home.png
-[notebooks-page]: ./notebooks.png
-[notes-page]: ./notes.png
-[log-in]: ./log-in.png
+[home]: ./Home_page.png
+[notebooks-page]: ./Notebooks_page.png
+[notes-page]: ./Notes_page.png
+[log-in]: ./Splash_Page.png
