@@ -39,10 +39,8 @@ def update_task(id):
 @login_required
 def create_task():
     """Creates task"""
-    print("IM IN THE POST ROUTE")
     form = TaskForm()
     form['csrf_token'].data = request.cookies['csrf_token']
-    # print('FORMMMMMMMMMMMM', form.data)
     if form.validate_on_submit():
         task = Task(
             user_id=current_user.id,
