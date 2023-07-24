@@ -155,7 +155,7 @@ Here are a few features that I look forward to implementing in the near future.
 
 -  Color Theme - Users will be able to switch between a light theme and a dark theme.
 
-- AWS? - Still deciding between this feature and another potential feature that will be more intuitive for this application
+- Tasks: Still under construction...
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
